@@ -10,13 +10,18 @@
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
     "gatsby-plugin-react-helmet": "^3.2.2",
+    "gatsby-plugin-react-redux": "^1.1.0-0",
     "gatsby-plugin-sharp": "^2.5.3",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",
+    "materialize-css": "^1.0.0-rc.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-materialize": "^3.8.5",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -30,6 +35,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "gatsby-plugin-postcss": "^2.2.3",
+    "gatsby-plugin-root-import": "^2.0.5",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.4"
   },
