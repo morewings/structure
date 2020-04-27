@@ -1,6 +1,0 @@
-.wrapper {
-    color: red;
-    & .sub {
-        color: green;
-    }
-}

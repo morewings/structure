@@ -1,15 +1,17 @@
 /*eslint-disable*/
 import React from 'react';
 import {Navbar, Icon, NavItem} from 'react-materialize';
+import {Link} from 'gatsby';
 
 const Header = ({siteTitle}) => (
   <div>
     <Navbar
-      alignLinks="right"
+      alignLinks="left"
+      centerLogo
       brand={
-        <a className="brand-logo" href="#">
+        <Link to="/" className="brand-logo">
           {siteTitle}
-        </a>
+        </Link>
       }
       id="mobile-nav"
       menuIcon={<Icon>menu</Icon>}
