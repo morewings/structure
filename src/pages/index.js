@@ -13,6 +13,12 @@ const IndexPage = () => (
       <Col s={4}>
         <Column />
       </Col>
+      <Col s={4}>
+        <Column />
+      </Col>
+      <Col s={4}>
+        <Column />
+      </Col>
     </Row>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
