@@ -1,6 +1,8 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {useSelector} from 'react-redux';
 import {useStaticQuery, graphql} from 'gatsby';
+import getUniqueId from '../../utils/getUniqueId';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import classes from './Layout.module.css';
@@ -18,7 +20,6 @@ const Layout = ({children}) => {
       }
     }
   `);
-
   return (
     <Fragment>
       <Header siteTitle={data.site.siteMetadata.title} />

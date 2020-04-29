@@ -1,71 +1,38 @@
-/*eslint-disable*/
 import React from 'react';
-import {Collection, Icon, CollectionItem} from 'react-materialize';
+import PropTypes from 'prop-types';
+import {useSelector} from 'react-redux';
+import {Button} from 'react-materialize';
+import useActions from 'src/features/structure/actionCreators';
 import Node from 'src/components/Node/Node';
 import classes from './Column.module.css';
 
-const Column = () => {
+const Column = ({id}) => {
+  const columnData = useSelector(state => state.structure.nodes[id]);
+  const {addNode} = useActions();
+  const handleClick = () => {
+    addNode(id);
+  };
   return (
     <div className={classes.column}>
-      <header>
-        Name
-      </header>
+      <header>{columnData.title}</header>
       <Node />
       <Node />
       <Node />
       <Node />
       <Node />
-      {/*<Collection>*/}
-      {/*  <header>Name</header>*/}
-      {/*  <CollectionItem className="avatar">*/}
-      {/*    <img*/}
-      {/*      alt=""*/}
-      {/*      className="circle"*/}
-      {/*      src="https://materializecss.com/images/yuna.jpg"*/}
-      {/*    />*/}
-      {/*    <span className="title">*/}
-      {/*    Title*/}
-      {/*  </span>*/}
-      {/*    <p>*/}
-      {/*      First Line*/}
-      {/*      <br />*/}
-      {/*      Second Line*/}
-      {/*    </p>*/}
-      {/*    <a*/}
-      {/*      className="secondary-content"*/}
-      {/*      href="javascript:void(0)"*/}
-      {/*    >*/}
-      {/*      <Icon>*/}
-      {/*        grade*/}
-      {/*      </Icon>*/}
-      {/*    </a>*/}
-      {/*  </CollectionItem>*/}
-      {/*  <CollectionItem className="avatar">*/}
-      {/*    <img*/}
-      {/*      alt=""*/}
-      {/*      className="circle"*/}
-      {/*      src="https://materializecss.com/images/yuna.jpg"*/}
-      {/*    />*/}
-      {/*    <span className="title">*/}
-      {/*    Title*/}
-      {/*  </span>*/}
-      {/*    <p>*/}
-      {/*      First Line*/}
-      {/*      <br />*/}
-      {/*      Second Line*/}
-      {/*    </p>*/}
-      {/*    <a*/}
-      {/*      className="secondary-content"*/}
-      {/*      href="javascript:void(0)"*/}
-      {/*    >*/}
-      {/*      <Icon>*/}
-      {/*        grade*/}
-      {/*      </Icon>*/}
-      {/*    </a>*/}
-      {/*  </CollectionItem>*/}
-      {/*</Collection>*/}
+      <div className={classes.add}>
+        <Button onClick={handleClick}>Add node</Button>
+      </div>
     </div>
-  )
+  );
+};
+
+Column.propTypes = {
+  id: PropTypes.string,
+};
+
+Column.defaultProps = {
+  id: 'initial',
 };
 
 export default Column;
