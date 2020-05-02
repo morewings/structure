@@ -3,6 +3,8 @@
     border-radius: 6px;
     background-clip: border-box;
     border: 2px solid black;
+    height: 300px;
+    overflow: auto;
     & header {
         font-size: 24px;
         text-align: center;
