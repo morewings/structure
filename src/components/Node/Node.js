@@ -15,7 +15,7 @@ const Node = ({id, title, done, childNodes}) => {
   return (
     <CollapsibleItem
       className={classes.node}
-      expanded={true}
+      expanded={false}
       header={
         <label htmlFor={id}>
           <input id={id} type="checkbox" checked={done} />

@@ -40,7 +40,8 @@ const Column = ({nodeId}) => {
       ))}
       </Collapsible>
       <div className={classes.add}>
-        <Button onClick={handleClick}>Add node</Button>
+        <Button className="modal-trigger"
+                href="#modal1" onClick={handleClick}>Add node</Button>
       </div>
     </div>
   );
