@@ -16,7 +16,7 @@ const initialState = {
   nodes: {
     [initial]: {
       title: 'Initial Node',
-      done: false,
+      isDone: false,
       children: [],
       parentId: initial,
     },
@@ -24,11 +24,19 @@ const initialState = {
   focused: initial,
 };
 
-const createNode = ({id, parentId}) => ({
+const createNode = ({
+  id,
+  parentId,
+  description = '',
+  title = '',
+  isDone = false,
+}) => ({
   id,
   parentId,
   children: [],
-  done: false,
+  isDone,
+  description,
+  title,
 });
 
 const nodesListLens = () => lensProp(['nodes']);
@@ -39,18 +47,11 @@ export default (state = initialState, action) => {
     case ADD_NODE: {
       const {id, parentId} = action.payload;
       return compose(
-        over(
-          nodesListLens(),
-          assoc(id, createNode({id, parentId}))
-        ),
-        over(
-          nodeChildrenLens(parentId),
-          append(id)
-        )
+        over(nodesListLens(), assoc(id, createNode({id, parentId}))),
+        over(nodeChildrenLens(parentId), append(id))
       )(state);
     }
     case FOCUS_NODE: {
-      console.log('reducer');
       return {
         ...state,
         focused: action.payload,
