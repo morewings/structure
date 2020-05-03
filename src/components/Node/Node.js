@@ -4,7 +4,7 @@ import {Card, Accordion, Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import classes from './Node.module.css';
 
-const Node = ({id, title, done, childNodes}) => {
+const Node = ({id, title, isDone, childNodes}) => {
   const {addNode, focusNode} = useActions();
   const handleClick = () => {
     addNode(id);
@@ -15,13 +15,13 @@ const Node = ({id, title, done, childNodes}) => {
   return (
     <Card>
       <Card.Header>
-        <input id={id} type="checkbox" checked={done} />
+        <input id={id} type="checkbox" checked={isDone} />
         <h5>{title || id}</h5>
-        <Accordion.Toggle as={Button} variant="link" eventKey="0">
+        <Accordion.Toggle as={Button} variant="link" eventKey={id}>
           Expand
         </Accordion.Toggle>
       </Card.Header>
-      <Accordion.Collapse eventKey="0">
+      <Accordion.Collapse eventKey={id}>
         <Card.Body>
           <Button onClick={handleClick}>Add child</Button>
           <Button onClick={handleSelect}>Show children</Button>
@@ -34,7 +34,7 @@ const Node = ({id, title, done, childNodes}) => {
 Node.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
-  done: PropTypes.bool.isRequired,
+  isDone: PropTypes.bool.isRequired,
   childNodes: PropTypes.oneOf([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.array,

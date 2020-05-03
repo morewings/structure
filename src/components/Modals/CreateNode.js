@@ -15,9 +15,6 @@ const CreateNodeModal = ({isVisible, onClose, onSubmit}) => {
         <Form
           onSubmit={e => {
             e.preventDefault();
-            console.log(description,
-              title,
-              isDone,)
             onSubmit({
               description,
               title,

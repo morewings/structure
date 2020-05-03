@@ -23,6 +23,7 @@ const Column = ({nodeId}) => {
     handleShow();
   };
   const handleNodeSubmit = ({description, title, isDone}) => {
+    console.log('column', description, title, isDone)
     addNode({parentId: nodeId, description, title, isDone});
     handleClose();
   };
@@ -31,11 +32,11 @@ const Column = ({nodeId}) => {
       <div className={classes.column}>
         <header>{columnData.title || columnData.id}</header>
         <Accordion>
-          {nodes.map(({id, title, done, children}) => (
+          {nodes.map(({id, title, isDone, children}) => (
             <Node
               id={id}
               title={title}
-              done={done}
+              isDone={isDone}
               key={id}
               childNodes={children}
             />
