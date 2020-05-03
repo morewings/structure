@@ -1,35 +1,19 @@
 /*eslint-disable*/
 import React from 'react';
-import {Navbar, Icon, NavItem} from 'react-materialize';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {Link} from 'gatsby';
 
 const Header = ({siteTitle}) => (
-  <div>
-    <Navbar
-      alignLinks="left"
-      centerLogo
-      brand={
-        <Link to="/" className="brand-logo">
-          {siteTitle}
-        </Link>
-      }
-      id="mobile-nav"
-      menuIcon={<Icon>menu</Icon>}
-      options={{
-        draggable: true,
-        edge: 'left',
-        inDuration: 250,
-        onCloseEnd: null,
-        onCloseStart: null,
-        onOpenEnd: null,
-        onOpenStart: null,
-        outDuration: 200,
-        preventScrolling: true,
-      }}>
-      <NavItem href="">Getting started</NavItem>
-      <NavItem href="components.html">Components</NavItem>
-    </Navbar>
-  </div>
+  <Navbar bg="light" expand="lg">
+    <Navbar.Brand as={Link} to="/">{siteTitle}</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 );
 
 export default Header;

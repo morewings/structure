@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {CollapsibleItem, Button} from 'react-materialize';
+import {Card, Accordion, Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import classes from './Node.module.css';
 
@@ -13,25 +13,21 @@ const Node = ({id, title, done, childNodes}) => {
     focusNode(id);
   };
   return (
-    <CollapsibleItem
-      className={classes.node}
-      expanded={false}
-      header={
-        <label htmlFor={id}>
-          <input id={id} type="checkbox" checked={done} />
-          <span
-            onClick={e => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}>
-            {title || id}
-          </span>
-        </label>
-      }
-      node="div">
-      <Button onClick={handleClick}>Add child</Button>
-      <Button onClick={handleSelect}>Show children</Button>
-    </CollapsibleItem>
+    <Card>
+      <Card.Header>
+        <input id={id} type="checkbox" checked={done} />
+        <h5>{title || id}</h5>
+        <Accordion.Toggle as={Button} variant="link" eventKey="0">
+          Expand
+        </Accordion.Toggle>
+      </Card.Header>
+      <Accordion.Collapse eventKey="0">
+        <Card.Body>
+          <Button onClick={handleClick}>Add child</Button>
+          <Button onClick={handleSelect}>Show children</Button>
+        </Card.Body>
+      </Accordion.Collapse>
+    </Card>
   );
 };
 

@@ -1,11 +1,9 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {useSelector} from 'react-redux';
 import {useStaticQuery, graphql} from 'gatsby';
-import getUniqueId from '../../utils/getUniqueId';
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
+import {Container} from 'react-bootstrap';
 import classes from './Layout.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -23,7 +21,9 @@ const Layout = ({children}) => {
   return (
     <Fragment>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main className={classes.main}>{children}</main>
+      <Container as="main" className={classes.main}>
+        {children}
+      </Container>
       <Footer />
     </Fragment>
   );

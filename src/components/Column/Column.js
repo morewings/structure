@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
-import {Button, Collapsible, CollapsibleItem, Icon} from 'react-materialize';
+import {Accordion, Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import Node from 'src/components/Node/Node';
 import classes from './Column.module.css';
@@ -22,13 +22,7 @@ const Column = ({nodeId}) => {
   return (
     <div className={classes.column}>
       <header>{columnData.title || columnData.id}</header>
-      <Collapsible
-        onSelect={() => {
-          console.log('column select')
-        }}
-        accordion
-        // popout
-      >
+      <Accordion>
         {nodes.map(({id, title, done, children}) => (
         <Node
           id={id}
@@ -38,10 +32,9 @@ const Column = ({nodeId}) => {
           childNodes={children}
         />
       ))}
-      </Collapsible>
+      </Accordion>
       <div className={classes.add}>
-        <Button className="modal-trigger"
-                href="#modal1" onClick={handleClick}>Add node</Button>
+        <Button onClick={handleClick}>Add node</Button>
       </div>
     </div>
   );
