@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import getUniqueId from 'src/utils/getUniqueId';
-import {ADD_NODE, FOCUS_NODE} from './actionTypes';
+import {ADD_NODE, EDIT_NODE, FOCUS_NODE} from './actionTypes';
 
 const useActions = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,20 @@ const useActions = () => {
     },
     [dispatch]
   );
+  const editNode = useCallback(
+    ({id, description, title, isDone}) => {
+      dispatch({
+        type: EDIT_NODE,
+        payload: {
+          id,
+          description,
+          title,
+          isDone,
+        },
+      });
+    },
+    [dispatch]
+  );
   const focusNode = useCallback(
     id => {
       dispatch({
@@ -30,7 +44,7 @@ const useActions = () => {
     },
     [dispatch]
   );
-  return {addNode, focusNode};
+  return {addNode, focusNode, editNode};
 };
 
 export default useActions;

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
-import useActions from 'src/features/structure/actionCreators';
 import NodeForm, {useNodeFormLogic} from './NodeForm';
+import useActions from '../../features/structure/actionCreators';
 
-const CreateNodeModal = ({isVisible, onClose, parentId}) => {
-  const {addNode} = useActions();
-  const onSubmit = ({description, title, isDone}) => {
-    addNode({parentId, description, title, isDone});
+const EditNodeModal = ({isVisible, onClose, node: {id, ...initial}}) => {
+  const {editNode} = useActions();
+  const onSubmit = formValues => {
+    editNode({id, ...formValues});
     onClose();
   };
   const {
@@ -18,11 +18,11 @@ const CreateNodeModal = ({isVisible, onClose, parentId}) => {
     isDone,
     description,
     handleSubmit,
-  } = useNodeFormLogic({onSubmit});
+  } = useNodeFormLogic({onSubmit, initial});
   return (
     <Modal show={isVisible} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Create node</Modal.Title>
+        <Modal.Title>Edit node</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <NodeForm
@@ -36,7 +36,7 @@ const CreateNodeModal = ({isVisible, onClose, parentId}) => {
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
-          Dismiss
+          Close
         </Button>
         <Button variant="primary" onClick={handleSubmit}>
           Save Node
@@ -46,10 +46,14 @@ const CreateNodeModal = ({isVisible, onClose, parentId}) => {
   );
 };
 
-CreateNodeModal.propTypes = {
+EditNodeModal.propTypes = {
   isVisible: PropTypes.bool.isRequired,
-  parentId: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  node: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    isDone: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
-export default CreateNodeModal;
+export default EditNodeModal;

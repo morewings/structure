@@ -7,8 +7,10 @@ import {
   assoc,
   compose,
   append,
+  merge,
+  __,
 } from 'ramda';
-import {ADD_NODE, FOCUS_NODE} from './actionTypes';
+import {ADD_NODE, FOCUS_NODE, EDIT_NODE} from './actionTypes';
 
 const initial = 'node_initial';
 
@@ -40,6 +42,7 @@ const createNode = ({
 });
 
 const nodesListLens = () => lensProp(['nodes']);
+const nodeSingleLens = id => lensPath(['nodes', id]);
 const nodeChildrenLens = id => lensPath(['nodes', id, 'children']);
 
 export default (state = initialState, action) => {
@@ -59,6 +62,10 @@ export default (state = initialState, action) => {
         ...state,
         focused: action.payload,
       };
+    }
+    case EDIT_NODE: {
+      const {id, ...node} = action.payload;
+      return over(nodeSingleLens(id), merge(__, node), state);
     }
     default:
       return state;

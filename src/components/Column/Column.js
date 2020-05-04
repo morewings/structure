@@ -1,10 +1,10 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Accordion, Button} from 'react-bootstrap';
-import useActions from 'src/features/structure/actionCreators';
 import Node from 'src/components/Node/Node';
-import Modal from 'src/components/Modals/CreateNode';
+import useModalLogic from 'src/components/Modals/useModalLogic';
+import CreateNodeModal from 'src/components/Modals/CreateNode';
 import classes from './Column.module.css';
 
 const getChildren = (id, state) =>
@@ -13,29 +13,22 @@ const getChildren = (id, state) =>
   );
 
 const Column = ({nodeId}) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const handleClose = () => setIsVisible(false);
-  const handleShow = () => setIsVisible(true);
+  const {handleShow, handleClose, isVisible} = useModalLogic();
   const columnData = useSelector(state => state.structure.nodes[nodeId]);
   const nodes = useSelector(state => getChildren(nodeId, state));
-  const {addNode} = useActions();
   const handleClick = () => {
     handleShow();
-  };
-  const handleNodeSubmit = ({description, title, isDone}) => {
-    console.log('column', description, title, isDone)
-    addNode({parentId: nodeId, description, title, isDone});
-    handleClose();
   };
   return (
     <Fragment>
       <div className={classes.column}>
         <header>{columnData.title || columnData.id}</header>
         <Accordion>
-          {nodes.map(({id, title, isDone, children}) => (
+          {nodes.map(({id, title, isDone, children, description}) => (
             <Node
               id={id}
               title={title}
+              description={description}
               isDone={isDone}
               key={id}
               childNodes={children}
@@ -46,8 +39,8 @@ const Column = ({nodeId}) => {
           <Button onClick={handleClick}>Add node</Button>
         </div>
       </div>
-      <Modal
-        onSubmit={handleNodeSubmit}
+      <CreateNodeModal
+        parentId={nodeId}
         isVisible={isVisible}
         onClose={handleClose}
       />
