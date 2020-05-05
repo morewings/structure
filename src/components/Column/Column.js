@@ -6,6 +6,7 @@ import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import CreateNodeModal from 'src/components/Modals/CreateNode';
 import classes from './Column.module.css';
+import useActions from '../../features/structure/actionCreators';
 
 const getChildren = (id, state) =>
   state.structure.nodes[id].children.map(
@@ -14,10 +15,14 @@ const getChildren = (id, state) =>
 
 const Column = ({nodeId}) => {
   const {handleShow, handleClose, isVisible} = useModalLogic();
+  const {addNode} = useActions();
   const columnData = useSelector(state => state.structure.nodes[nodeId]);
   const nodes = useSelector(state => getChildren(nodeId, state));
   const handleClick = () => {
     handleShow();
+  };
+  const handleCreateNode = nodeFields => {
+    addNode({parentId: nodeId, ...nodeFields});
   };
   return (
     <Fragment>
@@ -40,6 +45,7 @@ const Column = ({nodeId}) => {
         </div>
       </div>
       <CreateNodeModal
+        onSave={handleCreateNode}
         parentId={nodeId}
         isVisible={isVisible}
         onClose={handleClose}

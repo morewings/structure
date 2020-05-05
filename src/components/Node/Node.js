@@ -34,11 +34,11 @@ const Node = ({id, title, isDone, childNodes, description}) => {
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      <EditNodeModal
-        node={{id, title, isDone, description}}
-        isVisible={isVisible}
-        onClose={handleClose}
-      />
+      {/*<EditNodeModal*/}
+      {/*  node={{id, title, isDone, description}}*/}
+      {/*  isVisible={isVisible}*/}
+      {/*  onClose={handleClose}*/}
+      {/*/>*/}
     </Fragment>
   );
 };

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
-import NodeForm, {useNodeFormLogic} from './NodeForm';
+import NodeForm, {useNodeFormLogic} from '../NodeForm/NodeForm';
 import useActions from '../../features/structure/actionCreators';
 
 const EditNodeModal = ({isVisible, onClose, node: {id, ...initial}}) => {
