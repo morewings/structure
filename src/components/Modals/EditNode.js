@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
-import NodeForm, {useNodeFormLogic} from '../NodeForm/NodeForm';
+import {NodeForm, useNodeFormLogic} from '../NodeForm';
 import useActions from '../../features/structure/actionCreators';
 
-const EditNodeModal = ({isVisible, onClose, node: {id, ...initial}}) => {
-  const {editNode} = useActions();
-  const onSubmit = formValues => {
-    editNode({id, ...formValues});
-    onClose();
-  };
+const EditNodeModal = ({
+  isVisible,
+  onClose,
+  onSave,
+  node: {id, ...initial},
+}) => {
   const {
     setDescription,
     setDone,
@@ -18,7 +18,7 @@ const EditNodeModal = ({isVisible, onClose, node: {id, ...initial}}) => {
     isDone,
     description,
     handleSubmit,
-  } = useNodeFormLogic({onSubmit, initial});
+  } = useNodeFormLogic({onSubmit: onSave, initial});
   return (
     <Modal show={isVisible} onHide={onClose}>
       <Modal.Header closeButton>
@@ -49,6 +49,7 @@ const EditNodeModal = ({isVisible, onClose, node: {id, ...initial}}) => {
 EditNodeModal.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
   node: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

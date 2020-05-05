@@ -23,6 +23,7 @@ const Column = ({nodeId}) => {
   };
   const handleCreateNode = nodeFields => {
     addNode({parentId: nodeId, ...nodeFields});
+    handleClose();
   };
   return (
     <Fragment>
@@ -44,12 +45,14 @@ const Column = ({nodeId}) => {
           <Button onClick={handleClick}>Add node</Button>
         </div>
       </div>
-      <CreateNodeModal
-        onSave={handleCreateNode}
-        parentId={nodeId}
-        isVisible={isVisible}
-        onClose={handleClose}
-      />
+      {isVisible && (
+        <CreateNodeModal
+          onSave={handleCreateNode}
+          parentId={nodeId}
+          isVisible={isVisible}
+          onClose={handleClose}
+        />
+      )}
     </Fragment>
   );
 };

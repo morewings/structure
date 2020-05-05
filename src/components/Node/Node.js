@@ -5,10 +5,9 @@ import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import classes from './Node.module.css';
-import CreateNodeModal from '../Modals/CreateNode';
 
 const Node = ({id, title, isDone, childNodes, description}) => {
-  const {addNode, focusNode} = useActions();
+  const {addNode, focusNode, editNode} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
   const handleClick = () => {
     addNode(id);
@@ -16,11 +15,15 @@ const Node = ({id, title, isDone, childNodes, description}) => {
   const handleSelect = () => {
     focusNode(id);
   };
+  const handleEditNode = nodeFields => {
+    editNode({id, ...nodeFields});
+    handleClose();
+  };
   return (
     <Fragment>
       <Card>
         <Card.Header>
-          <input id={id} type="checkbox" checked={isDone} />
+          <input id={id} type="checkbox" onChange={() => {}} checked={isDone} />
           <h5>{title || id}</h5>
           <Accordion.Toggle as={Button} variant="link" eventKey={id}>
             Expand
@@ -34,11 +37,15 @@ const Node = ({id, title, isDone, childNodes, description}) => {
           </Card.Body>
         </Accordion.Collapse>
       </Card>
-      {/*<EditNodeModal*/}
-      {/*  node={{id, title, isDone, description}}*/}
-      {/*  isVisible={isVisible}*/}
-      {/*  onClose={handleClose}*/}
-      {/*/>*/}
+      {isVisible && (
+        <EditNodeModal
+          onSave={handleEditNode}
+          node={{id, title, isDone, description}}
+          id={id}
+          isVisible={isVisible}
+          onClose={handleClose}
+        />
+      )}
     </Fragment>
   );
 };
@@ -48,7 +55,7 @@ Node.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string,
   isDone: PropTypes.bool.isRequired,
-  childNodes: PropTypes.oneOf([
+  childNodes: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.array,
   ]).isRequired,
