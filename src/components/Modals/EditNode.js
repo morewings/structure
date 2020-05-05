@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
 import {NodeForm, useNodeFormLogic} from '../NodeForm';
-import useActions from '../../features/structure/actionCreators';
 
 const EditNodeModal = ({
   isVisible,
   onClose,
   onSave,
-  node: {id, ...initial},
+  node: {id, ...nodeDescriptionFields},
 }) => {
   const {
     setDescription,
@@ -18,7 +17,7 @@ const EditNodeModal = ({
     isDone,
     description,
     handleSubmit,
-  } = useNodeFormLogic({onSubmit: onSave, initial});
+  } = useNodeFormLogic({onSubmit: onSave, node: nodeDescriptionFields});
   return (
     <Modal show={isVisible} onHide={onClose}>
       <Modal.Header closeButton>

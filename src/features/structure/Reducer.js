@@ -26,19 +26,9 @@ const initialState = {
   focused: initial,
 };
 
-const createNode = ({
-  id,
-  parentId,
-  description = '',
-  title = '',
-  isDone = false,
-}) => ({
-  id,
-  parentId,
+const createNode = description => ({
+  ...description,
   children: [],
-  isDone,
-  description,
-  title,
 });
 
 const nodesListLens = () => lensProp(['nodes']);
