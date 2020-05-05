@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Form, InputGroup} from 'react-bootstrap';
@@ -10,49 +9,47 @@ const NodeForm = ({
   setDone,
   setTitle,
   setDescription,
-}) => {
-  return (
-    <Form
-      autoComplete="off"
-      onSubmit={e => {
-        e.preventDefault();
-      }}>
-      <Form.Group controlId="creatNodeTitle">
-        <Form.Label>Enter title for this Node:</Form.Label>
-        <InputGroup>
-          <InputGroup.Prepend>
-            <InputGroup.Checkbox
-              onChange={e => {
-                setDone(e.target.value);
-              }}
-              value={isDone}
-            />
-          </InputGroup.Prepend>
-          <Form.Control
-            value={title}
+}) => (
+  <Form
+    autoComplete="off"
+    onSubmit={e => {
+      e.preventDefault();
+    }}>
+    <Form.Group controlId="creatNodeTitle">
+      <Form.Label>Enter title for this Node:</Form.Label>
+      <InputGroup>
+        <InputGroup.Prepend>
+          <InputGroup.Checkbox
             onChange={e => {
-              setTitle(e.target.value);
+              setDone(e.target.checked);
             }}
-            type="text"
-            placeholder="Enter title for this Node..."
+            checked={isDone}
           />
-        </InputGroup>
-      </Form.Group>
-      <Form.Group controlId="creatNodeDescription">
-        <Form.Label>Enter description for this Node:</Form.Label>
+        </InputGroup.Prepend>
         <Form.Control
-          as="textarea"
-          rows="3"
-          value={description}
+          value={title}
           onChange={e => {
-            setDescription(e.target.value);
+            setTitle(e.target.value);
           }}
-          placeholder="Enter description for this Node..."
+          type="text"
+          placeholder="Enter title for this Node..."
         />
-      </Form.Group>
-    </Form>
-  )
-};
+      </InputGroup>
+    </Form.Group>
+    <Form.Group controlId="creatNodeDescription">
+      <Form.Label>Enter description for this Node:</Form.Label>
+      <Form.Control
+        as="textarea"
+        rows="3"
+        value={description}
+        onChange={e => {
+          setDescription(e.target.value);
+        }}
+        placeholder="Enter description for this Node..."
+      />
+    </Form.Group>
+  </Form>
+);
 
 NodeForm.propTypes = {
   description: PropTypes.string.isRequired,
