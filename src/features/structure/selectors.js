@@ -2,7 +2,7 @@ import {useSelector} from 'react-redux';
 
 const getParent = (structure, id) => structure.nodes[id].parentId;
 
-const useBoardContent = () => {
+export const useBoardContent = () => {
   const structure = useSelector(state => state.structure);
   const childrenId = structure.focused;
   const siblingsId = getParent(structure, childrenId);
@@ -15,4 +15,6 @@ const useBoardContent = () => {
   };
 };
 
-export default useBoardContent;
+export const useDescendants = (id) => {
+
+};

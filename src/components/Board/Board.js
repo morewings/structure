@@ -1,5 +1,5 @@
 import React from 'react';
-import useBoardContent from 'src/features/structure/selectors';
+import {useBoardContent} from 'src/features/structure/selectors';
 import {Row, Col} from 'react-bootstrap';
 import Column from '../Column/Column';
 

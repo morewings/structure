@@ -35,6 +35,18 @@ const useActions = () => {
     },
     [dispatch]
   );
+  const toggleNodeStatus = useCallback(
+    ({id, isDone}) => {
+      dispatch({
+        type: EDIT_NODE,
+        payload: {
+          id,
+          isDone,
+        },
+      });
+    },
+    [dispatch]
+  );
   const focusNode = useCallback(
     id => {
       dispatch({
@@ -44,7 +56,7 @@ const useActions = () => {
     },
     [dispatch]
   );
-  return {addNode, focusNode, editNode};
+  return {addNode, focusNode, editNode, toggleNodeStatus};
 };
 
 export default useActions;

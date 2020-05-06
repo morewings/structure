@@ -7,7 +7,7 @@ import EditNodeModal from 'src/components/Modals/EditNode';
 import classes from './Node.module.css';
 
 const Node = ({id, title, isDone, childNodes, description}) => {
-  const {addNode, focusNode, editNode} = useActions();
+  const {addNode, focusNode, editNode, toggleNodeStatus} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
   const handleClick = () => {
     addNode(id);
@@ -19,11 +19,17 @@ const Node = ({id, title, isDone, childNodes, description}) => {
     editNode({id, ...nodeFields});
     handleClose();
   };
+  const handleCheckboxChange = () => {
+    toggleNodeStatus({
+      id,
+      isDone: !isDone,
+    });
+  };
   return (
     <Fragment>
       <Card>
         <Card.Header>
-          <input id={id} type="checkbox" onChange={() => {}} checked={isDone} />
+          <input id={id} type="checkbox" onChange={handleCheckboxChange} checked={isDone} />
           <h5>{title || id}</h5>
           <Accordion.Toggle as={Button} variant="link" eventKey={id}>
             Expand
