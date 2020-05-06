@@ -1,3 +1,6 @@
+.layout{
+    background-color: var(--bgColor);
+}
 .main{
-    min-height: calc(100vh - 64px - 186px);
+    min-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
 }

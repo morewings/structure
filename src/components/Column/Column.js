@@ -13,7 +13,7 @@ const getChildren = (id, state) =>
     childId => state.structure.nodes[childId]
   );
 
-const Column = ({nodeId}) => {
+const Column = ({nodeId, role}) => {
   const {handleShow, handleClose, isVisible} = useModalLogic();
   const {addNode} = useActions();
   const columnData = useSelector(state => state.structure.nodes[nodeId]);
@@ -28,22 +28,29 @@ const Column = ({nodeId}) => {
   return (
     <Fragment>
       <div className={classes.column}>
-        <header>{columnData.title || columnData.id}</header>
-        <Accordion>
-          {nodes.map(({id, title, isDone, children, description}) => (
-            <Node
-              id={id}
-              title={title}
-              description={description}
-              isDone={isDone}
-              key={id}
-              childNodes={children}
-            />
-          ))}
-        </Accordion>
-        <div className={classes.add}>
-          <Button onClick={handleClick}>Add node</Button>
+        <header>
+          <div>{role}</div>
+          <div>{columnData.title || columnData.id}</div>
+        </header>
+        <div className={classes.nodes}>
+          <Accordion>
+            {nodes.map(({id, title, isDone, children, description}) => (
+              <Node
+                id={id}
+                title={title}
+                description={description}
+                isDone={isDone}
+                key={id}
+                childNodes={children}
+              />
+            ))}
+          </Accordion>
         </div>
+        <footer>
+          <div className={classes.add}>
+            <Button onClick={handleClick}>Add node</Button>
+          </div>
+        </footer>
       </div>
       {isVisible && (
         <CreateNodeModal
@@ -59,6 +66,7 @@ const Column = ({nodeId}) => {
 
 Column.propTypes = {
   nodeId: PropTypes.string,
+  role: PropTypes.string.isRequired,
 };
 
 Column.defaultProps = {

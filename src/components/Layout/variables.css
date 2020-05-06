@@ -1,0 +1,7 @@
+:root{
+  --bgColor: lightskyblue;
+  --headerHeight: 56px;
+  --footerHeight: 64px;
+  --columnHeight: 756px;
+  --baseMargin: 12px;
+}

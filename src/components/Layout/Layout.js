@@ -1,9 +1,10 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {useStaticQuery, graphql} from 'gatsby';
 import {Container} from 'react-bootstrap';
-import classes from './Layout.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './variables.css';
+import classes from './Layout.module.css';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -19,13 +20,13 @@ const Layout = ({children}) => {
     }
   `);
   return (
-    <Fragment>
+    <div className={classes.layout}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Container as="main" className={classes.main}>
         {children}
       </Container>
       <Footer />
-    </Fragment>
+    </div>
   );
 };
 
