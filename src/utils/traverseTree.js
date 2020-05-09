@@ -5,10 +5,7 @@ import {curry} from 'ramda';
  * @see https://jrsinclair.com/articles/2019/functional-js-traversing-trees-with-recursive-reduce/
  */
 
-const hasChildren = node =>
-  typeof node === 'object' &&
-  typeof node.children !== 'undefined' &&
-  node.children.length > 0;
+const hasChildren = node => node.children.length > 0;
 
 const getChildren = (structure, node) =>
   node.children.map(childNodeId => structure.nodes[childNodeId]);
@@ -19,7 +16,10 @@ const Tree = {
     if (!hasChildren(node)) {
       return acc;
     }
-    return getChildren(structure, node).reduce(Tree.reduce(reducerFn), acc);
+    return getChildren(structure, node).reduce(
+      Tree.reduce(reducerFn, structure),
+      acc
+    );
   }),
 };
 
