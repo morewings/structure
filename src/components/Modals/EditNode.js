@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
 import {NodeForm, useNodeFormLogic} from '../NodeForm';
 
-const EditNodeModal = ({
-  isVisible,
-  onClose,
-  onSave,
-  node: {id, ...nodeDescriptionFields},
-}) => {
+const EditNodeModal = ({isVisible, onClose, onSave, node}) => {
   const {
     setDescription,
     setDone,
@@ -17,7 +12,7 @@ const EditNodeModal = ({
     isDone,
     description,
     handleSubmit,
-  } = useNodeFormLogic({onSubmit: onSave, node: nodeDescriptionFields});
+  } = useNodeFormLogic({onSubmit: onSave, node});
   return (
     <Modal show={isVisible} onHide={onClose}>
       <Modal.Header closeButton>
@@ -50,9 +45,9 @@ EditNodeModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
   node: PropTypes.shape({
-    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     isDone: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 

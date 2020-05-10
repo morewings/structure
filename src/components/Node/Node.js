@@ -43,7 +43,9 @@ const Node = ({id, title, isDone, childNodes, description}) => {
           </Card.Header>
           <Accordion.Collapse eventKey={id}>
             <Card.Body>
-              {description && <div className={classes.description}>{description}</div>}
+              {description && (
+                <div className={classes.description}>{description}</div>
+              )}
               <Button onClick={handleSelect}>Show children</Button>
               <Button onClick={handleShow}>Edit node</Button>
             </Card.Body>
@@ -53,7 +55,7 @@ const Node = ({id, title, isDone, childNodes, description}) => {
       {isVisible && (
         <EditNodeModal
           onSave={handleEditNode}
-          node={{id, title, isDone, description}}
+          node={{title, isDone, description}}
           id={id}
           isVisible={isVisible}
           onClose={handleClose}
