@@ -10,17 +10,34 @@ const hasChildren = node => node.children.length > 0;
 const getChildren = (structure, node) =>
   node.children.map(childNodeId => structure.nodes[childNodeId]);
 
-const Tree = {
-  reduce: curry(function reduce(reducerFn, structure, initial, node) {
-    const acc = reducerFn(initial, node);
-    if (!hasChildren(node)) {
-      return acc;
-    }
-    return getChildren(structure, node).reduce(
-      Tree.reduce(reducerFn, structure),
-      acc
-    );
-  }),
-};
+/**
+ * @typedef Node
+ * @property {Array.<String>} children
+ * @property {String} id
+ */
 
-export default Tree;
+/**
+ * @typedef Structure
+ * @property {Object.<string, Node>} nodes
+ */
+
+/**
+ * @function
+ * @name reduceTree
+ * Recursively traverses the tree
+ * @param {function} reducerFn
+ * @param {Structure} structure
+ * @param {*} initial
+ * @param {Node} node
+ * @return {*}
+ */
+export const reduceTree = curry((reducerFn, structure, initial, node) => {
+  const acc = reducerFn(initial, node);
+  if (!hasChildren(node)) {
+    return acc;
+  }
+  return getChildren(structure, node).reduce(
+    reduceTree(reducerFn, structure),
+    acc
+  );
+});

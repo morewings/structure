@@ -10,6 +10,7 @@ import {
   merge,
   __,
 } from 'ramda';
+import editChildren from './editChildren';
 import {
   ADD_NODE,
   FOCUS_NODE,
@@ -63,8 +64,10 @@ export default (state = initialState, action) => {
       return over(nodeSingleLens(id), merge(__, node), state);
     }
     case TOGGLE_COMPLETION: {
-      const {id, node} = action.payload;
-      return over(nodeSingleLens(id), merge(__, node), state);
+      const {id, isDone} = action.payload;
+      const node = view(nodeSingleLens(id), state);
+      const updatedNodes = editChildren(state, node, {isDone});
+      return over(nodesListLens(), merge(__, updatedNodes), state);
     }
     default:
       return state;

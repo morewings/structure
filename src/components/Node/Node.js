@@ -8,11 +8,8 @@ import useDescendants from 'src/features/structure/selectors/useDescendants';
 import classes from './Node.module.css';
 
 const Node = ({id, title, isDone, childNodes, description}) => {
-  const {addNode, focusNode, editNode, toggleNodeStatus} = useActions();
+  const {focusNode, editNode, toggleNodeStatus} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
-  const handleClick = () => {
-    addNode(id);
-  };
   const handleSelect = () => {
     focusNode(id);
   };
@@ -29,28 +26,30 @@ const Node = ({id, title, isDone, childNodes, description}) => {
   const children = useDescendants(id);
   return (
     <Fragment>
-      <Card>
-        <Card.Header>
-          <input
-            id={id}
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={isDone}
-          />
-          <h5>{title || id}</h5>
-          <div>children: {children.length}</div>
-          <Accordion.Toggle as={Button} variant="link" eventKey={id}>
-            Expand
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey={id}>
-          <Card.Body>
-            <Button onClick={handleClick}>Add child</Button>
-            <Button onClick={handleSelect}>Show children</Button>
-            <Button onClick={handleShow}>Edit node</Button>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <div className={classes.node}>
+        <Card>
+          <Card.Header>
+            <input
+              id={id}
+              type="checkbox"
+              onChange={handleCheckboxChange}
+              checked={isDone}
+            />
+            <h5>{title || id}</h5>
+            <div>children: {children.length}</div>
+            <Accordion.Toggle as={Button} variant="link" eventKey={id}>
+              Expand
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey={id}>
+            <Card.Body>
+              {description && <div className={classes.description}>{description}</div>}
+              <Button onClick={handleSelect}>Show children</Button>
+              <Button onClick={handleShow}>Edit node</Button>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </div>
       {isVisible && (
         <EditNodeModal
           onSave={handleEditNode}

@@ -1,3 +1,6 @@
 .node{
   //padding: 6px 12px;
+  & .description {
+    margin: var(--baseMargin) 0;
+  }
 }
