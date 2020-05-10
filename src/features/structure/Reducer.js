@@ -10,7 +10,7 @@ import {
   merge,
   __,
 } from 'ramda';
-import editChildren from './editChildren';
+import {editChildren} from './selectors';
 import {
   ADD_NODE,
   FOCUS_NODE,

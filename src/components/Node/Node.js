@@ -4,7 +4,7 @@ import {Card, Accordion, Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
-import useDescendants from 'src/features/structure/selectors/useDescendants';
+import useDescendants from 'src/features/structure/useDescendants';
 import classes from './Node.module.css';
 
 const Node = ({id, title, isDone, childNodes, description}) => {

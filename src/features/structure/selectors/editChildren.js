@@ -24,14 +24,13 @@ const editNode = curry((payload, acc, node) =>
 
 /**
  * @function
- * Finds children and merges each with payload
+ * Finds children nodes and merges each node with payload
  * @param {Structure} structure
  * @param {Node} node
  * @param {Update} payload
  * @return {Structure}
  */
-const editChildren = (structure, node, payload) => {
-  return reduceTree(editNode(payload), structure, {}, node);
-};
+const editChildren = (structure, node, payload) =>
+  reduceTree(editNode(payload), structure, {}, node);
 
 export default editChildren;
