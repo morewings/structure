@@ -1,7 +1,12 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import getUniqueId from 'src/utils/getUniqueId';
-import {ADD_NODE, EDIT_NODE, FOCUS_NODE} from './actionTypes';
+import {
+  ADD_NODE,
+  EDIT_NODE,
+  FOCUS_NODE,
+  TOGGLE_COMPLETION,
+} from './actionTypes';
 
 const useActions = () => {
   const dispatch = useDispatch();
@@ -38,7 +43,7 @@ const useActions = () => {
   const toggleNodeStatus = useCallback(
     ({id, isDone}) => {
       dispatch({
-        type: EDIT_NODE,
+        type: TOGGLE_COMPLETION,
         payload: {
           id,
           isDone,

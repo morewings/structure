@@ -10,7 +10,12 @@ import {
   merge,
   __,
 } from 'ramda';
-import {ADD_NODE, FOCUS_NODE, EDIT_NODE} from './actionTypes';
+import {
+  ADD_NODE,
+  FOCUS_NODE,
+  EDIT_NODE,
+  TOGGLE_COMPLETION,
+} from './actionTypes';
 
 const initial = 'node_initial';
 
@@ -55,6 +60,10 @@ export default (state = initialState, action) => {
     }
     case EDIT_NODE: {
       const {id, ...node} = action.payload;
+      return over(nodeSingleLens(id), merge(__, node), state);
+    }
+    case TOGGLE_COMPLETION: {
+      const {id, node} = action.payload;
       return over(nodeSingleLens(id), merge(__, node), state);
     }
     default:
