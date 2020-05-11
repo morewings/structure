@@ -5,29 +5,26 @@ import throttle from 'lodash/throttle';
 import {loadState, saveState} from 'src/utils/localStorage';
 import createStore from './createStore';
 
-/**
- * Utility Higher Order Component factory. Returns HOC which takes another
- * Component and wraps it with given Provider.
- */
+const persistedState = loadState();
+const store = createStore(persistedState);
+const removeListener = store.subscribe(
+  throttle(() => {
+    saveState({
+      structure: store.getState().structure,
+    });
+  }, 1000)
+);
 
-const WithRedux = ({element}) => {
-  const persistedState = loadState();
-  const store = createStore(persistedState);
-  useEffect(() => {
-    const removeListener = store.subscribe(
-      throttle(() => {
-        saveState(store.getState());
-      }, 1000)
-    );
-    return () => {
-      removeListener();
-    };
-  });
-  return <Provider store={store}>{element}</Provider>;
-};
+window.addEventListener('beforeunload', event => {
+  removeListener();
+});
 
-WithRedux.propTypes = {
+const ReduxProvider = ({element}) => (
+  <Provider store={store}>{element}</Provider>
+);
+
+ReduxProvider.propTypes = {
   element: PropTypes.element.isRequired,
 };
 
-export default WithRedux;
+export default ReduxProvider;

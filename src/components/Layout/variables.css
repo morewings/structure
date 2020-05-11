@@ -5,4 +5,5 @@
   --columnHeight: 656px;
   --baseMargin: 12px;
   --baseBorderRadius: 6px;
+  --backgroundLowColor: rgba(255, 255, 255, .6);
 }
