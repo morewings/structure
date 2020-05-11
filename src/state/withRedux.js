@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import throttle from 'lodash/throttle';
@@ -13,11 +13,16 @@ import createStore from './createStore';
 const WithRedux = ({element}) => {
   const persistedState = loadState();
   const store = createStore(persistedState);
-  store.subscribe(
-    throttle(() => {
-      saveState(store.getState());
-    }, 1000)
-  );
+  useEffect(() => {
+    const removeListener = store.subscribe(
+      throttle(() => {
+        saveState(store.getState());
+      }, 1000)
+    );
+    return () => {
+      removeListener();
+    };
+  });
   return <Provider store={store}>{element}</Provider>;
 };
 
