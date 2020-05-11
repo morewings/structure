@@ -16,6 +16,7 @@ import {
   FOCUS_NODE,
   EDIT_NODE,
   TOGGLE_COMPLETION,
+  RESET_STRUCTURE,
 } from './actionTypes';
 
 const initial = 'node_initial';
@@ -68,6 +69,9 @@ export default (state = initialState, action) => {
       const node = view(nodeSingleLens(id), state);
       const updatedNodes = editChildren(state, node, {isDone});
       return over(nodesListLens(), merge(__, updatedNodes), state);
+    }
+    case RESET_STRUCTURE: {
+      return initialState;
     }
     default:
       return state;

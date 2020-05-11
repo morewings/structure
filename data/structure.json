@@ -1,0 +1,86 @@
+{
+  "nodes": {
+    "node_initial": {
+      "title": "Initial Node",
+      "isDone": false,
+      "children": [
+        "node_ZCSWrL",
+        "node_HfPtBZ",
+        "node_xDmZuw"
+      ],
+      "parentId": "node_initial"
+    },
+    "node_ZCSWrL": {
+      "id": "node_ZCSWrL",
+      "parentId": "node_initial",
+      "isDone": true,
+      "description": "Desc",
+      "title": "Test",
+      "children": []
+    },
+    "node_HfPtBZ": {
+      "id": "node_HfPtBZ",
+      "parentId": "node_initial",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": [
+        "node_ugqEwM"
+      ]
+    },
+    "node_ugqEwM": {
+      "id": "node_ugqEwM",
+      "parentId": "node_HfPtBZ",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": [
+        "node_FOwS-G",
+        "node_EsNuXf",
+        "node_Rru7CE",
+        "node_MUM6Hs"
+      ]
+    },
+    "node_FOwS-G": {
+      "id": "node_FOwS-G",
+      "parentId": "node_ugqEwM",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": []
+    },
+    "node_xDmZuw": {
+      "id": "node_xDmZuw",
+      "parentId": "node_initial",
+      "isDone": true,
+      "description": "",
+      "title": "",
+      "children": []
+    },
+    "node_EsNuXf": {
+      "id": "node_EsNuXf",
+      "parentId": "node_ugqEwM",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": []
+    },
+    "node_Rru7CE": {
+      "id": "node_Rru7CE",
+      "parentId": "node_ugqEwM",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": []
+    },
+    "node_MUM6Hs": {
+      "id": "node_MUM6Hs",
+      "parentId": "node_ugqEwM",
+      "isDone": false,
+      "description": "",
+      "title": "",
+      "children": []
+    }
+  },
+  "focused": "node_ugqEwM"
+}

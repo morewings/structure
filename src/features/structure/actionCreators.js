@@ -6,6 +6,8 @@ import {
   EDIT_NODE,
   FOCUS_NODE,
   TOGGLE_COMPLETION,
+  REPLACE_STRUCTURE,
+  RESET_STRUCTURE,
 } from './actionTypes';
 
 const useActions = () => {
@@ -61,7 +63,28 @@ const useActions = () => {
     },
     [dispatch]
   );
-  return {addNode, focusNode, editNode, toggleNodeStatus};
+  const replaceStructure = useCallback(
+    structure => {
+      dispatch({
+        type: REPLACE_STRUCTURE,
+        payload: structure,
+      });
+    },
+    [dispatch]
+  );
+  const resetStructure = useCallback(() => {
+    dispatch({
+      type: RESET_STRUCTURE,
+    });
+  }, [dispatch]);
+  return {
+    addNode,
+    focusNode,
+    editNode,
+    toggleNodeStatus,
+    replaceStructure,
+    resetStructure,
+  };
 };
 
 export default useActions;
