@@ -22,7 +22,7 @@ const FloatingActions = () => {
         </Button>
       </div>
       <div className={classes.buttonContainer}>
-        <UploadButton />
+        <UploadButton size="lg" />
       </div>
       <div className={classes.buttonContainer}>
         <Button onClick={resetStructure} size="lg">
