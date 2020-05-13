@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 import classes from './UploadButton.module.css';
 
-const UploadButton = ({buttonText, onFileUpload, ...restProps}) => {
+export const Upload = ({buttonText, onFileUpload, ...restProps}) => {
   const inputRef = useRef();
   useEffect(() => {
     const {current} = inputRef;
@@ -25,13 +25,11 @@ const UploadButton = ({buttonText, onFileUpload, ...restProps}) => {
   );
 };
 
-UploadButton.propTypes = {
+Upload.propTypes = {
   buttonText: PropTypes.string,
   onFileUpload: PropTypes.func.isRequired,
 };
 
-UploadButton.defaultProps = {
+Upload.defaultProps = {
   buttonText: 'Upload',
 };
-
-export default UploadButton;
