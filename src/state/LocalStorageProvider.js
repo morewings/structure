@@ -1,8 +1,8 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import throttle from 'lodash/throttle';
-import {loadState, saveState} from '../utils/localStorage';
+import {loadState, saveState} from 'src/utils/localStorage';
 import createStore from './createStore';
 
 const LocalStorageProvider = ({children}) => {
@@ -21,15 +21,11 @@ const LocalStorageProvider = ({children}) => {
       removeListener();
     };
   });
-  return (
-    <Fragment>
-      <Provider store={store}>{children}</Provider>
-    </Fragment>
-  );
+  return <Provider store={store}>{children}</Provider>;
 };
 
 LocalStorageProvider.propTypes = {
   children: PropTypes.element.isRequired,
-}
+};
 
 export default LocalStorageProvider;
