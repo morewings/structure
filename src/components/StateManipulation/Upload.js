@@ -24,7 +24,13 @@ export const Upload = () => {
   return (
     <div className={classes.wrapper}>
       <Button size="lg">
-        <input ref={inputRef} className={classes.input} type="file" />
+        <input
+          multiple={false}
+          accept=".json"
+          ref={inputRef}
+          className={classes.input}
+          type="file"
+        />
         <div>Upload</div>
       </Button>
     </div>
