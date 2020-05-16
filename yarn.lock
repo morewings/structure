@@ -863,14 +863,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
-  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.4.2", "@babel/runtime@^7.6.3":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.6":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
   integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
@@ -5797,10 +5790,10 @@ gatsby-cli@^2.11.9:
     ink "^2.7.1"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.1.2.tgz#635a0a20bca46dfb1c0dd99a4065aed0c3cf5431"
-  integrity sha512-a+nkA7JYlL5ROvI+Ysq2IzRO7EIwAiMEMQWRtmor2KgvGuiVbov4OCfoG3k77s52J0TR7ittrIm1k6xgpxNlCw==
+gatsby-core-utils@^1.1.2, gatsby-core-utils@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.2.2.tgz#19ad6e3917e4748333d952a04ec30ade02fe81fd"
+  integrity sha512-EdVUq0K7C9t32V7wndldUmUGzZp8EwU8gNMc1dtI1whyDUaUuZa6zlkbkpJwbwhPhRHdao5zhvHJXydhgzTEog==
   dependencies:
     ci-info "2.0.0"
     configstore "^5.0.1"
@@ -5855,14 +5848,14 @@ gatsby-plugin-manifest@^2.3.3:
     semver "^5.7.1"
     sharp "^0.25.1"
 
-gatsby-plugin-offline@^3.1.2:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.1.3.tgz#8bd1cf85eb89b8ea4a09afe0d711a4fac8acaefe"
-  integrity sha512-vqjBEV/Q21Hxf0iRhH3DsZ/AwOaVnuOLNaM9swmeHlz6NGDIqnFXJ2AaMl38IEHeN/T5eFQ9n7ECqap9fw1TNw==
+gatsby-plugin-offline@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.2.2.tgz#d63127431b6ef201d70473fdcadc7dc3dd230ac5"
+  integrity sha512-sMsqDjCwseQfiTDoHWjjX4F1QtNb+p171peuYi/wyer6pxvKigG1gIy//tSH0eybnEzMgXRlBOXGDIRmBNljWQ==
   dependencies:
-    "@babel/runtime" "^7.8.7"
+    "@babel/runtime" "^7.9.6"
     cheerio "^1.0.0-rc.3"
-    gatsby-core-utils "^1.1.2"
+    gatsby-core-utils "^1.2.2"
     glob "^7.1.6"
     idb-keyval "^3.2.0"
     lodash "^4.17.15"
