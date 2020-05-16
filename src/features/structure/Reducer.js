@@ -29,13 +29,14 @@ const initialState = {
       isDone: false,
       children: [],
       parentId: initial,
+      generation: 0,
     },
   },
   focused: initial,
 };
 
-const createNode = description => ({
-  ...description,
+const createNode = fields => ({
+  ...fields,
   children: [],
 });
 
@@ -47,10 +48,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NODE: {
       const {id, parentId, isDone, description, title} = action.payload;
+      const generation = state.nodes[parentId].generation + 1;
       return compose(
         over(
           nodesListLens(),
-          assoc(id, createNode({id, parentId, isDone, description, title}))
+          assoc(
+            id,
+            createNode({id, parentId, isDone, description, title, generation})
+          )
         ),
         over(nodeChildrenLens(parentId), append(id))
       )(state);

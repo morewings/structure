@@ -1,3 +1,9 @@
+/**
+ * @function
+ * Transforms Blob to javascript object
+ * @param {Blob} file
+ * @return {Object|Boolean}
+ */
 const readFile = async file => {
   const raw = await file.text();
   let structure;

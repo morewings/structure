@@ -5,9 +5,11 @@ import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import useDescendants from 'src/features/structure/useDescendants';
+import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import classes from './Node.module.css';
 
 const Node = ({id, title, isDone, childNodes, description}) => {
+  const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
   const handleSelect = () => {
@@ -37,6 +39,7 @@ const Node = ({id, title, isDone, childNodes, description}) => {
             />
             <h5>{title || id}</h5>
             <div>children: {children.length}</div>
+            <div>completion: 0%</div>
             <Accordion.Toggle as={Button} variant="link" eventKey={id}>
               Expand
             </Accordion.Toggle>
