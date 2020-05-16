@@ -17,6 +17,7 @@ import {
   EDIT_NODE,
   TOGGLE_COMPLETION,
   RESET_STRUCTURE,
+  REPLACE_STRUCTURE,
 } from './actionTypes';
 
 const initial = 'node_initial';
@@ -72,6 +73,9 @@ export default (state = initialState, action) => {
     }
     case RESET_STRUCTURE: {
       return initialState;
+    }
+    case REPLACE_STRUCTURE: {
+      return action.payload;
     }
     default:
       return state;

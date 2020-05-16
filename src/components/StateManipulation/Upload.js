@@ -1,14 +1,20 @@
 import React, {useRef, useEffect} from 'react';
-import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
+import readFile from 'src/utils/readFile';
+import {useActions} from 'src/features/structure';
 import classes from './UploadButton.module.css';
 
-const UploadButton = ({buttonText, onFileUpload, ...restProps}) => {
+export const Upload = () => {
   const inputRef = useRef();
+  const {replaceStructure} = useActions();
+  const handleFileUpload = async ([file]) => {
+    const structure = await readFile(file);
+    structure && replaceStructure(structure);
+  };
   useEffect(() => {
     const {current} = inputRef;
     const onChange = e => {
-      onFileUpload(e.target.files);
+      handleFileUpload(e.target.files);
     };
     current.addEventListener('change', onChange, false);
     return () => {
@@ -17,21 +23,10 @@ const UploadButton = ({buttonText, onFileUpload, ...restProps}) => {
   });
   return (
     <div className={classes.wrapper}>
-      <Button {...restProps}>
+      <Button size="lg">
         <input ref={inputRef} className={classes.input} type="file" />
-        <div>{buttonText}</div>
+        <div>Upload</div>
       </Button>
     </div>
   );
 };
-
-UploadButton.propTypes = {
-  buttonText: PropTypes.string,
-  onFileUpload: PropTypes.func.isRequired,
-};
-
-UploadButton.defaultProps = {
-  buttonText: 'Upload',
-};
-
-export default UploadButton;
