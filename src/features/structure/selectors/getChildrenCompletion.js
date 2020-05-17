@@ -1,4 +1,4 @@
-import {compose, map} from 'ramda';
+import {compose, map, reduce, ifElse} from 'ramda';
 /**
  * @typedef Node
  * @property {Array.<string>} children
@@ -15,13 +15,17 @@ import {compose, map} from 'ramda';
  * Gets all child nodes from the structure Record provided
  * @param {Structure} structure
  * @param {Node} node
- * @return {string[]} - List of children ids
+ * @return {number} - Percentage of completed childen
  */
-const getChildrenCompletion = (structure, node) => {
-  const result = compose(
+const getChildrenCompletion = (structure, node) =>
+  compose(
+    ifElse(
+      () => node.children.length !== 0,
+      checkedNodes => Math.floor((checkedNodes / node.children.length) * 100),
+      () => 0
+    ),
+    reduce((acc, {isDone}) => (isDone ? acc + 1 : acc), 0),
     map(id => structure.nodes[id])
-  )(node.children)
-  return 100
-};
+  )(node.children);
 
-export default getChildrenCompletion
+export default getChildrenCompletion;

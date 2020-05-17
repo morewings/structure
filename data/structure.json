@@ -4,83 +4,93 @@
       "title": "Initial Node",
       "isDone": false,
       "children": [
-        "node_ZCSWrL",
-        "node_HfPtBZ",
-        "node_xDmZuw"
+        "node_p9VIP8",
+        "node_9v6OiE"
       ],
-      "parentId": "node_initial"
-    },
-    "node_ZCSWrL": {
-      "id": "node_ZCSWrL",
       "parentId": "node_initial",
-      "isDone": true,
-      "description": "Desc",
+      "generation": 0
+    },
+    "node_p9VIP8": {
+      "id": "node_p9VIP8",
+      "parentId": "node_initial",
+      "isDone": false,
+      "description": "",
       "title": "Test",
+      "generation": 1,
+      "children": [
+        "node_OkLHUu",
+        "node_BzdW9i",
+        "node_QiKzf-"
+      ]
+    },
+    "node_OkLHUu": {
+      "id": "node_OkLHUu",
+      "parentId": "node_p9VIP8",
+      "isDone": false,
+      "description": "",
+      "title": "Child 1",
+      "generation": 2,
+      "children": [
+        "node_WQJyQK",
+        "node_WhjVbn"
+      ]
+    },
+    "node_BzdW9i": {
+      "id": "node_BzdW9i",
+      "parentId": "node_p9VIP8",
+      "isDone": false,
+      "description": "",
+      "title": "Child 2",
+      "generation": 2,
+      "children": [
+        "node_4xzX-7"
+      ]
+    },
+    "node_QiKzf-": {
+      "id": "node_QiKzf-",
+      "parentId": "node_p9VIP8",
+      "isDone": false,
+      "description": "",
+      "title": "Child 3",
+      "generation": 2,
       "children": []
     },
-    "node_HfPtBZ": {
-      "id": "node_HfPtBZ",
+    "node_WQJyQK": {
+      "id": "node_WQJyQK",
+      "parentId": "node_OkLHUu",
+      "isDone": false,
+      "description": "",
+      "title": "Child 1-1",
+      "generation": 3,
+      "children": []
+    },
+    "node_WhjVbn": {
+      "id": "node_WhjVbn",
+      "parentId": "node_OkLHUu",
+      "isDone": false,
+      "description": "",
+      "title": "Child 1-2",
+      "generation": 3,
+      "children": []
+    },
+    "node_4xzX-7": {
+      "id": "node_4xzX-7",
+      "parentId": "node_BzdW9i",
+      "isDone": false,
+      "description": "",
+      "title": "Child 2-1",
+      "generation": 3,
+      "children": []
+    },
+    "node_9v6OiE": {
+      "id": "node_9v6OiE",
       "parentId": "node_initial",
       "isDone": false,
       "description": "",
-      "title": "",
-      "children": [
-        "node_ugqEwM"
-      ]
-    },
-    "node_ugqEwM": {
-      "id": "node_ugqEwM",
-      "parentId": "node_HfPtBZ",
-      "isDone": false,
-      "description": "",
-      "title": "",
-      "children": [
-        "node_FOwS-G",
-        "node_EsNuXf",
-        "node_Rru7CE",
-        "node_MUM6Hs"
-      ]
-    },
-    "node_FOwS-G": {
-      "id": "node_FOwS-G",
-      "parentId": "node_ugqEwM",
-      "isDone": false,
-      "description": "",
-      "title": "",
-      "children": []
-    },
-    "node_xDmZuw": {
-      "id": "node_xDmZuw",
-      "parentId": "node_initial",
-      "isDone": true,
-      "description": "",
-      "title": "",
-      "children": []
-    },
-    "node_EsNuXf": {
-      "id": "node_EsNuXf",
-      "parentId": "node_ugqEwM",
-      "isDone": false,
-      "description": "",
-      "title": "",
-      "children": []
-    },
-    "node_Rru7CE": {
-      "id": "node_Rru7CE",
-      "parentId": "node_ugqEwM",
-      "isDone": false,
-      "description": "",
-      "title": "",
-      "children": []
-    },
-    "node_MUM6Hs": {
-      "id": "node_MUM6Hs",
-      "parentId": "node_ugqEwM",
-      "isDone": false,
-      "description": "",
-      "title": "",
+      "title": "Sibling",
+      "generation": 1,
       "children": []
     }
   },
-  "focused": "node_ugqEwM"
+  "focused": "node_BzdW9i"
 }

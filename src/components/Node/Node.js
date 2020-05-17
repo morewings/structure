@@ -39,7 +39,7 @@ const Node = ({id, title, isDone, childNodes, description}) => {
             />
             <h5>{title || id}</h5>
             <div>children: {children.length}</div>
-            <div>completion: 0%</div>
+            <div>completion: {completion}%</div>
             <Accordion.Toggle as={Button} variant="link" eventKey={id}>
               Expand
             </Accordion.Toggle>
