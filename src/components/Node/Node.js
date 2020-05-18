@@ -8,7 +8,8 @@ import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import classes from './Node.module.css';
 
-const Node = ({id, title, isDone, childNodes, description}) => {
+const Node = ({id, title, isDone, childNodes, description, color}) => {
+  console.log('color 2', color)
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
@@ -40,6 +41,7 @@ const Node = ({id, title, isDone, childNodes, description}) => {
             <h5>{title || id}</h5>
             <div>children: {children.length}</div>
             <div>completion: {completion}%</div>
+            <div>color: {color}</div>
             <Accordion.Toggle as={Button} variant="link" eventKey={id}>
               Expand
             </Accordion.Toggle>
@@ -72,6 +74,7 @@ Node.propTypes = {
   id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   title: PropTypes.string,
+  color: PropTypes.string,
   isDone: PropTypes.bool.isRequired,
   childNodes: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
@@ -81,6 +84,7 @@ Node.propTypes = {
 
 Node.defaultProps = {
   title: '',
+  color: '',
 };
 
 export default Node;

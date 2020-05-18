@@ -29,7 +29,7 @@ const useActions = () => {
     [dispatch]
   );
   const editNode = useCallback(
-    ({id, description, title, isDone}) => {
+    ({id, description, title, isDone, color}) => {
       dispatch({
         type: EDIT_NODE,
         payload: {
@@ -37,6 +37,7 @@ const useActions = () => {
           description,
           title,
           isDone,
+          color,
         },
       });
     },

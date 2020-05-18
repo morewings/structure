@@ -30,6 +30,7 @@ const initialState = {
       children: [],
       parentId: initial,
       generation: 0,
+      color: '',
     },
   },
   focused: initial,

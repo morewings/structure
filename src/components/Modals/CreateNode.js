@@ -8,9 +8,11 @@ const CreateNodeModal = ({isVisible, onClose, onSave}) => {
     setDescription,
     setDone,
     setTitle,
+    setColor,
     title,
     isDone,
     description,
+    color,
     handleSubmit,
   } = useNodeFormLogic({onSubmit: onSave});
   return (
@@ -20,6 +22,8 @@ const CreateNodeModal = ({isVisible, onClose, onSave}) => {
       </Modal.Header>
       <Modal.Body>
         <NodeForm
+          color={color}
+          setColor={setColor}
           description={description}
           isDone={isDone}
           setDescription={setDescription}

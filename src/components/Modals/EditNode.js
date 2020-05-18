@@ -12,6 +12,8 @@ const EditNodeModal = ({isVisible, onClose, onSave, node}) => {
     isDone,
     description,
     handleSubmit,
+    color,
+    setColor,
   } = useNodeFormLogic({onSubmit: onSave, node});
   return (
     <Modal show={isVisible} onHide={onClose}>
@@ -20,6 +22,8 @@ const EditNodeModal = ({isVisible, onClose, onSave, node}) => {
       </Modal.Header>
       <Modal.Body>
         <NodeForm
+          color={color}
+          setColor={setColor}
           description={description}
           isDone={isDone}
           setDescription={setDescription}

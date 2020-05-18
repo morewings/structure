@@ -34,10 +34,11 @@ const Column = ({nodeId, role}) => {
         </header>
         <div className={classes.nodes}>
           <Accordion>
-            {nodes.map(({id, title, isDone, children, description}) => (
+            {nodes.map(({id, title, isDone, children, description, color}) => (
               <Node
                 id={id}
                 title={title}
+                color={color}
                 description={description}
                 isDone={isDone}
                 key={id}
