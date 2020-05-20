@@ -64,6 +64,15 @@ const useActions = () => {
     },
     [dispatch]
   );
+  const focusInitialNode = useCallback(
+    id => {
+      dispatch({
+        type: FOCUS_NODE,
+        payload: 'node_initial',
+      });
+    },
+    [dispatch]
+  );
   const replaceStructure = useCallback(
     structure => {
       dispatch({
@@ -85,6 +94,7 @@ const useActions = () => {
     toggleNodeStatus,
     replaceStructure,
     resetStructure,
+    focusInitialNode
   };
 };
 

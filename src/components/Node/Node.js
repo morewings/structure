@@ -9,7 +9,6 @@ import useChildrenCompletion from 'src/features/structure/useChildrenCompletion'
 import classes from './Node.module.css';
 
 const Node = ({id, title, isDone, childNodes, description, color}) => {
-  console.log('color 2', color)
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus} = useActions();
   const {handleShow, handleClose, isVisible} = useModalLogic();
