@@ -7005,7 +7005,7 @@ gatsby-cli@^2.12.43:
     yargs "^15.3.1"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.3.3, gatsby-core-utils@^1.3.4:
+gatsby-core-utils@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.3.4.tgz#a3adc461dc90e55b8aef03d9c4440c2018f7e06c"
   integrity sha512-LSNwM14pKQP93Qvsa13pneHKxoKX6dbQ+Z7PTKm6aWR4JY+jiHUCN8RyFH1GsL6iB5AHeMUslJZx/X0eUQJrsQ==
@@ -7313,15 +7313,15 @@ gatsby-telemetry@^1.3.10:
     stack-utils "1.0.2"
     uuid "3.4.0"
 
-gatsby-transformer-sharp@^2.4.3:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.4.5.tgz#1341230be31a8c64bd3fe1ce407ead53dbc83018"
-  integrity sha512-4b/fX5dA0HtZWwrLSTPOdxPfOUd1jyOBa1SqlcEKRfNp5TXlf6398VA0Vp4zkRJdhtZm99oVxDYdqE6ShVxukg==
+gatsby-transformer-sharp@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.5.4.tgz#410b4d42d1bba16eced34468fcb3127e6bb53545"
+  integrity sha512-3Dx6C7UJiFhjooElQ9O9b5HPMUpySrDYVVAkAAezOMojJwyn/FDws0Oiy6/B6jHjdRtWL4N2F0Vjr2R02Cqo7A==
   dependencies:
-    "@babel/runtime" "^7.8.7"
+    "@babel/runtime" "^7.10.2"
     bluebird "^3.7.2"
     fs-extra "^8.1.0"
-    potrace "^2.1.5"
+    potrace "^2.1.6"
     probe-image-size "^4.1.1"
     semver "^5.7.1"
     sharp "^0.25.1"
@@ -12045,7 +12045,7 @@ postcss@^7.0.30:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-potrace@^2.1.5, potrace@^2.1.6:
+potrace@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/potrace/-/potrace-2.1.6.tgz#687d48d4441eebca9539f4c39f6815b6e2480e67"
   integrity sha512-sXdIDGZAb3x1GSnyps7VxksRoy57/ch+kq7J79L5UPUHU5KRIJF9oLJQeRVyYlOPjois+gMxVfNJkQjSkK9xMA==
