@@ -35,14 +35,28 @@ module.exports = {
     },
     'gatsby-plugin-root-import',
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          {
-            family: `IBM Plex Sans`,
-            variants: [`300`, `400`, `500`],
+        google: {
+          families: ['IBM Plex Sans:300,400,700'],
+        },
+        custom: {
+          families: ['structure_icons'],
+          urls: ['structure_icons.css'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.icon\.svg$/, // include Something.icon.svg files
+          options: {
+            props: {
+              className: 'icon',
+            },
           },
-        ],
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,0 +1,8 @@
+.header{
+  background-color: var(--backgroundLowColor);
+  padding: 9px 0;
+}
+
+.logo{
+  font-size: 36px;
+}
