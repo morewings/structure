@@ -6,7 +6,6 @@ import {FloatingActions} from 'src/components/FloatingActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './global.css';
 import './variables.css';
-import './structure_icons-codes.css';
 import classes from './Layout.module.css';
 
 import Header from '../Header/Header';
