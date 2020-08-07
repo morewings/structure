@@ -1,9 +1,13 @@
 :root{
-  --bgColor: lightskyblue;
+  --bgColor: #4A90E2;
+  --accentColor: #CC8110;
+  --darkColor: #424242;
   --headerHeight: 56px;
   --footerHeight: 64px;
   --columnHeight: 656px;
   --baseMargin: 12px;
   --baseBorderRadius: 6px;
-  --backgroundLowColor: rgba(255, 255, 255, .6);
+  --backgroundLowColor: rgba(242, 242, 242, .8);
+  --backgroundMiddleColor: rgba(242, 242, 242, .66);
+  --backgroundMiddleColorHover: rgba(242, 242, 242, 1);
 }

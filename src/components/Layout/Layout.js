@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useStaticQuery, graphql} from 'gatsby';
-import {Container} from 'react-bootstrap';
+import {Container} from 'src/ui/Grid';
 import {FloatingActions} from 'src/components/FloatingActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './global.css';
 import './variables.css';
 import classes from './Layout.module.css';
 

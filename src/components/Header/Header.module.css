@@ -1,0 +1,37 @@
+.header{
+  background-color: var(--backgroundLowColor);
+  padding: 9px 0;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  font-size: 36px;
+  line-height: 30px;
+  color: var(--accentColor);
+}
+
+.name{
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 2.24px;
+  color: var(--darkColor);
+  margin-left: 18px;
+  cursor: default;
+  user-select: none;
+}
+
+.navigation{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.githubLink{
+  color: var(--darkColor);
+  font-size: 24px;
+}
