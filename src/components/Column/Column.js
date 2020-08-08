@@ -5,6 +5,7 @@ import {Accordion, Button} from 'react-bootstrap';
 import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import CreateNodeModal from 'src/components/Modals/CreateNode';
+import {Column as ColumnUI} from 'src/ui/Column';
 import classes from './Column.module.css';
 import useActions from '../../features/structure/actionCreators';
 
@@ -26,12 +27,8 @@ const Column = ({nodeId, role}) => {
     handleClose();
   };
   return (
-    <Fragment>
+    <ColumnUI onAddNode={handleClick} role={role}>
       <div className={classes.column}>
-        <header>
-          <div>{role}</div>
-          <div>{columnData.title || columnData.id}</div>
-        </header>
         <div className={classes.nodes}>
           <Accordion>
             {nodes.map(({id, title, isDone, children, description, color}) => (
@@ -47,11 +44,11 @@ const Column = ({nodeId, role}) => {
             ))}
           </Accordion>
         </div>
-        <footer>
-          <div className={classes.add}>
-            <Button onClick={handleClick}>Add node</Button>
-          </div>
-        </footer>
+        {/*<footer>*/}
+        {/*  <div className={classes.add}>*/}
+        {/*    <Button onClick={handleClick}>Add node</Button>*/}
+        {/*  </div>*/}
+        {/*</footer>*/}
       </div>
       {isVisible && (
         <CreateNodeModal
@@ -61,7 +58,7 @@ const Column = ({nodeId, role}) => {
           onClose={handleClose}
         />
       )}
-    </Fragment>
+    </ColumnUI>
   );
 };
 

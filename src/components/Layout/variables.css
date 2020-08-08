@@ -1,4 +1,5 @@
 :root{
+  --baseUnit: 6px;
   --bgColor: #4A90E2;
   --accentColor: #CC8110;
   --darkColor: #424242;

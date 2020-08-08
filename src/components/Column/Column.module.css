@@ -1,16 +1,4 @@
 .column{
-    display: flex;
-    flex-direction: column;
-    margin: var(--baseMargin) 0;
-    border-radius: var(--baseBorderRadius);
-    background-clip: border-box;
-    height: var(--columnHeight);
-    overflow: auto;
-    background-color: var(--backgroundLowColor);
-    & header {
-        font-size: 18px;
-        text-align: center;
-    }
     & .nodes {
         align-self: stretch;
         flex: 1;
