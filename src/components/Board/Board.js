@@ -10,16 +10,16 @@ const Board = () => {
       <Row>
         {siblingsId !== parentId && (
           <Col sm={4}>
-            <Column role="Parent" nodeId={parentId} />
+            <Column role="parent" nodeId={parentId} />
           </Col>
         )}
 
         <Col sm={4}>
-          <Column role="Siblings" nodeId={siblingsId} />
+          <Column role="siblings" nodeId={siblingsId} />
         </Col>
         {childrenId !== siblingsId && (
           <Col sm={4}>
-            <Column role="Children" nodeId={childrenId} />
+            <Column role="children" nodeId={childrenId} />
           </Col>
         )}
       </Row>
