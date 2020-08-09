@@ -6,6 +6,7 @@ import {Button} from 'src/ui/Button';
 import {Icon} from 'src/ui/Icon';
 
 export const Column = ({children, role, onAddNode}) => {
+  console.log('role', role)
   return(
     <div className={classes.column}>
       <header>
@@ -15,8 +16,11 @@ export const Column = ({children, role, onAddNode}) => {
       </header>
       {children}
       <footer>
+        {role === 'siblings' && (<div className={classes.focus}>
+          <Button text="Focus active" icon="focus" onClick={() => {console.log('trying to focus')}} />
+        </div>)}
         <div className={classes.add}>
-          <Button text="Add node" icon="add-node" onClick={onAddNode}>Add node</Button>
+          <Button text="Add node" icon="add-node" onClick={onAddNode} />
         </div>
       </footer>
     </div>
@@ -25,6 +29,6 @@ export const Column = ({children, role, onAddNode}) => {
 
 Column.propTypes = {
   children: PropTypes.node.isRequired,
-  role: PropTypes.string.isRequired,
+  role: PropTypes.oneOf(['parent', 'siblings', 'children']).isRequired,
   onAddNode: PropTypes.func.isRequired
 }
