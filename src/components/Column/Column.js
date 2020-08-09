@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
-import {Accordion, Button} from 'react-bootstrap';
+import {Accordion} from 'react-bootstrap';
 import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import CreateNodeModal from 'src/components/Modals/CreateNode';
-import {Column as ColumnUI} from 'src/ui/Column';
+import {Icon} from 'src/ui/Icon';
+import {Button} from 'src/ui/Button';
 import classes from './Column.module.css';
 import useActions from '../../features/structure/actionCreators';
 
@@ -27,28 +28,41 @@ const Column = ({nodeId, role}) => {
     handleClose();
   };
   return (
-    <ColumnUI onAddNode={handleClick} role={role}>
+    <Fragment>
       <div className={classes.column}>
-        <div className={classes.nodes}>
-          <Accordion>
-            {nodes.map(({id, title, isDone, children, description, color}) => (
-              <Node
-                id={id}
-                title={title}
-                color={color}
-                description={description}
-                isDone={isDone}
-                key={id}
-                childNodes={children}
+        <header>
+          <Icon className={classes.icon} name={role} />
+          <div className={classes.text}>{role}</div>
+        </header>
+        <Accordion>
+          {nodes.map(({id, title, isDone, children, description, color}) => (
+            <Node
+              id={id}
+              title={title}
+              color={color}
+              description={description}
+              isDone={isDone}
+              key={id}
+              childNodes={children}
+            />
+          ))}
+        </Accordion>
+        <footer>
+          {role === 'siblings' && (
+            <div className={classes.focus}>
+              <Button
+                text="Focus active"
+                icon="focus"
+                onClick={() => {
+                  console.log('trying to focus');
+                }}
               />
-            ))}
-          </Accordion>
-        </div>
-        {/*<footer>*/}
-        {/*  <div className={classes.add}>*/}
-        {/*    <Button onClick={handleClick}>Add node</Button>*/}
-        {/*  </div>*/}
-        {/*</footer>*/}
+            </div>
+          )}
+          <div className={classes.add}>
+            <Button text="Add node" icon="add-node" onClick={handleClick} />
+          </div>
+        </footer>
       </div>
       {isVisible && (
         <CreateNodeModal
@@ -58,7 +72,7 @@ const Column = ({nodeId, role}) => {
           onClose={handleClose}
         />
       )}
-    </ColumnUI>
+    </Fragment>
   );
 };
 
