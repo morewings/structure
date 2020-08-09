@@ -8,7 +8,7 @@ import classes from './Button.module.css';
 
 export const Button = ({onClick, className, icon, text, type}) => {
   const ref = useRef();
-  const color = useColors(type)
+  const color = useColors(type);
   setCSSVariable(ref.current, 'buttonColor', color);
   return (
     <button
