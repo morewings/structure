@@ -2,11 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classes from './Column.module.css';
-import {Button} from 'react-bootstrap';
+import {Button} from 'src/ui/Button';
 import {Icon} from 'src/ui/Icon';
 
 export const Column = ({children, role, onAddNode}) => {
-  console.log('role', role)
   return(
     <div className={classes.column}>
       <header>
@@ -17,7 +16,7 @@ export const Column = ({children, role, onAddNode}) => {
       {children}
       <footer>
         <div className={classes.add}>
-          <Button onClick={onAddNode}>Add node</Button>
+          <Button text="Add node" icon="add-node" onClick={onAddNode}>Add node</Button>
         </div>
       </footer>
     </div>

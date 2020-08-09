@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+[class^="icon-"], [class*=" icon-"]{
+  line-height: 1;
+}
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "structure_icons";
   font-style: normal;
@@ -16,5 +20,5 @@
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  line-height: 1em;
+  line-height: 1;
 }
