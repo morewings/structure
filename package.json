@@ -13,7 +13,7 @@
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-offline": "^3.2.21",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
-    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.24",
     "gatsby-plugin-web-font-loader": "^1.0.4",
