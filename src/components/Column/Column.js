@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Accordion} from 'react-bootstrap';
+import {Accordion as AccordionUI} from 'src/components/Accordion';
 import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import CreateNodeModal from 'src/components/Modals/CreateNode';
