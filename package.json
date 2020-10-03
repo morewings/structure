@@ -42,7 +42,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.1.2",
     "fontello-cli": "^0.5.0",
-    "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-plugin-postcss": "^2.3.13",
     "gatsby-plugin-root-import": "^2.0.5",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5"
