@@ -4,6 +4,7 @@ import {Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
+import {Checkbox} from 'src/ui/Checkbox';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import classes from './Node.module.css';
@@ -43,12 +44,7 @@ const Node = ({
     <Fragment>
       <div className={classes.node}>
         <header className={classes.header}>
-          <input
-            id={id}
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={isDone}
-          />
+          <Checkbox onChange={handleCheckboxChange} checked={isDone} />
           <h5>{title || id}</h5>
           <button
             onClick={handleToggle}
