@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Card, Accordion, Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
@@ -18,9 +18,6 @@ const Node = ({
   toggleNode,
   activeNode,
 }) => {
-  // console.log('toggleNode', toggleNode);
-  console.log('activeNode', activeNode);
-  console.log('id', id);
   const isActive = activeNode === id;
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus} = useActions();
@@ -92,8 +89,8 @@ Node.propTypes = {
   title: PropTypes.string,
   color: PropTypes.string,
   isDone: PropTypes.bool.isRequired,
-  toggleNode: PropTypes.func.isRequired,
-  activeNode: PropTypes.string.isRequired,
+  toggleNode: PropTypes.func,
+  activeNode: PropTypes.string,
   childNodes: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.array,
@@ -103,6 +100,8 @@ Node.propTypes = {
 Node.defaultProps = {
   title: '',
   color: '',
+  activeNode: '',
+  toggleNode: () => {},
 };
 
 export default Node;

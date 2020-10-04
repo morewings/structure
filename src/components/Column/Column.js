@@ -35,7 +35,7 @@ const Column = ({nodeId, role}) => {
           <Icon className={classes.icon} name={role} />
           <div className={classes.text}>{role}</div>
         </header>
-        <Accordion id={nodeId}>
+        <Accordion className={classes.nodes} id={nodeId}>
           {nodes.map(({id, title, isDone, children, description, color}) => (
             <Node
               id={id}
@@ -48,7 +48,7 @@ const Column = ({nodeId, role}) => {
             />
           ))}
         </Accordion>
-        <footer>
+        <footer className={classes.footer}>
           {role === 'siblings' && (
             <div className={classes.focus}>
               <Button

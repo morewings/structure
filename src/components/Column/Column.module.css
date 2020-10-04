@@ -9,7 +9,7 @@
   height: var(--columnHeight);
   overflow: auto;
   background-color: var(--backgroundLowColor);
-  padding: var(--paddingVertical) var(--paddingHorizontal) 0;
+  padding: var(--paddingVertical) 0 0;
   & .header {
     display: flex;
     flex-direction: column;
@@ -27,9 +27,16 @@
       font-weight: 300;
     }
   }
-  & footer {
+  & .nodes {
+    --marginBottom: calc(4 * var(--baseUnit));
+    flex: 1;
+    margin: 0 0 var(--marginBottom);
+    overflow: auto;
+    padding: 0 var(--paddingHorizontal) 0;
+  }
+  & .footer {
     border-top: 1px solid var(--bgColor);
-    margin: auto calc(-1 * var(--paddingHorizontal)) 0;
+    margin: 0 0 0;
     display: flex;
     & .add,
     & .focus{
