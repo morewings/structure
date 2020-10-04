@@ -6,7 +6,7 @@ import config from 'src/config';
 
 const initialState = {
   [config.initialNode]: {
-    openNode: config.initialNode,
+    openNode: '',
   },
 };
 
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         [action.id]: {
-          openNode: null,
+          openNode: '',
         },
       };
     }
