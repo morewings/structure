@@ -11,4 +11,5 @@
   --backgroundLowColor: rgba(242, 242, 242, .8);
   --backgroundMiddleColor: rgba(242, 242, 242, .66);
   --backgroundMiddleColorHover: rgba(242, 242, 242, 1);
+  --backgroundHighColor: rgba(255, 255, 255, .66);
 }

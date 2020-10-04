@@ -10,7 +10,7 @@
   overflow: auto;
   background-color: var(--backgroundLowColor);
   padding: var(--paddingVertical) var(--paddingHorizontal) 0;
-  & header {
+  & .header {
     display: flex;
     flex-direction: column;
     align-items: center;

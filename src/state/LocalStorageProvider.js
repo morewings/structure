@@ -14,6 +14,7 @@ const LocalStorageProvider = ({children}) => {
       throttle(() => {
         saveState({
           structure: store.getState().structure,
+          accordion: store.getState().accordion,
         });
       }, 1000)
     );

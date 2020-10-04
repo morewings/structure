@@ -94,7 +94,7 @@ const useActions = () => {
     toggleNodeStatus,
     replaceStructure,
     resetStructure,
-    focusInitialNode
+    focusInitialNode,
   };
 };
 
