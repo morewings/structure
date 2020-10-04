@@ -1,13 +1,13 @@
 import {useState} from 'react';
 
 const useModalLogic = (isOpen = false) => {
-  const [isVisible, setIsVisible] = useState(isOpen);
-  const handleClose = () => setIsVisible(false);
-  const handleShow = () => setIsVisible(true);
+  const [isModalVisible, setIsModalVisible] = useState(isOpen);
+  const handleModalClose = () => setIsModalVisible(false);
+  const handleModalShow = () => setIsModalVisible(true);
   return {
-    isVisible,
-    handleClose,
-    handleShow,
+    isModalVisible,
+    handleModalClose,
+    handleModalShow,
   };
 };
 

@@ -10,6 +10,7 @@ import {
   merge,
   __,
 } from 'ramda';
+import config from 'src/config';
 import {editChildren} from './selectors';
 import {
   ADD_NODE,
@@ -20,20 +21,19 @@ import {
   REPLACE_STRUCTURE,
 } from './actionTypes';
 
-const initial = 'node_initial';
-
 const initialState = {
   nodes: {
-    [initial]: {
+    [config.initialNode]: {
       title: 'Initial Node',
       isDone: false,
       children: [],
-      parentId: initial,
+      parentId: config.initialNode,
       generation: 0,
       color: '',
+      id: config.initialNode,
     },
   },
-  focused: initial,
+  focused: config.initialNode,
 };
 
 const createNode = fields => ({

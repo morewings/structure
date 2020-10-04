@@ -8,16 +8,29 @@ import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import classes from './Node.module.css';
 
-const Node = ({id, title, isDone, childNodes, description, color}) => {
+const Node = ({
+  id,
+  title,
+  isDone,
+  childNodes,
+  description,
+  color,
+  toggleNode,
+  activeNode,
+}) => {
+  // console.log('toggleNode', toggleNode);
+  console.log('activeNode', activeNode);
+  console.log('id', id);
+  const isActive = activeNode === id;
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus} = useActions();
-  const {handleShow, handleClose, isVisible} = useModalLogic();
+  const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const handleSelect = () => {
     focusNode(id);
   };
   const handleEditNode = nodeFields => {
     editNode({id, ...nodeFields});
-    handleClose();
+    handleModalClose();
   };
   const handleCheckboxChange = () => {
     toggleNodeStatus({
@@ -25,44 +38,48 @@ const Node = ({id, title, isDone, childNodes, description, color}) => {
       isDone: !isDone,
     });
   };
+  const handleToggle = () => {
+    toggleNode(id);
+  };
   const children = useDescendants(id);
   return (
     <Fragment>
       <div className={classes.node}>
-        <Card>
-          <Card.Header>
-            <input
-              id={id}
-              type="checkbox"
-              onChange={handleCheckboxChange}
-              checked={isDone}
-            />
-            <h5>{title || id}</h5>
+        <header className={classes.header}>
+          <input
+            id={id}
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={isDone}
+          />
+          <h5>{title || id}</h5>
+          <button
+            onClick={handleToggle}
+            type="button"
+            className={classes.toggle}>
+            toggle
+          </button>
+        </header>
+        {isActive && (
+          <main>
             <div>children: {children.length}</div>
             <div>completion: {completion}%</div>
             <div>color: {color}</div>
-            <Accordion.Toggle as={Button} variant="link" eventKey={id}>
-              Expand
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey={id}>
-            <Card.Body>
-              {description && (
-                <div className={classes.description}>{description}</div>
-              )}
-              <Button onClick={handleSelect}>Show children</Button>
-              <Button onClick={handleShow}>Edit node</Button>
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
+            {description && (
+              <div className={classes.description}>{description}</div>
+            )}
+            <Button onClick={handleSelect}>Show children</Button>
+            <Button onClick={handleModalShow}>Edit node</Button>
+          </main>
+        )}
       </div>
-      {isVisible && (
+      {isModalVisible && (
         <EditNodeModal
           onSave={handleEditNode}
           node={{title, isDone, description}}
           id={id}
-          isVisible={isVisible}
-          onClose={handleClose}
+          isVisible={isModalVisible}
+          onClose={handleModalClose}
         />
       )}
     </Fragment>
@@ -75,6 +92,8 @@ Node.propTypes = {
   title: PropTypes.string,
   color: PropTypes.string,
   isDone: PropTypes.bool.isRequired,
+  toggleNode: PropTypes.func.isRequired,
+  activeNode: PropTypes.string.isRequired,
   childNodes: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.array,

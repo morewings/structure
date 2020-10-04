@@ -1,8 +1,10 @@
 import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
-import StructureReducer from '../features/structure/Reducer';
+import {StructureReducer} from 'src/features/structure';
+import {AccordionReducer} from 'src/features/accordion';
 
 const rootReducer = combineReducers({
   structure: StructureReducer,
+  accordion: AccordionReducer,
 });
 
 export default preloadedState =>
