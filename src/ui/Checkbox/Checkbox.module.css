@@ -1,0 +1,4 @@
+.icon{
+  display: block;
+  font-size: calc(3 * var(--baseUnit));
+}

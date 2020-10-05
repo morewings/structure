@@ -44,8 +44,12 @@ const Node = ({
     <Fragment>
       <div className={classes.node}>
         <header className={classes.header}>
-          <Checkbox onChange={handleCheckboxChange} checked={isDone} />
-          <h5>{title || id}</h5>
+          <Checkbox
+            className={classes.checkbox}
+            onChange={handleCheckboxChange}
+            checked={isDone}
+          />
+          <h5 className={classes.title}>{title || id}</h5>
           <button
             onClick={handleToggle}
             type="button"

@@ -8,7 +8,17 @@
   }
   & .header {
     display: flex;
-    align-items: baseline;
+    & .checkbox {
+      font-size: calc(4 * var(--baseUnit));
+      line-height: 1;
+    }
+    & .title {
+      font-size: var(--headerFontSize);
+      font-weight: 300;
+      line-height: calc(4 * var(--baseUnit));
+      margin-left: var(--baseUnit);
+      flex: 1;
+    }
     & .toggle {
       border: none;
       padding: 0;
