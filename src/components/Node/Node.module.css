@@ -20,10 +20,8 @@
       flex: 1;
       margin-bottom: 0;
     }
-    & .toggle {
-      border: none;
-      padding: 0;
-      margin: 0 0 0 auto;
+    & .toggleIcon {
+      color: rgba(66, 66, 66, .33)
     }
   }
 }

@@ -7,6 +7,7 @@ import EditNodeModal from 'src/components/Modals/EditNode';
 import {Checkbox} from 'src/ui/Checkbox';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
+import {Icon} from 'src/ui/Icon';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -40,6 +41,7 @@ const Node = ({
     toggleNode(id);
   };
   const children = useDescendants(id);
+  const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
       <div className={classes.node}>
@@ -50,12 +52,14 @@ const Node = ({
             checked={isDone}
           />
           <h5 className={classes.title}>{title || id}</h5>
-          <button
-            onClick={handleToggle}
-            type="button"
-            className={classes.toggle}>
-            toggle
-          </button>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
+          <div onClick={handleToggle} role="button">
+            <Icon
+              className={classes.toggleIcon}
+              color={color}
+              name={icon}
+            />
+          </div>
         </header>
         {isActive && (
           <main>
