@@ -12,6 +12,7 @@
   --backgroundMiddleColor: rgba(242, 242, 242, .66);
   --backgroundMiddleColorHover: rgba(242, 242, 242, 1);
   --backgroundHighColor: rgba(255, 255, 255, .66);
+  --backgroundFullColor: rgba(242, 242, 242, 1);
   --iconColor: rgba(66, 66, 66, .66);
   --headerFontSize: 16px;
 }

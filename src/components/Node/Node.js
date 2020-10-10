@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
+import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
@@ -44,7 +45,11 @@ const Node = ({
   const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
-      <div className={classes.node}>
+      <div
+        className={classNames({
+          [classes.node]: true,
+          [classes.active]: isActive,
+        })}>
         <header className={classes.header}>
           <Checkbox
             className={classes.checkbox}
@@ -54,11 +59,7 @@ const Node = ({
           <h5 className={classes.title}>{title || id}</h5>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
           <div onClick={handleToggle} role="button">
-            <Icon
-              className={classes.toggleIcon}
-              color={color}
-              name={icon}
-            />
+            <Icon className={classes.toggleIcon} color={color} name={icon} />
           </div>
         </header>
         {isActive && (
