@@ -18,6 +18,7 @@
       line-height: calc(4 * var(--baseUnit));
       margin-left: var(--baseUnit);
       flex: 1;
+      margin-bottom: 0;
     }
     & .toggle {
       border: none;

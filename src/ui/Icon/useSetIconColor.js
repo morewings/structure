@@ -1,9 +1,14 @@
-import {useEffect} from 'react';
+import {useRef} from 'react';
 import {setCSSVariable} from 'src/utils/cssVariables';
 
-export const useSetIconColor = (iconRef, color) => {
-  const element = iconRef.current;
-  useEffect(() => {
-    element && color && setCSSVariable(element, 'iconColor', color);
-  }, [element, color]);
+export const useSetIconColor = (color) => {
+  const ref = useRef(null);
+  const setRef = element => {
+    if (element) {
+      setCSSVariable(element, 'iconColor', color);
+    }
+    ref.current = element;
+  };
+
+  return setRef;
 };
