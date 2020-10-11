@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useSetIconColor} from './useSetIconColor';
+import {useSetCssVariable} from 'src/utils/cssVariables';
 import classes from './Icon.module.css';
 import 'src/ui/Icon/Icons.css';
 
 export const Icon = ({name, className, color}) => {
-  const setRef = useSetIconColor(color);
+  const [, setRef] = useSetCssVariable('iconColor', color);
   return (
     <i
       ref={setRef}

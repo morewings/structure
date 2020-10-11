@@ -1,18 +1,17 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Icon} from 'src/ui/Icon';
-import {setCSSVariable} from 'src/utils/cssVariables';
+import {useSetCssVariable} from 'src/utils/cssVariables';
 import {useColors} from './useColors';
 import classes from './Button.module.css';
 
 export const Button = ({onClick, className, icon, text, type}) => {
-  const ref = useRef();
   const color = useColors(type);
-  setCSSVariable(ref.current, 'buttonColor', color);
+  const [, setRef] = useSetCssVariable('buttonColor', color);
   return (
     <button
-      ref={ref}
+      ref={setRef}
       type="button"
       onClick={onClick}
       className={classNames({
