@@ -6,6 +6,7 @@
   &.active{
     background-color: var(--backgroundFullColor);
   }
+  position: relative;
 }
 
 .header {
@@ -114,5 +115,17 @@
   }
   & .edit{
     border-right: 1px solid var(--bgColor);
+  }
+}
+
+.actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(3 * var(--baseUnit));
+  padding-right: var(--baseUnit);
+  & .iconButton{
+    height: calc(3 * var(--baseUnit));
   }
 }

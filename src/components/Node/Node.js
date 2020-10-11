@@ -100,6 +100,22 @@ const Node = ({
                 />
               </div>
             </footer>
+            <div className={classes.actions}>
+              <Button
+                className={classes.iconButton}
+                icon="drag_handle"
+                onClick={() => {
+                  console.log('drag');
+                }}
+              />
+              <Button
+                className={classes.iconButton}
+                icon="delete"
+                onClick={() => {
+                  console.log('delete');
+                }}
+              />
+            </div>
           </main>
         )}
       </div>

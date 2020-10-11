@@ -19,8 +19,8 @@ export const Button = ({onClick, className, icon, text, type}) => {
         [className]: !!className,
       })}>
       <span className={classes.wrapper}>
-        <Icon className={classes.icon} name={icon} />
-        <span className={classes.name}>{text}</span>
+        {icon && <Icon className={classes.icon} name={icon} />}
+        {text && <span className={classes.name}>{text}</span>}
       </span>
     </button>
   );
@@ -29,12 +29,14 @@ export const Button = ({onClick, className, icon, text, type}) => {
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
-  icon: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  text: PropTypes.string,
   type: PropTypes.oneOf(['action']),
 };
 
 Button.defaultProps = {
   className: '',
   type: 'action',
+  text: '',
+  icon: '',
 };
