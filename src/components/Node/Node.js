@@ -1,11 +1,11 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
 import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import {Checkbox} from 'src/ui/Checkbox';
+import {Button} from 'src/ui/Button';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import {Icon} from 'src/ui/Icon';
@@ -84,8 +84,22 @@ const Node = ({
                 <div className={classes.text}>{description}</div>
               </div>
             )}
-            <Button onClick={handleSelect}>Show children</Button>
-            <Button onClick={handleModalShow}>Edit node</Button>
+            <footer className={classes.footer}>
+              <div className={classes.edit}>
+                <Button
+                  icon="edit"
+                  text="Edit node"
+                  onClick={handleModalShow}
+                />
+              </div>
+              <div className={classes.showChildren}>
+                <Button
+                  icon="parent_children"
+                  text="Show children"
+                  onClick={handleSelect}
+                />
+              </div>
+            </footer>
           </main>
         )}
       </div>
