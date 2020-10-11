@@ -1,11 +1,14 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
+import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
+import {Checkbox} from 'src/ui/Checkbox';
+import {Button} from 'src/ui/Button';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
+import {Icon} from 'src/ui/Icon';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -39,34 +42,80 @@ const Node = ({
     toggleNode(id);
   };
   const children = useDescendants(id);
+  const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
-      <div className={classes.node}>
+      <div
+        className={classNames({
+          [classes.node]: true,
+          [classes.active]: isActive,
+        })}>
         <header className={classes.header}>
-          <input
-            id={id}
-            type="checkbox"
+          <Checkbox
+            className={classes.checkbox}
             onChange={handleCheckboxChange}
             checked={isDone}
           />
-          <h5>{title || id}</h5>
-          <button
-            onClick={handleToggle}
-            type="button"
-            className={classes.toggle}>
-            toggle
-          </button>
+          <h5 className={classes.title}>{title || id}</h5>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
+          <div onClick={handleToggle} role="button">
+            <Icon className={classes.toggleIcon} color={color} name={icon} />
+          </div>
         </header>
         {isActive && (
           <main>
-            <div>children: {children.length}</div>
-            <div>completion: {completion}%</div>
-            <div>color: {color}</div>
+            <div className={classes.stats}>
+              <h3>Stats</h3>
+              <div className={classes.chart}>{completion}</div>
+              <div>
+                <div className={classes.tier}>
+                  <h4>Tier</h4>
+                  <div className={classes.amount}>4th</div>
+                </div>
+                <div className={classes.ancestors}>
+                  <h4>Ancestors</h4>
+                  <div className={classes.amount}>{children.length}</div>
+                </div>
+              </div>
+            </div>
             {description && (
-              <div className={classes.description}>{description}</div>
+              <div className={classes.description}>
+                <h3>Description</h3>
+                <div className={classes.text}>{description}</div>
+              </div>
             )}
-            <Button onClick={handleSelect}>Show children</Button>
-            <Button onClick={handleModalShow}>Edit node</Button>
+            <footer className={classes.footer}>
+              <div className={classes.edit}>
+                <Button
+                  icon="edit"
+                  text="Edit node"
+                  onClick={handleModalShow}
+                />
+              </div>
+              <div className={classes.showChildren}>
+                <Button
+                  icon="parent_children"
+                  text="Show children"
+                  onClick={handleSelect}
+                />
+              </div>
+            </footer>
+            <div className={classes.actions}>
+              <Button
+                className={classes.iconButton}
+                icon="drag_handle"
+                onClick={() => {
+                  console.log('drag');
+                }}
+              />
+              <Button
+                className={classes.iconButton}
+                icon="delete"
+                onClick={() => {
+                  console.log('delete');
+                }}
+              />
+            </div>
           </main>
         )}
       </div>

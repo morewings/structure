@@ -3,6 +3,11 @@
   --bgColor: #4A90E2;
   --accentColor: #CC8110;
   --darkColor: #424242;
+   /*
+   TODO: group names;
+   */
+  --iconColor: rgba(66, 66, 66, .66);
+  --iconLightColor: rgba(66, 66, 66, .33);
   --headerHeight: 56px;
   --footerHeight: 64px;
   --columnHeight: 656px;
@@ -12,4 +17,6 @@
   --backgroundMiddleColor: rgba(242, 242, 242, .66);
   --backgroundMiddleColorHover: rgba(242, 242, 242, 1);
   --backgroundHighColor: rgba(255, 255, 255, .66);
+  --backgroundFullColor: rgba(242, 242, 242, 1);
+  --headerFontSize: 16px;
 }

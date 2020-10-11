@@ -1,5 +1,6 @@
 
 .icon-structure_logo:before { content: '\e800'; } /* '' */
+.icon-collapse:before { content: '\e801'; } /* '' */
 .icon-github:before { content: '\e808'; } /* '' */
 .icon-add-node:before { content: '\e809'; } /* '' */
 .icon-cancel:before { content: '\e80a'; } /* '' */
@@ -15,7 +16,6 @@
 .icon-parent:before { content: '\e814'; } /* '' */
 .icon-save:before { content: '\e815'; } /* '' */
 .icon-help:before { content: '\e816'; } /* '' */
-.icon-collapse:before { content: '\e817'; } /* '' */
 .icon-rewind:before { content: '\e818'; } /* '' */
 .icon-confirm:before { content: '\e819'; } /* '' */
 .icon-checkbox-unchecked:before { content: '\e81a'; } /* '' */
