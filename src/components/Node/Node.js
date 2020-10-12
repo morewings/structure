@@ -23,7 +23,7 @@ const Node = ({
 }) => {
   const isActive = activeNode === id;
   const completion = useChildrenCompletion(id);
-  const {focusNode, editNode, toggleNodeStatus} = useActions();
+  const {focusNode, editNode, toggleNodeStatus, deleteNode} = useActions();
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const handleSelect = () => {
     focusNode(id);
@@ -112,7 +112,8 @@ const Node = ({
                 className={classes.iconButton}
                 icon="delete"
                 onClick={() => {
-                  console.log('delete');
+                  console.log('delete', id);
+                  deleteNode(id)
                 }}
               />
             </div>

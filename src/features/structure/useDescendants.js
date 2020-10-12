@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {getChildrenIdList} from './selectors';
+import {getChildrenIdList} from './operations';
 
 /**
  * @function

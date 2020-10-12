@@ -23,7 +23,7 @@ const editNode = curry((payload, acc, node) =>
  */
 
 /**
- * @function
+ * @function editChildren
  * Finds children nodes and merges each node with payload
  * @param {Structure} structure
  * @param {Node} node

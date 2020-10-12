@@ -8,6 +8,7 @@ import {
   TOGGLE_COMPLETION,
   REPLACE_STRUCTURE,
   RESET_STRUCTURE,
+  DELETE_NODE,
 } from './actionTypes';
 
 const useActions = () => {
@@ -43,6 +44,17 @@ const useActions = () => {
     },
     [dispatch]
   );
+
+  const deleteNode = useCallback(
+    (id) => {
+      dispatch({
+        type: DELETE_NODE,
+        payload: id,
+      });
+    },
+    [dispatch]
+  );
+
   const toggleNodeStatus = useCallback(
     ({id, isDone}) => {
       dispatch({
@@ -91,6 +103,7 @@ const useActions = () => {
     addNode,
     focusNode,
     editNode,
+    deleteNode,
     toggleNodeStatus,
     replaceStructure,
     resetStructure,
