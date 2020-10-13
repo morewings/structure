@@ -11,6 +11,7 @@ import {
 } from 'ramda';
 import getChildrenIdList from './getChildrenIdList';
 
+// TODD: Use transducer reduceTree(deleteChildren, structure, [], node)
 const deleteNode = (structure, node) => {
   const children = getChildrenIdList(structure, node);
   const focused = find(id => id === structure.focused, children);

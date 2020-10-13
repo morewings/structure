@@ -112,7 +112,6 @@ const Node = ({
                 className={classes.iconButton}
                 icon="delete"
                 onClick={() => {
-                  console.log('delete', id);
                   deleteNode(id)
                 }}
               />
