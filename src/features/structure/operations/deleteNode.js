@@ -15,11 +15,13 @@ const deleteNode = (structure, node) => {
   const children = getChildrenIdList(structure, node);
   const focused = find(id => id === structure.focused, children);
   const {parentId} = structure.nodes[node.id];
-  return compose(
-    over(lensPath(['nodes', parentId, 'children']), without([node.id])),
-    when(() => !!focused, assoc('focused', parentId)),
-    over(lensProp('nodes'), omit(children))
-  )(structure);
+  const deleteChildren = over(lensProp('nodes'), omit(children));
+  const clearIfFocused = when(() => !!focused, assoc('focused', parentId));
+  const removeFromParent = over(
+    lensPath(['nodes', parentId, 'children']),
+    without([node.id])
+  );
+  return compose(removeFromParent, clearIfFocused, deleteChildren)(structure);
 };
 
 export default deleteNode;
