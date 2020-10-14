@@ -36,17 +36,20 @@ const Column = ({nodeId, role}) => {
           <div className={classes.text}>{role}</div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>
-          {nodes.map(({id, title, isDone, children, description, color}) => (
-            <Node
-              id={id}
-              title={title}
-              color={color}
-              description={description}
-              isDone={isDone}
-              key={id}
-              childNodes={children}
-            />
-          ))}
+          {nodes.map(
+            ({id, title, isDone, children, description, color, generation}) => (
+              <Node
+                id={id}
+                generation={generation}
+                title={title}
+                color={color}
+                description={description}
+                isDone={isDone}
+                key={id}
+                childNodes={children}
+              />
+            )
+          )}
         </Accordion>
         <footer className={classes.footer}>
           {role === 'siblings' && (

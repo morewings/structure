@@ -20,6 +20,7 @@ const Node = ({
   color,
   toggleNode,
   activeNode,
+  generation
 }) => {
   const isActive = activeNode === id;
   const completion = useChildrenCompletion(id);
@@ -41,7 +42,6 @@ const Node = ({
   const handleToggle = () => {
     toggleNode(id);
   };
-  const children = useDescendants(id);
   const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
@@ -62,6 +62,7 @@ const Node = ({
             <Icon className={classes.toggleIcon} color={color} name={icon} />
           </div>
         </header>
+
         {isActive && (
           <main>
             <div className={classes.stats}>
@@ -70,11 +71,11 @@ const Node = ({
               <div>
                 <div className={classes.tier}>
                   <h4>Tier</h4>
-                  <div className={classes.amount}>4th</div>
+                  <div className={classes.amount}>{generation}th</div>
                 </div>
                 <div className={classes.ancestors}>
                   <h4>Ancestors</h4>
-                  <div className={classes.amount}>{children.length}</div>
+                  <div className={classes.amount}>{childNodes.length}</div>
                 </div>
               </div>
             </div>
@@ -137,6 +138,7 @@ Node.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string,
   color: PropTypes.string,
+  generation: PropTypes.number.isRequired,
   isDone: PropTypes.bool.isRequired,
   toggleNode: PropTypes.func,
   activeNode: PropTypes.string,
