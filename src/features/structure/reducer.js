@@ -11,7 +11,7 @@ import {
   __,
 } from 'ramda';
 import config from 'src/config';
-import {editChildren} from './selectors';
+import {editChildren, deleteNode} from './operations';
 import {
   ADD_NODE,
   FOCUS_NODE,
@@ -19,6 +19,7 @@ import {
   TOGGLE_COMPLETION,
   RESET_STRUCTURE,
   REPLACE_STRUCTURE,
+  DELETE_NODE,
 } from './actionTypes';
 
 const initialState = {
@@ -70,6 +71,10 @@ export default (state = initialState, action) => {
     case EDIT_NODE: {
       const {id, ...node} = action.payload;
       return over(nodeSingleLens(id), merge(__, node), state);
+    }
+    case DELETE_NODE: {
+      const node = view(nodeSingleLens(action.payload), state);
+      return deleteNode(state, node);
     }
     case TOGGLE_COMPLETION: {
       const {id, isDone} = action.payload;

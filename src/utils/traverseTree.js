@@ -22,7 +22,7 @@ const getChildren = (structure, node) =>
  */
 
 /**
- * @function
+ * @function reduceTree
  * @name reduceTree
  * Recursively traverses the tree
  * @param {function} reducerFn

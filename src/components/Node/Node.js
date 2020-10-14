@@ -4,26 +4,26 @@ import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
-import {Checkbox} from 'src/ui/Checkbox';
-import {Button} from 'src/ui/Button';
-import useDescendants from 'src/features/structure/useDescendants';
-import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
-import {Icon} from 'src/ui/Icon';
+import {useNodeData, useChildrenCompletion} from 'src/features/structure';
+import Stats from './Stats';
+import Description from './Description';
+import NodeHeader from './NodeHeader';
+import NodeFooter from './NodeFooter';
+import NodeActions from './NodeActions';
 import classes from './Node.module.css';
 
-const Node = ({
-  id,
-  title,
-  isDone,
-  childNodes,
-  description,
-  color,
-  toggleNode,
-  activeNode,
-}) => {
-  const isActive = activeNode === id;
+const Node = ({id, toggleNode, activeNode}) => {
+  const isOpen = activeNode === id;
+  const {
+    isDone,
+    title,
+    color,
+    generation,
+    children: childNodes,
+    description,
+  } = useNodeData(id);
   const completion = useChildrenCompletion(id);
-  const {focusNode, editNode, toggleNodeStatus} = useActions();
+  const {focusNode, editNode, toggleNodeStatus, deleteNode} = useActions();
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const handleSelect = () => {
     focusNode(id);
@@ -41,81 +41,35 @@ const Node = ({
   const handleToggle = () => {
     toggleNode(id);
   };
-  const children = useDescendants(id);
-  const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
       <div
         className={classNames({
           [classes.node]: true,
-          [classes.active]: isActive,
+          [classes.open]: isOpen,
         })}>
-        <header className={classes.header}>
-          <Checkbox
-            className={classes.checkbox}
-            onChange={handleCheckboxChange}
-            checked={isDone}
-          />
-          <h5 className={classes.title}>{title || id}</h5>
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
-          <div onClick={handleToggle} role="button">
-            <Icon className={classes.toggleIcon} color={color} name={icon} />
-          </div>
-        </header>
-        {isActive && (
+        <NodeHeader
+          handleToggle={handleToggle}
+          isOpen={isOpen}
+          title={title}
+          color={color}
+          handleCheckboxChange={handleCheckboxChange}
+          isDone={isDone}
+          id={id}
+        />
+        {isOpen && (
           <main>
-            <div className={classes.stats}>
-              <h3>Stats</h3>
-              <div className={classes.chart}>{completion}</div>
-              <div>
-                <div className={classes.tier}>
-                  <h4>Tier</h4>
-                  <div className={classes.amount}>4th</div>
-                </div>
-                <div className={classes.ancestors}>
-                  <h4>Ancestors</h4>
-                  <div className={classes.amount}>{children.length}</div>
-                </div>
-              </div>
-            </div>
-            {description && (
-              <div className={classes.description}>
-                <h3>Description</h3>
-                <div className={classes.text}>{description}</div>
-              </div>
-            )}
-            <footer className={classes.footer}>
-              <div className={classes.edit}>
-                <Button
-                  icon="edit"
-                  text="Edit node"
-                  onClick={handleModalShow}
-                />
-              </div>
-              <div className={classes.showChildren}>
-                <Button
-                  icon="parent_children"
-                  text="Show children"
-                  onClick={handleSelect}
-                />
-              </div>
-            </footer>
-            <div className={classes.actions}>
-              <Button
-                className={classes.iconButton}
-                icon="drag_handle"
-                onClick={() => {
-                  console.log('drag');
-                }}
-              />
-              <Button
-                className={classes.iconButton}
-                icon="delete"
-                onClick={() => {
-                  console.log('delete');
-                }}
-              />
-            </div>
+            <Stats
+              completion={completion}
+              tier={generation}
+              nodeChildrenAmount={childNodes.length}
+            />
+            {description && <Description description={description} />}
+            <NodeFooter
+              handleModalShow={handleModalShow}
+              handleSelect={handleSelect}
+            />
+            <NodeActions deleteNode={deleteNode} id={id} />
           </main>
         )}
       </div>
@@ -134,21 +88,11 @@ const Node = ({
 
 Node.propTypes = {
   id: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  color: PropTypes.string,
-  isDone: PropTypes.bool.isRequired,
   toggleNode: PropTypes.func,
   activeNode: PropTypes.string,
-  childNodes: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.array,
-  ]).isRequired,
 };
 
 Node.defaultProps = {
-  title: '',
-  color: '',
   activeNode: '',
   toggleNode: () => {},
 };

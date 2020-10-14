@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {getParentId} from './selectors';
+import {getParentId} from './operations';
 
 const useBoardContent = () => {
   const structure = useSelector(state => state.structure);
