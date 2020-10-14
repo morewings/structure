@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
-import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
+import {useNodeData, useChildrenCompletion} from 'src/features/structure';
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
@@ -12,18 +12,16 @@ import NodeFooter from './NodeFooter';
 import NodeActions from './NodeActions';
 import classes from './Node.module.css';
 
-const Node = ({
-  id,
-  title,
-  isDone,
-  childNodes,
-  description,
-  color,
-  toggleNode,
-  activeNode,
-  generation,
-}) => {
+const Node = ({id, toggleNode, activeNode}) => {
   const isOpen = activeNode === id;
+  const {
+    isDone,
+    title,
+    color,
+    generation,
+    children: childNodes,
+    description,
+  } = useNodeData(id);
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus, deleteNode} = useActions();
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
@@ -90,22 +88,11 @@ const Node = ({
 
 Node.propTypes = {
   id: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  color: PropTypes.string,
-  generation: PropTypes.number.isRequired,
-  isDone: PropTypes.bool.isRequired,
   toggleNode: PropTypes.func,
   activeNode: PropTypes.string,
-  childNodes: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.array,
-  ]).isRequired,
 };
 
 Node.defaultProps = {
-  title: '',
-  color: '',
   activeNode: '',
   toggleNode: () => {},
 };

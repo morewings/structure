@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import config from 'src/config';
+import {useActions, useChildrenIdList} from 'src/features/structure';
 import {Accordion} from 'src/components/Accordion';
 import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
@@ -9,7 +10,6 @@ import CreateNodeModal from 'src/components/Modals/CreateNode';
 import {Icon} from 'src/ui/Icon';
 import {Button} from 'src/ui/Button';
 import classes from './Column.module.css';
-import useActions from '../../features/structure/actionCreators';
 
 const getChildren = (id, state) =>
   state.structure.nodes[id].children.map(
@@ -21,6 +21,7 @@ const Column = ({nodeId, role}) => {
   const {addNode} = useActions();
   // TODO: refactor to use only ids array
   const nodes = useSelector(state => getChildren(nodeId, state));
+  const nodes2 = useChildrenIdList(nodeId);
   const handleClick = () => {
     handleModalShow();
   };
@@ -36,20 +37,9 @@ const Column = ({nodeId, role}) => {
           <div className={classes.text}>{role}</div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>
-          {nodes.map(
-            ({id, title, isDone, children, description, color, generation}) => (
-              <Node
-                id={id}
-                generation={generation}
-                title={title}
-                color={color}
-                description={description}
-                isDone={isDone}
-                key={id}
-                childNodes={children}
-              />
-            )
-          )}
+          {nodes2.map(id => (
+            <Node id={id} key={id} />
+          ))}
         </Accordion>
         <footer className={classes.footer}>
           {role === 'siblings' && (

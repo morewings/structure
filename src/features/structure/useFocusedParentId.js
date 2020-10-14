@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import getParentId from './operations/getParentId';
+import {getParentId} from './operations';
 
 const useFocusedParentId = () => {
   const structure = useSelector(state => state.structure);

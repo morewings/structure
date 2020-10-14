@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import getChildrenCompletion from 'src/features/structure/operations/getChildrenCompletion';
+import {getChildrenCompletion} from './operations';
 
 const useChildrenCompletion = id => {
   const structure = useSelector(state => state.structure);
