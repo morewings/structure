@@ -9,6 +9,8 @@ import {Button} from 'src/ui/Button';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import {Icon} from 'src/ui/Icon';
+import Stats from 'src/components/Stats';
+import Description from 'src/components/Description';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -20,7 +22,7 @@ const Node = ({
   color,
   toggleNode,
   activeNode,
-  generation
+  generation,
 }) => {
   const isActive = activeNode === id;
   const completion = useChildrenCompletion(id);
@@ -65,26 +67,12 @@ const Node = ({
 
         {isActive && (
           <main>
-            <div className={classes.stats}>
-              <h3>Stats</h3>
-              <div className={classes.chart}>{completion}</div>
-              <div>
-                <div className={classes.tier}>
-                  <h4>Tier</h4>
-                  <div className={classes.amount}>{generation}th</div>
-                </div>
-                <div className={classes.ancestors}>
-                  <h4>Ancestors</h4>
-                  <div className={classes.amount}>{childNodes.length}</div>
-                </div>
-              </div>
-            </div>
-            {description && (
-              <div className={classes.description}>
-                <h3>Description</h3>
-                <div className={classes.text}>{description}</div>
-              </div>
-            )}
+            <Stats
+              completion={completion}
+              tier={generation}
+              nodeChildrenAmount={childNodes.length}
+            />
+            {description && <Description description={description} />}
             <footer className={classes.footer}>
               <div className={classes.edit}>
                 <Button
@@ -113,7 +101,7 @@ const Node = ({
                 className={classes.iconButton}
                 icon="delete"
                 onClick={() => {
-                  deleteNode(id)
+                  deleteNode(id);
                 }}
               />
             </div>
