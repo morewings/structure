@@ -8,30 +8,6 @@
   position: relative;
 }
 
-.header {
-  display: flex;
-  padding: calc(2 * var(--baseUnit));
-  & .checkbox {
-    font-size: calc(4 * var(--baseUnit));
-    line-height: 1;
-  }
-  & .title {
-    font-size: var(--headerFontSize);
-    font-weight: 300;
-    line-height: calc(4 * var(--baseUnit));
-    margin-left: var(--baseUnit);
-    flex: 1;
-    margin-bottom: 0;
-    color: var(--darkColor)
-  }
-  & .toggleIcon {
-    color: var(--iconLightColor);
-    &:hover {
-      color: var(--iconColor);
-    }
-  }
-}
-
 .footer {
   border-top: 1px solid var(--bgColor);
   margin: 0 0 0;

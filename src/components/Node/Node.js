@@ -12,6 +12,7 @@ import {Icon} from 'src/ui/Icon';
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
+import NodeFooter from './NodeFooter';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -69,22 +70,10 @@ const Node = ({
               nodeChildrenAmount={childNodes.length}
             />
             {description && <Description description={description} />}
-            <footer className={classes.footer}>
-              <div className={classes.edit}>
-                <Button
-                  icon="edit"
-                  text="Edit node"
-                  onClick={handleModalShow}
-                />
-              </div>
-              <div className={classes.showChildren}>
-                <Button
-                  icon="parent_children"
-                  text="Show children"
-                  onClick={handleSelect}
-                />
-              </div>
-            </footer>
+            <NodeFooter
+              handleModalShow={handleModalShow}
+              handleSelect={handleSelect}
+            />
             <div className={classes.actions}>
               <Button
                 className={classes.iconButton}
