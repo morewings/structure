@@ -1,9 +1,8 @@
 .node{
   background-color: var(--backgroundHighColor);
   border-radius: var(--baseUnit);
-  //padding: calc(2 * var(--baseUnit));
   margin-bottom: calc(2 * var(--baseUnit));
-  &.active{
+  &.open{
     background-color: var(--backgroundFullColor);
   }
   position: relative;

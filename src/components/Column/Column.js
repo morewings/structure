@@ -19,7 +19,7 @@ const getChildren = (id, state) =>
 const Column = ({nodeId, role}) => {
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const {addNode} = useActions();
-  const columnData = useSelector(state => state.structure.nodes[nodeId]);
+  // TODO: refactor to use only ids array
   const nodes = useSelector(state => getChildren(nodeId, state));
   const handleClick = () => {
     handleModalShow();

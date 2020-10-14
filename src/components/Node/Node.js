@@ -9,8 +9,9 @@ import {Button} from 'src/ui/Button';
 import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
 import {Icon} from 'src/ui/Icon';
-import Stats from 'src/components/Stats';
-import Description from 'src/components/Description';
+import Stats from './Stats';
+import Description from './Description';
+import NodeHeader from './NodeHeader';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -24,7 +25,7 @@ const Node = ({
   activeNode,
   generation,
 }) => {
-  const isActive = activeNode === id;
+  const isOpen = activeNode === id;
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus, deleteNode} = useActions();
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
@@ -44,28 +45,23 @@ const Node = ({
   const handleToggle = () => {
     toggleNode(id);
   };
-  const icon = isActive ? 'collapse' : 'expand';
   return (
     <Fragment>
       <div
         className={classNames({
           [classes.node]: true,
-          [classes.active]: isActive,
+          [classes.open]: isOpen,
         })}>
-        <header className={classes.header}>
-          <Checkbox
-            className={classes.checkbox}
-            onChange={handleCheckboxChange}
-            checked={isDone}
-          />
-          <h5 className={classes.title}>{title || id}</h5>
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
-          <div onClick={handleToggle} role="button">
-            <Icon className={classes.toggleIcon} color={color} name={icon} />
-          </div>
-        </header>
-
-        {isActive && (
+        <NodeHeader
+          handleToggle={handleToggle}
+          isOpen={isOpen}
+          title={title}
+          color={color}
+          handleCheckboxChange={handleCheckboxChange}
+          isDone={isDone}
+          id={id}
+        />
+        {isOpen && (
           <main>
             <Stats
               completion={completion}
