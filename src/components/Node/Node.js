@@ -4,15 +4,12 @@ import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
-import {Checkbox} from 'src/ui/Checkbox';
-import {Button} from 'src/ui/Button';
-import useDescendants from 'src/features/structure/useDescendants';
 import useChildrenCompletion from 'src/features/structure/useChildrenCompletion';
-import {Icon} from 'src/ui/Icon';
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
 import NodeFooter from './NodeFooter';
+import NodeActions from './NodeActions';
 import classes from './Node.module.css';
 
 const Node = ({
@@ -74,22 +71,7 @@ const Node = ({
               handleModalShow={handleModalShow}
               handleSelect={handleSelect}
             />
-            <div className={classes.actions}>
-              <Button
-                className={classes.iconButton}
-                icon="drag_handle"
-                onClick={() => {
-                  console.log('drag');
-                }}
-              />
-              <Button
-                className={classes.iconButton}
-                icon="delete"
-                onClick={() => {
-                  deleteNode(id);
-                }}
-              />
-            </div>
+            <NodeActions deleteNode={deleteNode} id={id} />
           </main>
         )}
       </div>
