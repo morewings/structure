@@ -21,7 +21,7 @@ const flattenToArray = (arr, {id}) => append(id, arr);
  * @param {Node} node
  * @return {string[]} - List of children ids
  */
-const getChildrenIdList = (structure, node) =>
+const getDescendantsIdList = (structure, node) =>
   reduceTree(flattenToArray, structure, [], node);
 
-export default getChildrenIdList;
+export default getDescendantsIdList;

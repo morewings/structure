@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {getChildrenIdList} from './operations';
+import {getDescendantsIdList} from './operations';
 
 /**
  * @function
@@ -11,7 +11,7 @@ const useDescendants = id => {
   const structure = useSelector(state => state.structure);
   const node = useSelector(state => state.structure.nodes[id]);
   // eslint-disable-next-line no-unused-vars
-  const [_, ...descendants] = getChildrenIdList(structure, node);
+  const [_, ...descendants] = getDescendantsIdList(structure, node);
   return descendants;
 };
 

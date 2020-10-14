@@ -9,11 +9,11 @@ import {
   without,
   lensPath,
 } from 'ramda';
-import getChildrenIdList from './getChildrenIdList';
+import getDescendantsIdList from './getDescendantsIdList';
 
 // TODD: Use transducer reduceTree(deleteChildren, structure, [], node)
 const deleteNode = (structure, node) => {
-  const children = getChildrenIdList(structure, node);
+  const children = getDescendantsIdList(structure, node);
   const focused = find(id => id === structure.focused, children);
   const {parentId} = structure.nodes[node.id];
   const deleteChildren = over(lensProp('nodes'), omit(children));
