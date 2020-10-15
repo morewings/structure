@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {useSelector} from 'react-redux';
 import config from 'src/config';
 import {useActions, useChildrenIdList} from 'src/features/structure';
 import {Accordion} from 'src/components/Accordion';
@@ -11,16 +10,9 @@ import {Icon} from 'src/ui/Icon';
 import {Button} from 'src/ui/Button';
 import classes from './Column.module.css';
 
-const getChildren = (id, state) =>
-  state.structure.nodes[id].children.map(
-    childId => state.structure.nodes[childId]
-  );
-
 const Column = ({nodeId, role}) => {
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const {addNode} = useActions();
-  // TODO: refactor to use only ids array
-  const nodes = useSelector(state => getChildren(nodeId, state));
   const nodes2 = useChildrenIdList(nodeId);
   const handleClick = () => {
     handleModalShow();
