@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {
   ACCORDION_REGISTER,
   ACCORDION_TOGGLE,
+  ACCORDION_DELETE,
 } from 'src/features/accordion/actionTypes';
 
 const useAccordionActions = () => {
@@ -16,6 +17,7 @@ const useAccordionActions = () => {
     },
     [dispatch]
   );
+
   const toggleAccordion = useCallback(
     (id, openNode) => {
       dispatch({
@@ -26,7 +28,18 @@ const useAccordionActions = () => {
     },
     [dispatch]
   );
-  return {registerAccordion, toggleAccordion};
+
+  const deleteAccordion = useCallback(
+    id => {
+      dispatch({
+        type: ACCORDION_DELETE,
+        id,
+      });
+    },
+    [dispatch]
+  );
+
+  return {registerAccordion, toggleAccordion, deleteAccordion};
 };
 
 export default useAccordionActions;

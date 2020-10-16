@@ -1,6 +1,8 @@
+import {omit} from 'ramda';
 import {
   ACCORDION_REGISTER,
   ACCORDION_TOGGLE,
+  ACCORDION_DELETE,
 } from 'src/features/accordion/actionTypes';
 import config from 'src/config';
 
@@ -27,6 +29,9 @@ export default (state = initialState, action) => {
           openNode: action.openNode,
         },
       };
+    }
+    case ACCORDION_DELETE: {
+      return omit([action.id], state);
     }
     default:
       return state;

@@ -12,7 +12,7 @@ import NodeFooter from './NodeFooter';
 import NodeActions from './NodeActions';
 import classes from './Node.module.css';
 
-const Node = ({id, toggleNode, activeNode}) => {
+const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
   const isOpen = activeNode === id;
   const {
     isDone,
@@ -41,6 +41,11 @@ const Node = ({id, toggleNode, activeNode}) => {
   const handleToggle = () => {
     toggleNode(id);
   };
+  const handleDelete = () => {
+    deleteNode(id);
+    deleteAccordion(id);
+  };
+
   return (
     <Fragment>
       <div
@@ -69,7 +74,7 @@ const Node = ({id, toggleNode, activeNode}) => {
               handleModalShow={handleModalShow}
               handleSelect={handleSelect}
             />
-            <NodeActions deleteNode={deleteNode} id={id} />
+            <NodeActions deleteNode={handleDelete} />
           </main>
         )}
       </div>
@@ -89,12 +94,14 @@ const Node = ({id, toggleNode, activeNode}) => {
 Node.propTypes = {
   id: PropTypes.string.isRequired,
   toggleNode: PropTypes.func,
+  deleteAccordion: PropTypes.func,
   activeNode: PropTypes.string,
 };
 
 Node.defaultProps = {
   activeNode: '',
   toggleNode: () => {},
+  deleteAccordion: () => {},
 };
 
 export default Node;
