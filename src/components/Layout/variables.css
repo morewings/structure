@@ -6,6 +6,7 @@
    /*
    TODO: group names;
    */
+  --modalBgColor: rgba(66, 66, 66, .66);
   --iconColor: rgba(66, 66, 66, .66);
   --iconLightColor: rgba(66, 66, 66, .33);
   --headerHeight: 56px;

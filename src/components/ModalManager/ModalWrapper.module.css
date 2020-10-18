@@ -1,0 +1,16 @@
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--modalBgColor);
+}
+
+:global(.ReactModal__Body--open) {
+  overflow: hidden;
+}

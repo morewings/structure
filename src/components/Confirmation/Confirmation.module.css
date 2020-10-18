@@ -1,0 +1,6 @@
+.confirmation {
+  width: calc(66 * var(--baseUnit));
+  padding: calc(3 * var(--baseUnit));
+  background: var(--backgroundFullColor);
+  border-radius: var(--baseUnit);
+}
