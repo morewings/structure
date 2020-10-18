@@ -14,7 +14,7 @@ import {
 const useActions = () => {
   const dispatch = useDispatch();
   const addNode = useCallback(
-    ({parentId, description, title, isDone}) => {
+    ({parentId, description, title, isDone, color}) => {
       const id = getUniqueId();
       dispatch({
         type: ADD_NODE,
@@ -24,6 +24,7 @@ const useActions = () => {
           description,
           title,
           isDone,
+          color,
         },
       });
     },
@@ -46,7 +47,7 @@ const useActions = () => {
   );
 
   const deleteNode = useCallback(
-    (id) => {
+    id => {
       dispatch({
         type: DELETE_NODE,
         payload: id,
