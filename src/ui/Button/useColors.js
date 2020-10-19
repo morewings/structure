@@ -1,4 +1,6 @@
 export const useColors = type =>
   ({
-    action: 'rgba(46, 56, 255, 1)',
+    action: 'var(--actionColor)',
+    danger: 'var(--dangerColor)',
+    confirm: 'var(--confirmColor)',
   }[type]);

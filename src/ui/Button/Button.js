@@ -31,7 +31,7 @@ Button.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   text: PropTypes.string,
-  type: PropTypes.oneOf(['action']),
+  type: PropTypes.oneOf(['action', 'danger', 'confirm']),
 };
 
 Button.defaultProps = {
