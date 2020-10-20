@@ -47,7 +47,7 @@ const NodeForm = ({
         value={color}
         as="select"
         custom>
-        <option value="no color">no color</option>
+        <option value="no_color">no color</option>
         <option value="red">red</option>
         <option value="orange">orange</option>
         <option value="yellow">yellow</option>

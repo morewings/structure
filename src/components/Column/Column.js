@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import config from 'src/config';
-import {useActions, useChildrenIdList} from 'src/features/structure';
+import {useStructureActions, useChildrenIdList} from 'src/features/structure';
 import {Accordion} from 'src/components/Accordion';
 import Node from 'src/components/Node/Node';
 import useModalLogic from 'src/components/Modals/useModalLogic';
@@ -12,7 +12,7 @@ import classes from './Column.module.css';
 
 const Column = ({nodeId, role}) => {
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
-  const {addNode} = useActions();
+  const {addNode} = useStructureActions();
   const nodes = useChildrenIdList(nodeId);
   const handleClick = () => {
     handleModalShow();

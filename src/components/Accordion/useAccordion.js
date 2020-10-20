@@ -4,11 +4,7 @@ import {useAccordionActions, useAccordionState} from 'src/features/accordion';
 export const useAccordion = id => {
   const accordionState = useAccordionState(id);
   const activeNode = accordionState ? accordionState.openNode : null;
-  const {
-    registerAccordion,
-    toggleAccordion,
-    deleteAccordion,
-  } = useAccordionActions();
+  const {registerAccordion, toggleAccordion} = useAccordionActions();
   const toggleNode = useCallback(
     node => {
       if (activeNode === node) {
@@ -27,6 +23,5 @@ export const useAccordion = id => {
   return {
     activeNode,
     toggleNode,
-    deleteAccordion,
   };
 };

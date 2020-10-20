@@ -36,9 +36,13 @@ NodeHeader.propTypes = {
   isDone: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // TODO: change to enumerable
-  color: PropTypes.string.isRequired,
+  // TODO: fix the bug and change to enumerable
+  color: PropTypes.string,
   isOpen: PropTypes.bool.isRequired,
+};
+
+NodeHeader.defaultProps = {
+  color: '',
 };
 
 export default NodeHeader;

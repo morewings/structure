@@ -11,7 +11,7 @@ import {
   DELETE_NODE,
 } from './actionTypes';
 
-const useActions = () => {
+const useStructureActions = () => {
   const dispatch = useDispatch();
   const addNode = useCallback(
     ({parentId, description, title, isDone, color}) => {
@@ -112,4 +112,4 @@ const useActions = () => {
   };
 };
 
-export default useActions;
+export default useStructureActions;

@@ -1,9 +1,9 @@
 import React from 'react';
-import {useActions} from 'src/features/structure';
+import {useStructureActions} from 'src/features/structure';
 import {Button} from 'react-bootstrap';
 
 export const FullRewind = () => {
-  const {focusInitialNode} = useActions();
+  const {focusInitialNode} = useStructureActions();
   return (
     <Button variant="success" onClick={focusInitialNode} size="lg">
       Full Rewind
