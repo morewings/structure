@@ -56,7 +56,15 @@ export default (state = initialState, action) => {
           nodesListLens(),
           assoc(
             id,
-            createNode({id, parentId, isDone, description, title, generation, color})
+            createNode({
+              id,
+              parentId,
+              isDone,
+              description,
+              title,
+              generation,
+              color,
+            })
           )
         ),
         over(nodeChildrenLens(parentId), append(id))

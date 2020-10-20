@@ -1,9 +1,11 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
-import {MODAL_CLOSE} from './actionTypes';
+import getUniqueId from 'src/utils/getUniqueId';
+import {MODAL_CLOSE, MODAL_OPEN} from './actionTypes';
 
 const useModalActions = () => {
   const dispatch = useDispatch();
+
   const closeModal = useCallback(
     id => {
       dispatch({
@@ -13,7 +15,21 @@ const useModalActions = () => {
     },
     [dispatch]
   );
-  return {closeModal};
+
+  const openModal = useCallback(
+    ({modalProps, modalType}) => {
+      const id = getUniqueId({prefix: 'modal'});
+      dispatch({
+        type: MODAL_OPEN,
+        modalProps,
+        modalType,
+        id,
+      });
+    },
+    [dispatch]
+  );
+
+  return {closeModal, openModal};
 };
 
 export default useModalActions;

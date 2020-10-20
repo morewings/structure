@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Modal from 'react-modal';
 import useActions from 'src/features/structure/actionCreators';
+import {useModalActions, CONFIRMATION_DELETE} from 'src/features/modal';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import {useNodeData, useChildrenCompletion} from 'src/features/structure';
+
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
@@ -26,6 +27,8 @@ const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
   const completion = useChildrenCompletion(id);
   const {focusNode, editNode, toggleNodeStatus, deleteNode} = useActions();
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
+  const {openModal} = useModalActions();
+
   const handleSelect = () => {
     focusNode(id);
   };
@@ -45,6 +48,15 @@ const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
   const handleDelete = () => {
     deleteNode(id);
     deleteAccordion(id);
+  };
+
+  const onClick = () => {
+    openModal({
+      modalType: CONFIRMATION_DELETE,
+      modalProps: {
+        foo: 'bar',
+      },
+    });
   };
 
   return (
@@ -75,7 +87,7 @@ const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
               handleModalShow={handleModalShow}
               handleSelect={handleSelect}
             />
-            <NodeActions deleteNode={handleDelete} />
+            <NodeActions deleteNode={onClick} />
           </main>
         )}
       </div>

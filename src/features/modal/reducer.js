@@ -1,18 +1,9 @@
-import {compose, lensProp, over, omit, dropLast} from 'ramda';
-import {MODAL_CLOSE} from './actionTypes';
+import {compose, lensProp, over, omit, dropLast, append, assoc} from 'ramda';
+import {MODAL_CLOSE, MODAL_OPEN} from './actionTypes';
 
 const initialState = {
-  open: ['modal_1', 'modal_2'],
-  modals: {
-    modal_1: {
-      modalProps: {},
-      modalType: 'CONFIRMATION',
-    },
-    modal_2: {
-      modalProps: {},
-      modalType: 'CONFIRMATION',
-    },
-  },
+  open: [],
+  modals: {},
 };
 
 const openModalLens = lensProp(['open']);
@@ -25,6 +16,19 @@ export default (state = initialState, action) => {
       return compose(
         over(openModalLens, dropLast(1)),
         over(modalsLens, omit([id]))
+      )(state);
+    }
+    case MODAL_OPEN: {
+      const {id, modalType, modalProps} = action;
+      return compose(
+        over(openModalLens, append(id)),
+        over(
+          modalsLens,
+          assoc(id, {
+            modalType,
+            modalProps,
+          })
+        )
       )(state);
     }
     default:
