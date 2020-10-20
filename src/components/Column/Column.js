@@ -13,7 +13,7 @@ import classes from './Column.module.css';
 const Column = ({nodeId, role}) => {
   const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const {addNode} = useActions();
-  const nodes2 = useChildrenIdList(nodeId);
+  const nodes = useChildrenIdList(nodeId);
   const handleClick = () => {
     handleModalShow();
   };
@@ -29,7 +29,7 @@ const Column = ({nodeId, role}) => {
           <div className={classes.text}>{role}</div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>
-          {nodes2.map(id => (
+          {nodes.map(id => (
             <Node id={id} key={id} />
           ))}
         </Accordion>
