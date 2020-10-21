@@ -2,7 +2,7 @@ import {useCallback, useState} from 'react';
 
 const useNodeFormLogic = ({
   onSubmit,
-  node = {isDone: false, title: '', description: ''},
+  node = {isDone: false, title: '', description: '', color: ''},
 }) => {
   const [isDone, setDone] = useState(node.isDone);
   const [title, setTitle] = useState(node.title);

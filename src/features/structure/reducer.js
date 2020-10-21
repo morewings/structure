@@ -49,14 +49,22 @@ const nodeChildrenLens = id => lensPath(['nodes', id, 'children']);
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NODE: {
-      const {id, parentId, isDone, description, title} = action.payload;
+      const {id, parentId, isDone, description, title, color} = action.payload;
       const generation = state.nodes[parentId].generation + 1;
       return compose(
         over(
           nodesListLens(),
           assoc(
             id,
-            createNode({id, parentId, isDone, description, title, generation})
+            createNode({
+              id,
+              parentId,
+              isDone,
+              description,
+              title,
+              generation,
+              color,
+            })
           )
         ),
         over(nodeChildrenLens(parentId), append(id))

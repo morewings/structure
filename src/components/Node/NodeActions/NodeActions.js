@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Button} from 'src/ui/Button';
 import classes from './NodeActions.module.css';
 
-const NodeActions = ({deleteNode, id}) => (
+const NodeActions = ({deleteNode}) => (
   <div className={classes.actions}>
     <Button
       className={classes.iconButton}
@@ -16,7 +16,7 @@ const NodeActions = ({deleteNode, id}) => (
       className={classes.iconButton}
       icon="delete"
       onClick={() => {
-        deleteNode(id);
+        deleteNode();
       }}
     />
   </div>
@@ -24,7 +24,6 @@ const NodeActions = ({deleteNode, id}) => (
 
 NodeActions.propTypes = {
   deleteNode: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
 };
 
 export default NodeActions;

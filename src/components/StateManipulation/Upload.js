@@ -1,12 +1,12 @@
 import React, {useRef, useEffect} from 'react';
 import {Button} from 'react-bootstrap';
 import readFile from 'src/utils/readFile';
-import {useActions} from 'src/features/structure';
+import {useStructureActions} from 'src/features/structure';
 import classes from './UploadButton.module.css';
 
 export const Upload = () => {
   const inputRef = useRef();
-  const {replaceStructure} = useActions();
+  const {replaceStructure} = useStructureActions();
   const handleFileUpload = async ([file]) => {
     const structure = await readFile(file);
     structure && replaceStructure(structure);
