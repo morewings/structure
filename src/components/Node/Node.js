@@ -2,18 +2,19 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
-import {useModalActions, useDeleteNodeModal} from 'src/features/modal';
+import {useDeleteNodeModal} from 'src/features/modal';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import {useNodeData, useChildrenCompletion} from 'src/features/structure';
+import {Button} from 'src/ui/Button';
+import {FooterSeparator} from 'src/ui/FooterSeparator';
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
-import NodeFooter from './NodeFooter';
 import NodeActions from './NodeActions';
 import classes from './Node.module.css';
 
-const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
+const Node = ({id, toggleNode, activeNode}) => {
   const isOpen = activeNode === id;
   const {
     isDone,
@@ -72,9 +73,21 @@ const Node = ({id, toggleNode, activeNode, deleteAccordion}) => {
               nodeChildrenAmount={childNodes.length}
             />
             {description && <Description description={description} />}
-            <NodeFooter
-              handleModalShow={handleModalShow}
-              handleSelect={handleSelect}
+            <FooterSeparator
+              leftButton={
+                <Button
+                  icon="edit"
+                  text="Edit node"
+                  onClick={handleModalShow}
+                />
+              }
+              rightButton={
+                <Button
+                  icon="parent_children"
+                  text="Show children"
+                  onClick={handleSelect}
+                />
+              }
             />
             <NodeActions deleteNode={handleDelete} />
           </main>

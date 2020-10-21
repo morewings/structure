@@ -11,28 +11,18 @@
   align-items: flex-start;
 }
 
+.left{
+  margin-right: calc(2 * var(--baseUnit));
+}
+
 .icon {
   color: var(--accentColor);
   font-size: calc(6 * var(--baseUnit));
-  margin-right: calc(3 * var(--baseUnit));
 }
 
-.text {
+.right {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
   color: var(--darkColor);
-}
-
-.footer {
-  border-top: 1px solid var(--bgColor);
-  margin: 0 0 0;
-  display: flex;
-  & .edit,
-  & .showChildren{
-    flex: 1;
-  }
-  & .edit{
-    border-right: 1px solid var(--bgColor);
-  }
 }

@@ -8,6 +8,7 @@ import useModalLogic from 'src/components/Modals/useModalLogic';
 import CreateNodeModal from 'src/components/Modals/CreateNode';
 import {Icon} from 'src/ui/Icon';
 import {Button} from 'src/ui/Button';
+import {FooterSeparator} from 'src/ui/FooterSeparator';
 import classes from './Column.module.css';
 
 const Column = ({nodeId, role}) => {
@@ -33,9 +34,9 @@ const Column = ({nodeId, role}) => {
             <Node id={id} key={id} />
           ))}
         </Accordion>
-        <footer className={classes.footer}>
-          {role === 'siblings' && (
-            <div className={classes.focus}>
+        <FooterSeparator
+          leftButton={
+            role === 'siblings' ? (
               <Button
                 text="Focus active"
                 icon="focus"
@@ -43,12 +44,12 @@ const Column = ({nodeId, role}) => {
                   console.log('trying to focus');
                 }}
               />
-            </div>
-          )}
-          <div className={classes.add}>
+            ) : undefined
+          }
+          rightButton={
             <Button text="Add node" icon="add-node" onClick={handleClick} />
-          </div>
-        </footer>
+          }
+        />
       </div>
       {isModalVisible && (
         <CreateNodeModal
