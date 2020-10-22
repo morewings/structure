@@ -2,8 +2,15 @@ import {compose, lensProp, over, omit, dropLast, append, assoc} from 'ramda';
 import {MODAL_CLOSE, MODAL_OPEN} from './actionTypes';
 
 const initialState = {
-  open: [],
-  modals: {},
+  open: ['modal_1'],
+  modals: {
+    modal_1: {
+      modalType: 'NODE_EDIT',
+      modalProps: {
+        id: 'modal_1',
+      },
+    },
+  },
 };
 
 const openModalLens = lensProp(['open']);

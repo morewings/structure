@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import useActions from 'src/features/structure/actionCreators';
-import {useDeleteNodeModal} from 'src/features/modal';
+import {useDeleteNodeModal, useEditNodeModal} from 'src/features/modal';
 import useModalLogic from 'src/components/Modals/useModalLogic';
 import EditNodeModal from 'src/components/Modals/EditNode';
 import {useNodeData, useChildrenCompletion} from 'src/features/structure';
@@ -25,17 +25,18 @@ const Node = ({id, toggleNode, activeNode}) => {
     description,
   } = useNodeData(id);
   const completion = useChildrenCompletion(id);
-  const {focusNode, editNode, toggleNodeStatus} = useActions();
-  const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
+  const {focusNode, toggleNodeStatus} = useActions();
+  // const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
   const deleteNode = useDeleteNodeModal();
+  const editNode = useEditNodeModal();
 
   const handleSelect = () => {
     focusNode(id);
   };
-  const handleEditNode = nodeFields => {
-    editNode({id, ...nodeFields});
-    handleModalClose();
-  };
+  // const handleEditNode = nodeFields => {
+  //   editNode({id, ...nodeFields});
+  //   handleModalClose();
+  // };
   const handleCheckboxChange = () => {
     toggleNodeStatus({
       id,
@@ -47,6 +48,10 @@ const Node = ({id, toggleNode, activeNode}) => {
   };
   const handleDelete = () => {
     deleteNode(id);
+  };
+
+  const handleEdit = () => {
+    editNode(id);
   };
 
   return (
@@ -75,11 +80,7 @@ const Node = ({id, toggleNode, activeNode}) => {
             {description && <Description description={description} />}
             <FooterSeparator
               leftButton={
-                <Button
-                  icon="edit"
-                  text="Edit node"
-                  onClick={handleModalShow}
-                />
+                <Button icon="edit" text="Edit node" onClick={handleEdit} />
               }
               rightButton={
                 <Button
@@ -93,15 +94,15 @@ const Node = ({id, toggleNode, activeNode}) => {
           </main>
         )}
       </div>
-      {isModalVisible && (
-        <EditNodeModal
-          onSave={handleEditNode}
-          node={{title, isDone, description}}
-          id={id}
-          isVisible={isModalVisible}
-          onClose={handleModalClose}
-        />
-      )}
+      {/* {isModalVisible && ( */}
+      {/*  <EditNodeModal */}
+      {/*    onSave={handleEditNode} */}
+      {/*    node={{title, isDone, description}} */}
+      {/*    id={id} */}
+      {/*    isVisible={isModalVisible} */}
+      {/*    onClose={handleModalClose} */}
+      {/*  /> */}
+      {/* )} */}
     </Fragment>
   );
 };
