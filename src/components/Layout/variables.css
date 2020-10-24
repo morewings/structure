@@ -1,7 +1,8 @@
 :root{
   --baseUnit: 6px;
   --bgColor: #4A90E2;
-  --accentColor: #CC8110;
+  --accentColor: #cc8110;
+  --secondaryColor: rgba(255, 211, 110, .33);
   --darkColor: #424242;
   --dangerColor: #F23005;
   --actionColor: rgba(46, 56, 255, 1);

@@ -1,4 +1,4 @@
-import useModalActions from './actionCreators';
+import {useModalActions} from 'src/features/modal';
 import {CONFIRMATION_DELETE} from './modalTypes';
 
 const useDeleteNodeModal = () => {

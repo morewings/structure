@@ -1,7 +1,7 @@
-import useModalActions from './actionCreators';
+import {useModalActions} from 'src/features/modal';
 import {NODE_EDIT} from './modalTypes';
 
-const useDeleteNodeModal = () => {
+const useEditNodeModal = () => {
   const {openModal} = useModalActions();
   return id => {
     openModal({
@@ -13,4 +13,4 @@ const useDeleteNodeModal = () => {
   };
 };
 
-export default useDeleteNodeModal;
+export default useEditNodeModal;

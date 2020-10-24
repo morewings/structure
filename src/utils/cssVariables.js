@@ -37,7 +37,7 @@ export const getCSSVariable = (element, variableName) =>
  * @name useSetCssVariable
  * @description React hook to set CSS variable returns ref function. Returns tuple [getter, setter]
  * @param {string} name - HTML element to contain variable
- * @param {string} value - variable name, should start with `--`
+ * @param {string} value - variable name
  * @return {(React.MutableRefObject<null>|Function)[]}
  */
 export const useSetCssVariable = (name, value) => {

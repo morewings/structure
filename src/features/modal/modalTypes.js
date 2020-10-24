@@ -1,3 +1,0 @@
-export const CONFIRMATION_DELETE = 'CONFIRMATION_DELETE';
-
-export const NODE_EDIT = 'NODE_EDIT';
