@@ -1,5 +1,5 @@
 .confirmation {
-  width: calc(66 * var(--baseUnit));
+  width: var(--modalWidth);
   background: var(--backgroundFullColor);
   border-radius: var(--baseUnit);
   overflow: hidden;

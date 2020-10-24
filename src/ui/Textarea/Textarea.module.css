@@ -1,0 +1,21 @@
+.textarea {
+  font-size: 12px;
+  color: var(--darkColor);
+  line-height: 1.2;
+  width: 100%;
+  resize: none;
+  border-radius: var(--baseUnit);
+  box-shadow: none;
+  border: 1px solid transparent;
+  background: var(--secondaryColor);
+  padding: var(--baseUnit) calc(2 * var(--baseUnit));
+  &:focus {
+    border: 1px solid var(--accentColor);
+    outline: none;
+  }
+}
+
+
+.wrapper{
+  margin: 20px;
+}

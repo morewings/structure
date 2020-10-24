@@ -17,7 +17,7 @@
   & .toggleIcon {
     color: var(--iconLightColor);
     &:hover {
-      color: var(--iconColor);
+      color: var(--actionColor);
     }
   }
 }

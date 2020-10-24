@@ -9,6 +9,7 @@
   position: fixed;
   inset: 0;
   background-color: var(--modalBgColor);
+  overflow: auto;
 }
 
 :global(.ReactModal__Body--open) {

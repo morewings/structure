@@ -1,26 +1,20 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import config from 'src/config';
-import {useStructureActions, useChildrenIdList} from 'src/features/structure';
+import {useChildrenIdList} from 'src/features/structure';
+import {useCreateNodeModal} from 'src/components/ModalManager';
 import {Accordion} from 'src/components/Accordion';
 import Node from 'src/components/Node/Node';
-import useModalLogic from 'src/components/Modals/useModalLogic';
-import CreateNodeModal from 'src/components/Modals/CreateNode';
 import {Icon} from 'src/ui/Icon';
 import {Button} from 'src/ui/Button';
 import {FooterSeparator} from 'src/ui/FooterSeparator';
 import classes from './Column.module.css';
 
 const Column = ({nodeId, role}) => {
-  const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
-  const {addNode} = useStructureActions();
   const nodes = useChildrenIdList(nodeId);
-  const handleClick = () => {
-    handleModalShow();
-  };
-  const handleCreateNode = nodeFields => {
-    addNode({parentId: nodeId, ...nodeFields});
-    handleModalClose();
+  const addNode = useCreateNodeModal();
+  const handleAdd = () => {
+    addNode(nodeId);
   };
   return (
     <Fragment>
@@ -47,18 +41,10 @@ const Column = ({nodeId, role}) => {
             ) : undefined
           }
           rightButton={
-            <Button text="Add node" icon="add-node" onClick={handleClick} />
+            <Button text="Add node" icon="add-node" onClick={handleAdd} />
           }
         />
       </div>
-      {isModalVisible && (
-        <CreateNodeModal
-          onSave={handleCreateNode}
-          parentId={nodeId}
-          isVisible={isModalVisible}
-          onClose={handleModalClose}
-        />
-      )}
     </Fragment>
   );
 };
