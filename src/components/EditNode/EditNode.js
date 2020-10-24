@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Checkbox} from 'src/ui/Checkbox';
 import {Textarea} from 'src/ui/Textarea';
 import {ColorInput} from 'src/ui/ColorInput';
 import {Button} from 'src/ui/Button';
 import {FooterSeparator} from 'src/ui/FooterSeparator';
+import {useNodeColorValues} from 'src/utils/nodeColors';
 import classes from './EditNode.module.css';
 
 const EditNode = ({id}) => {
-  const test = 1;
+  const [done, setDone] = useState();
+  const [title, setTitle] = useState();
+  const [color, setColor] = useState();
+  const [description, setDescription] = useState();
+
+  const colorValue = useNodeColorValues(color);
   return (
     <div className={classes.editNode}>
       <header className={classes.header}>
@@ -18,20 +24,29 @@ const EditNode = ({id}) => {
         <fieldset className={classes.fieldSet}>
           <h3 className={classes.fieldLabel}>Title</h3>
           <div className={classes.titleInputs}>
-            <Checkbox className={classes.checkbox} />
-            <Textarea />
+            <Checkbox
+              color={colorValue}
+              checked={done}
+              onChange={setDone}
+              className={classes.checkbox}
+            />
+            <Textarea value={title} onChange={setTitle} />
           </div>
         </fieldset>
         <fieldset className={classes.fieldSet}>
           <h3 className={classes.fieldLabel}>Color</h3>
           <div className={classes.colorInput}>
-            <ColorInput />
+            <ColorInput value={color} onchange={setColor} />
           </div>
         </fieldset>
         <fieldset className={classes.fieldSet}>
           <h3 className={classes.fieldLabel}>Description</h3>
           <div className={classes.descriptionInput}>
-            <Textarea className={classes.textarea} />
+            <Textarea
+              value={description}
+              onChange={setDescription}
+              className={classes.textarea}
+            />
           </div>
         </fieldset>
         <FooterSeparator
