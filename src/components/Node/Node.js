@@ -97,15 +97,6 @@ const Node = ({id, toggleNode, activeNode}) => {
           </main>
         )}
       </div>
-      {/* {isModalVisible && ( */}
-      {/*  <EditNodeModal */}
-      {/*    onSave={handleEditNode} */}
-      {/*    node={{title, isDone, description}} */}
-      {/*    id={id} */}
-      {/*    isVisible={isModalVisible} */}
-      {/*    onClose={handleModalClose} */}
-      {/*  /> */}
-      {/* )} */}
     </Fragment>
   );
 };
@@ -113,14 +104,12 @@ const Node = ({id, toggleNode, activeNode}) => {
 Node.propTypes = {
   id: PropTypes.string.isRequired,
   toggleNode: PropTypes.func,
-  deleteAccordion: PropTypes.func,
   activeNode: PropTypes.string,
 };
 
 Node.defaultProps = {
   activeNode: '',
   toggleNode: () => {},
-  deleteAccordion: () => {},
 };
 
 export default Node;

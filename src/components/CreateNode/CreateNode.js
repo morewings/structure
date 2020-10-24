@@ -1,29 +1,28 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {useNodeData, useStructureActions} from 'src/features/structure';
+import {useStructureActions} from 'src/features/structure';
 import NodeFieldset from 'src/ui/NodeFieldset';
 import {Button} from 'src/ui/Button';
 import {FooterSeparator} from 'src/ui/FooterSeparator';
-import classes from './EditNode.module.css';
+import classes from 'src/components/CreateNode/CreateNode.module.css';
 
-const EditNode = ({id, onCloseModal}) => {
-  const nodeData = useNodeData(id);
-  const [isDone, setIsDone] = useState(nodeData.isDone);
-  const [title, setTitle] = useState(nodeData.title);
-  const [color, setColor] = useState(nodeData.color);
-  const [description, setDescription] = useState(nodeData.description);
+const CreateNode = ({onCloseModal, parentId}) => {
+  const [isDone, setIsDone] = useState(false);
+  const [title, setTitle] = useState('');
+  const [color, setColor] = useState('gray');
+  const [description, setDescription] = useState('');
 
-  const {editNode} = useStructureActions();
+  const {addNode} = useStructureActions();
 
   const handleEdit = () => {
-    editNode({id, description, color, isDone, title});
+    addNode({description, color, isDone, title, parentId});
     onCloseModal();
   };
 
   return (
     <div className={classes.editNode}>
       <header className={classes.header}>
-        <h2>Edit node</h2> {id && <small>{id}</small>}
+        <h2>Create node</h2>
       </header>
       <NodeFieldset
         color={color}
@@ -57,13 +56,9 @@ const EditNode = ({id, onCloseModal}) => {
   );
 };
 
-EditNode.propTypes = {
-  id: PropTypes.string,
+CreateNode.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
+  parentId: PropTypes.string.isRequired,
 };
 
-EditNode.defaultProps = {
-  id: '',
-};
-
-export default EditNode;
+export default CreateNode;
