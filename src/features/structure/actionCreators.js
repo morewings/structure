@@ -13,6 +13,7 @@ import {
 
 const useStructureActions = () => {
   const dispatch = useDispatch();
+
   const addNode = useCallback(
     ({parentId, description, title, isDone, color}) => {
       const id = getUniqueId();
@@ -30,6 +31,7 @@ const useStructureActions = () => {
     },
     [dispatch]
   );
+
   const editNode = useCallback(
     ({id, description, title, isDone, color}) => {
       dispatch({

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import {useNodeData, useStructureActions} from 'src/features/structure';
 import {Checkbox} from 'src/ui/Checkbox';
 import {Textarea} from 'src/ui/Textarea';
 import {ColorInput} from 'src/ui/ColorInput';
@@ -8,11 +9,19 @@ import {FooterSeparator} from 'src/ui/FooterSeparator';
 import {useNodeColorValues} from 'src/utils/nodeColors';
 import classes from './EditNode.module.css';
 
-const EditNode = ({id}) => {
-  const [done, setDone] = useState();
-  const [title, setTitle] = useState();
-  const [color, setColor] = useState();
-  const [description, setDescription] = useState();
+const EditNode = ({id, onCloseModal}) => {
+  const nodeData = useNodeData(id);
+  const [isDone, setIsDone] = useState(nodeData.isDone);
+  const [title, setTitle] = useState(nodeData.title);
+  const [color, setColor] = useState(nodeData.color);
+  const [description, setDescription] = useState(nodeData.description);
+
+  const {editNode} = useStructureActions();
+
+  const handleEdit = () => {
+    editNode({id, description, color, isDone, title});
+    onCloseModal();
+  };
 
   const colorValue = useNodeColorValues(color);
   return (
@@ -26,8 +35,8 @@ const EditNode = ({id}) => {
           <div className={classes.titleInputs}>
             <Checkbox
               color={colorValue}
-              checked={done}
-              onChange={setDone}
+              checked={isDone}
+              onChange={setIsDone}
               className={classes.checkbox}
             />
             <Textarea value={title} onChange={setTitle} />
@@ -55,7 +64,7 @@ const EditNode = ({id}) => {
               type="danger"
               icon="cancel"
               text="Cancel"
-              onClick={() => {}}
+              onClick={onCloseModal}
             />
           }
           rightButton={
@@ -63,7 +72,7 @@ const EditNode = ({id}) => {
               type="confirm"
               icon="save"
               text="Save node"
-              onClick={() => {}}
+              onClick={handleEdit}
             />
           }
         />
@@ -74,6 +83,7 @@ const EditNode = ({id}) => {
 
 EditNode.propTypes = {
   id: PropTypes.string,
+  onCloseModal: PropTypes.func.isRequired,
 };
 
 EditNode.defaultProps = {

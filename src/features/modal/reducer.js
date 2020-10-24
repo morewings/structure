@@ -7,7 +7,7 @@ const initialState = {
     modal_1: {
       modalType: 'NODE_EDIT',
       modalProps: {
-        id: 'modal_1',
+        id: 'node_EpW79G',
       },
     },
   },

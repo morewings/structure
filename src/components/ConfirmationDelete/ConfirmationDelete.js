@@ -8,7 +8,7 @@ import {useAccordionActions} from 'src/features/accordion';
 import classes from './ConfirmationDelete.module.css';
 
 const ConfirmationDelete = ({id, onCloseModal}) => {
-  const {deleteNode} = useStructureActions(id);
+  const {deleteNode} = useStructureActions();
   const {deleteAccordion} = useAccordionActions();
   const handleDelete = () => {
     deleteNode(id);
