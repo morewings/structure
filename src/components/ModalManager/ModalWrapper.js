@@ -13,7 +13,6 @@ const ModalWrapper = ({id, isOpen}) => {
   };
 
   const {modalType, modalProps} = useModalInfo(id);
-  console.log(modalProps)
 
   const ModalComponent = useModalComponent(modalType);
 

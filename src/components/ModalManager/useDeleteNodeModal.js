@@ -1,11 +1,11 @@
 import {useModalActions} from 'src/features/modal';
-import {CONFIRMATION_DELETE} from './modalTypes';
+import modalTypes from './modalTypes';
 
 const useDeleteNodeModal = () => {
   const {openModal} = useModalActions();
   return id => {
     openModal({
-      modalType: CONFIRMATION_DELETE,
+      modalType: modalTypes.CONFIRMATION_DELETE,
       modalProps: {
         id,
       },

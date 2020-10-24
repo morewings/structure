@@ -6,8 +6,6 @@ import {
   useDeleteNodeModal,
   useEditNodeModal,
 } from 'src/components/ModalManager';
-import useModalLogic from 'src/components/Modals/useModalLogic';
-import EditNodeModal from 'src/components/Modals/EditNode';
 import {useNodeData, useChildrenCompletion} from 'src/features/structure';
 import {Button} from 'src/ui/Button';
 import {FooterSeparator} from 'src/ui/FooterSeparator';
@@ -27,28 +25,30 @@ const Node = ({id, toggleNode, activeNode}) => {
     children: childNodes,
     description,
   } = useNodeData(id);
+
   const completion = useChildrenCompletion(id);
+
   const {focusNode, toggleNodeStatus} = useActions();
-  // const {isModalVisible, handleModalClose, handleModalShow} = useModalLogic();
+
   const deleteNode = useDeleteNodeModal();
+
   const editNode = useEditNodeModal();
 
   const handleSelect = () => {
     focusNode(id);
   };
-  // const handleEditNode = nodeFields => {
-  //   editNode({id, ...nodeFields});
-  //   handleModalClose();
-  // };
+
   const handleCheckboxChange = () => {
     toggleNodeStatus({
       id,
       isDone: !isDone,
     });
   };
+
   const handleToggle = () => {
     toggleNode(id);
   };
+
   const handleDelete = () => {
     deleteNode(id);
   };

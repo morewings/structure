@@ -1,11 +1,11 @@
 import {useModalActions} from 'src/features/modal';
-import {NODE_EDIT} from './modalTypes';
+import modalTypes from './modalTypes';
 
 const useEditNodeModal = () => {
   const {openModal} = useModalActions();
   return id => {
     openModal({
-      modalType: NODE_EDIT,
+      modalType: modalTypes.NODE_EDIT,
       modalProps: {
         id,
       },
