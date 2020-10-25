@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import config from 'src/config';
-import {useChildrenIdList} from 'src/features/structure';
+import {useChildrenIdList, useNodeData} from 'src/features/structure';
 import {useCreateNodeModal} from 'src/components/ModalManager';
 import {Accordion} from 'src/components/Accordion';
 import Node from 'src/components/Node/Node';
@@ -13,6 +13,7 @@ import classes from './Column.module.css';
 const Column = ({nodeId, role}) => {
   const nodes = useChildrenIdList(nodeId);
   const addNode = useCreateNodeModal();
+  const {title} = useNodeData(nodeId);
   const handleAdd = () => {
     addNode(nodeId);
   };
@@ -21,7 +22,7 @@ const Column = ({nodeId, role}) => {
       <div className={classes.column}>
         <header className={classes.header}>
           <Icon className={classes.icon} name={role} />
-          <div className={classes.text}>{role}</div>
+          <div className={classes.text}>{title || role}</div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>
           {nodes.map(id => (
