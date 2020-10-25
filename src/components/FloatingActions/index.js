@@ -1,1 +1,1 @@
-export {default as FloatingActions} from './FloatingActions';
+export {default} from './FloatingActions';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useStaticQuery, graphql} from 'gatsby';
 import {Container} from 'src/ui/Grid';
-import FloatingActions from 'src/components/FloatingActionsNew';
+import FloatingActions from 'src/components/FloatingActions';
 import ModalManager from 'src/components/ModalManager/ModalManager';
 import config from 'src/config';
 import 'bootstrap/dist/css/bootstrap.min.css';
