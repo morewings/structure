@@ -10,7 +10,7 @@
   background: var(--secondaryColor);
   padding: var(--baseUnit) calc(2 * var(--baseUnit));
   &:focus {
-    border: 1px solid var(--accentColor);
+    border: 1px solid var(--actionColor);
     outline: none;
   }
 }

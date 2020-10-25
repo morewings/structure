@@ -1,4 +1,4 @@
-.editNode {
+.createNode {
   width: var(--modalWidth);
   background: var(--backgroundFullColor);
   border-radius: var(--baseUnit);
@@ -15,9 +15,5 @@
     margin-right: calc(2 * var(--baseUnit));
     display: inline-block;
     margin-bottom: 0;
-  }
-  & small {
-    font-size: 16px;
-    font-weight: 300;
   }
 }

@@ -3,6 +3,7 @@ import {
   ACCORDION_REGISTER,
   ACCORDION_TOGGLE,
   ACCORDION_DELETE,
+  ACCORDION_RESET
 } from 'src/features/accordion/actionTypes';
 import config from 'src/config';
 
@@ -32,6 +33,9 @@ export default (state = initialState, action) => {
     }
     case ACCORDION_DELETE: {
       return omit([action.id], state);
+    }
+    case ACCORDION_RESET: {
+      return initialState;
     }
     default:
       return state;

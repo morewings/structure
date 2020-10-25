@@ -4,6 +4,7 @@ import {
   ACCORDION_REGISTER,
   ACCORDION_TOGGLE,
   ACCORDION_DELETE,
+  ACCORDION_RESET,
 } from 'src/features/accordion/actionTypes';
 
 const useAccordionActions = () => {
@@ -39,7 +40,13 @@ const useAccordionActions = () => {
     [dispatch]
   );
 
-  return {registerAccordion, toggleAccordion, deleteAccordion};
+  const resetAccordion = useCallback(() => {
+    dispatch({
+      type: ACCORDION_RESET,
+    });
+  }, [dispatch]);
+
+  return {registerAccordion, toggleAccordion, deleteAccordion, resetAccordion};
 };
 
 export default useAccordionActions;

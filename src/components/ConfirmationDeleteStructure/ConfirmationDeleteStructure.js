@@ -5,14 +5,14 @@ import {Button} from 'src/ui/Button';
 import {FooterSeparator} from 'src/ui/FooterSeparator';
 import {useStructureActions} from 'src/features/structure';
 import {useAccordionActions} from 'src/features/accordion';
-import classes from './ConfirmationDelete.module.css';
+import classes from './ConfirmationDeleteStructure.module.css';
 
-const ConfirmationDelete = ({id, onCloseModal}) => {
-  const {deleteNode} = useStructureActions();
-  const {deleteAccordion} = useAccordionActions();
+const ConfirmationDeleteStructure = ({onCloseModal}) => {
+  const {resetStructure} = useStructureActions();
+  const {resetAccordion} = useAccordionActions();
   const handleDelete = () => {
-    deleteNode(id);
-    deleteAccordion(id);
+    resetStructure();
+    resetAccordion();
     onCloseModal();
   };
   return (
@@ -22,8 +22,8 @@ const ConfirmationDelete = ({id, onCloseModal}) => {
           <Icon name="help" className={classes.icon} />
         </div>
         <div className={classes.right}>
-          Do you want to delete node and its children? You will not be able to
-          undo this operation.
+          Do you want to the whole structure data? You will not be able to undo
+          this operation.
         </div>
       </main>
       <FooterSeparator
@@ -48,9 +48,8 @@ const ConfirmationDelete = ({id, onCloseModal}) => {
   );
 };
 
-ConfirmationDelete.propTypes = {
-  id: PropTypes.string.isRequired,
+ConfirmationDeleteStructure.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
 };
 
-export default ConfirmationDelete;
+export default ConfirmationDeleteStructure;

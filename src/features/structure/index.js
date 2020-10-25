@@ -4,3 +4,4 @@ export {default as useFocusedParentId} from './useFocusedParentId';
 export {default as StructureReducer} from './reducer';
 export {default as useChildrenIdList} from './useChildrenIdList';
 export {default as useNodeData} from './useNodeData';
+export {useStructure} from './useStructure';

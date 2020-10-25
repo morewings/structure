@@ -5,7 +5,7 @@ const useDeleteNodeModal = () => {
   const {openModal} = useModalActions();
   return id => {
     openModal({
-      modalType: modalTypes.CONFIRMATION_DELETE,
+      modalType: modalTypes.CONFIRMATION_DELETE_NODE,
       modalProps: {
         id,
       },

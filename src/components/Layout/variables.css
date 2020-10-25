@@ -14,7 +14,7 @@
   --iconColor: rgba(66, 66, 66, .66);
   --iconLightColor: rgba(66, 66, 66, .33);
   --headerHeight: 56px;
-  --footerHeight: calc(10 * var(--baseUnit));
+  --footerHeight: calc(6 * var(--baseUnit));
   --columnHeight: 656px;
   --baseMargin: 12px;
   --baseBorderRadius: 6px;

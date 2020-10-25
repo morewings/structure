@@ -2,41 +2,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Icon} from 'src/ui/Icon';
-import {useSetCssVariable} from 'src/utils/cssVariables';
 import {useColors} from 'src/utils/buttonColors';
-import classes from './Button.module.css';
+import {useSetCssVariable} from 'src/utils/cssVariables';
+import classes from './ButtonBig.module.css';
 
-export const Button = ({onClick, className, icon, text, type}) => {
+export const ButtonBig = ({
+  icon,
+  type,
+  className,
+  onClick,
+  children,
+  title,
+}) => {
   const color = useColors(type);
   const [, setRef] = useSetCssVariable('buttonColor', color);
   return (
     <button
+      title={title}
       ref={setRef}
       type="button"
       onClick={onClick}
       className={classNames({
-        [classes.button]: true,
+        [classes.buttonBig]: true,
         [className]: !!className,
       })}>
-      <span className={classes.wrapper}>
-        {icon && <Icon className={classes.icon} name={icon} />}
-        {text && <span className={classes.name}>{text}</span>}
-      </span>
+      <Icon className={classes.icon} name={icon} />
+      {children && children}
     </button>
   );
 };
 
-Button.propTypes = {
+ButtonBig.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
-  icon: PropTypes.string,
-  text: PropTypes.string,
   type: PropTypes.oneOf(['action', 'danger', 'confirm']),
+  children: PropTypes.node,
 };
 
-Button.defaultProps = {
-  className: '',
+ButtonBig.defaultProps = {
   type: 'action',
-  text: '',
-  icon: '',
+  className: '',
+  children: null,
 };
