@@ -88,7 +88,7 @@ const Node = ({id, toggleNode, activeNode}) => {
               rightButton={
                 <Button
                   icon="parent_children"
-                  text="Show children"
+                  text="Show subs"
                   onClick={handleSelect}
                 />
               }

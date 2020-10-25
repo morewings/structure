@@ -20,7 +20,7 @@ const CreateNode = ({onCloseModal, parentId}) => {
   };
 
   return (
-    <div className={classes.editNode}>
+    <div className={classes.createNode}>
       <header className={classes.header}>
         <h2>Create node</h2>
       </header>
