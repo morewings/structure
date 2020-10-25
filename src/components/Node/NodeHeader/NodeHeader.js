@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {useNodeColorValues} from 'src/utils/nodeColors';
 import {Checkbox} from 'src/ui/Checkbox';
 import {Icon} from 'src/ui/Icon';
@@ -24,7 +25,14 @@ const NodeHeader = ({
         onChange={handleCheckboxChange}
         checked={isDone}
       />
-      <h5 className={classes.title}>{title || id}</h5>
+      <h5
+        title={title}
+        className={classNames({
+          [classes.title]: true,
+          [classes.shorten]: !isOpen,
+        })}>
+        {title || id}
+      </h5>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
       <div onClick={handleToggle} role="button">
         <Icon className={classes.toggleIcon} color={color} name={icon} />

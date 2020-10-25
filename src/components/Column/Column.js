@@ -22,7 +22,9 @@ const Column = ({nodeId, role}) => {
       <div className={classes.column}>
         <header className={classes.header}>
           <Icon className={classes.icon} name={role} />
-          <div className={classes.text}>{title || role}</div>
+          <div title={title} className={classes.text}>
+            {title || role}
+          </div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>
           {nodes.map(id => (
