@@ -3,7 +3,7 @@
   --paddingVertical: calc(4 * var(--baseUnit));
   display: flex;
   flex-direction: column;
-  margin: var(--baseMargin) 0;
+  margin: calc(6 * var(--baseUnit)) 0;
   border-radius: var(--baseBorderRadius);
   background-clip: border-box;
   height: var(--columnHeight);
