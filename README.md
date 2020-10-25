@@ -8,7 +8,46 @@
 
 ```shell script
 yarn start # starts dev mode 
+yarn edit:fonts # opens icon font edit tool
 ```
+
+
+## Feature description
+
+### Structure
+
+Includes a hierarchy of **Nodes** inside Map like collection.
+
+**Node** - entity which contains specific fields
+
+```js
+const node = {
+  title: 'Initial Node', // node title
+  isDone: false, // Boolean value
+  children: [], // list of node ids
+  parentId: 'parentId', // id of parent
+  generation: 0, // number of generation
+  color: 'red', // name of color
+  id: 'id' // id of node
+}
+```
+
+### Modal
+
+Contains Map like collection of **Modals**. 
+
+Modal is a React component.
+
+### Accordion
+
+Contains Map like collection of accordion states. Each state related to the Node with same id.
+
+```js
+const accordion = {
+  openNode: 'node_id'
+}
+``` 
+
 
 ## Guides
 

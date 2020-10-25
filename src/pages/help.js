@@ -3,11 +3,11 @@ import Board from 'src/components/Board/Board';
 import Layout from '../components/Layout/Layout';
 import {SEO} from '../components/SEO';
 
-const IndexPage = () => (
+const HelpPage = () => (
   <Layout>
-    <SEO title="Board" />
-    <Board />
+    <SEO title="Help" />
+    Help me
   </Layout>
 );
 
-export default IndexPage;
+export default HelpPage;
