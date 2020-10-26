@@ -13,6 +13,15 @@
   &:hover {
     background: var(--backgroundMiddleColorHover);
   }
+
+  &:active {
+    & .icon,
+    & .name {
+      left: 1px;
+      position: relative;
+      top: 1px;
+    }
+  }
 }
 
 .wrapper {
@@ -23,12 +32,14 @@
   width: 100%;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .icon {
   color: var(--buttonColor);
   font-size: 18px;
   margin-right: 3px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .name {
   color: var(--buttonColor);
   font-size: 12px;
