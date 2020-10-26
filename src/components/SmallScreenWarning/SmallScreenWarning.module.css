@@ -6,7 +6,7 @@
   margin: auto calc(2 * var(--baseUnit));
   max-width: var(--modalWidth);
   overflow: hidden;
-  padding: calc(6 * var(--baseUnit)) calc(6 * var(--baseUnit)) calc(4 * var(--baseUnit));
+  padding: calc(6 * var(--baseUnit)) calc(6 * var(--baseUnit));
 }
 
 .header {
