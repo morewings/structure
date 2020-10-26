@@ -1,5 +1,6 @@
 .header {
   background-color: var(--backgroundLowColor);
+  height: var(--headerHeight);
   padding: 9px 0;
 }
 

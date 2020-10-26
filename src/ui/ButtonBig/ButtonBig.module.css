@@ -12,8 +12,14 @@
   &:hover {
     background: var(--backgroundFullColor);
   }
-}
 
+  &:active > .icon {
+    left: 1px;
+    position: relative;
+    top: 1px;
+  }
+}
+/* stylelint-disable-next-line no-descending-specificity */
 .icon {
   color: var(--buttonColor);
   font-size: 36px;

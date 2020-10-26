@@ -1,14 +1,17 @@
 .column {
   --paddingHorizontal: calc(3 * var(--baseUnit));
   --paddingVertical: calc(4 * var(--baseUnit));
+  --topMargin: calc(6 * var(--baseUnit));
+  --heightCalc: calc(100vh - var(--headerHeight) - var(--footerHeight) - 2 * var(--topMargin));
 
   background-clip: border-box;
   background-color: var(--backgroundLowColor);
   border-radius: var(--baseBorderRadius);
   display: flex;
   flex-direction: column;
-  height: var(--columnHeight);
-  margin: calc(6 * var(--baseUnit)) 0;
+  height: var(--heightCalc);
+  margin: var(--topMargin) 0;
+  min-height: var(--columnHeight);
   overflow: auto;
   padding: var(--paddingVertical) 0 0;
 }

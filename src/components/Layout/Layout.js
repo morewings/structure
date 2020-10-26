@@ -26,11 +26,8 @@ const Layout = ({children}) => {
   return (
     <div id={config.appId} className={classes.layout}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Container as="main" className={classes.main}>
-        {children}
-      </Container>
+      <Container className={classes.main}>{children}</Container>
       <Footer className={classes.footer} />
-      <FloatingActions />
       <ModalManager />
     </div>
   );
