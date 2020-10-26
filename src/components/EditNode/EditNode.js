@@ -22,22 +22,25 @@ const EditNode = ({id, onCloseModal}) => {
 
   return (
     <div className={classes.editNode}>
-      <header className={classes.header}>
-        <h2>Edit node</h2> {id && <small>{id}</small>}
-      </header>
-      <NodeFieldset
-        color={color}
-        title={title}
-        description={description}
-        isDone={isDone}
-        setColor={setColor}
-        setIsDone={setIsDone}
-        setTitle={setTitle}
-        setDescription={setDescription}
-      />
+      <main className={classes.main}>
+        <header className={classes.header}>
+          <h2>Edit node</h2> {id && <small>{id}</small>}
+        </header>
+        <NodeFieldset
+          color={color}
+          title={title}
+          description={description}
+          isDone={isDone}
+          setColor={setColor}
+          setIsDone={setIsDone}
+          setTitle={setTitle}
+          setDescription={setDescription}
+        />
+      </main>
       <FooterSeparator
         leftButton={
           <Button
+            className={classes.button}
             type="danger"
             icon="cancel"
             text="Cancel"
@@ -46,6 +49,7 @@ const EditNode = ({id, onCloseModal}) => {
         }
         rightButton={
           <Button
+            className={classes.button}
             type="confirm"
             icon="save"
             text="Save node"

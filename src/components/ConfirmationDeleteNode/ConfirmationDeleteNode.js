@@ -29,6 +29,7 @@ const ConfirmationDeleteNode = ({id, onCloseModal}) => {
       <FooterSeparator
         leftButton={
           <Button
+            className={classes.button}
             type="danger"
             icon="cancel"
             text="No"
@@ -37,6 +38,7 @@ const ConfirmationDeleteNode = ({id, onCloseModal}) => {
         }
         rightButton={
           <Button
+            className={classes.button}
             type="confirm"
             icon="confirm"
             text="Yes"
