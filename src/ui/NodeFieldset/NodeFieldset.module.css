@@ -1,5 +1,5 @@
 .fieldSet {
-  margin-bottom: calc(4 * var(--baseUnit));
+  padding-bottom: calc(4 * var(--baseUnit));
 }
 
 .fieldLabel {
@@ -28,7 +28,7 @@
 
 .descriptionInput{
   display: flex;
-  margin: 0 calc(7 * var(--baseUnit)) calc(3 * var(--baseUnit)) calc(10 * var(--baseUnit));
+  padding: 0 calc(7 * var(--baseUnit)) calc(3 * var(--baseUnit)) calc(10 * var(--baseUnit));
   & .textarea{
     height: calc(16 * var(--baseUnit));
   }

@@ -25,4 +25,5 @@
   --backgroundFullColor: rgba(242, 242, 242, 1);
   --headerFontSize: 16px;
   --modalWidth: calc(66 * var(--baseUnit));
+  --modalButtonColor: rgba(230, 230, 230, 1);
 }

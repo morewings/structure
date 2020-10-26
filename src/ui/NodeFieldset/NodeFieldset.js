@@ -4,6 +4,7 @@ import {useNodeColorValues} from 'src/utils/nodeColors';
 import {Checkbox} from 'src/ui/Checkbox';
 import {Textarea} from 'src/ui/Textarea';
 import {ColorInput} from 'src/ui/ColorInput';
+import config from "src/config";
 import classes from './NodeFieldset.module.css';
 
 const NodeFieldset = ({
@@ -29,7 +30,7 @@ const NodeFieldset = ({
             onChange={setIsDone}
             className={classes.checkbox}
           />
-          <Textarea value={title} onChange={setTitle} />
+          <Textarea maxLength={config.titleMaxLength} value={title} onChange={setTitle} />
         </div>
       </fieldset>
       <fieldset className={classes.fieldSet}>

@@ -21,22 +21,25 @@ const CreateNode = ({onCloseModal, parentId}) => {
 
   return (
     <div className={classes.createNode}>
-      <header className={classes.header}>
-        <h2>Create node</h2>
-      </header>
-      <NodeFieldset
-        color={color}
-        title={title}
-        description={description}
-        isDone={isDone}
-        setColor={setColor}
-        setIsDone={setIsDone}
-        setTitle={setTitle}
-        setDescription={setDescription}
-      />
+      <main className={classes.main}>
+        <header className={classes.header}>
+          <h2>Create node</h2>
+        </header>
+        <NodeFieldset
+          color={color}
+          title={title}
+          description={description}
+          isDone={isDone}
+          setColor={setColor}
+          setIsDone={setIsDone}
+          setTitle={setTitle}
+          setDescription={setDescription}
+        />
+      </main>
       <FooterSeparator
         leftButton={
           <Button
+            className={classes.button}
             type="danger"
             icon="cancel"
             text="Cancel"
@@ -45,6 +48,7 @@ const CreateNode = ({onCloseModal, parentId}) => {
         }
         rightButton={
           <Button
+            className={classes.button}
             type="confirm"
             icon="save"
             text="Save node"

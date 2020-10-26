@@ -1,6 +1,5 @@
 .confirmation {
   width: var(--modalWidth);
-  background: var(--backgroundFullColor);
   border-radius: var(--baseUnit);
   overflow: hidden;
 }
@@ -9,10 +8,15 @@
   display: flex;
   padding: calc(3 * var(--baseUnit));
   align-items: flex-start;
+  background: var(--backgroundFullColor);
 }
 
 .left{
   margin-right: calc(2 * var(--baseUnit));
+}
+
+.button {
+  background: var(--modalButtonColor);
 }
 
 .icon {

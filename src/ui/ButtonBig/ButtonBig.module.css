@@ -6,6 +6,10 @@
   border-radius: var(--size);
   text-align: center;
   padding: 0;
+  background: var(--backgroundHighColor);
+  &:hover {
+    background: var(--backgroundFullColor);
+  }
 }
 
 .icon{

@@ -1,6 +1,5 @@
 .confirmation {
   width: var(--modalWidth);
-  background: var(--backgroundFullColor);
   border-radius: var(--baseUnit);
   overflow: hidden;
 }
@@ -9,6 +8,7 @@
   display: flex;
   padding: calc(3 * var(--baseUnit));
   align-items: flex-start;
+  background: var(--backgroundFullColor);
 }
 
 .left{
@@ -25,4 +25,8 @@
   line-height: 1.5;
   font-weight: 300;
   color: var(--darkColor);
+}
+
+.button {
+  background: var(--modalButtonColor);
 }

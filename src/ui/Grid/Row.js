@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import classes from './Container.module.css';
+import classes from './Row.module.css';
 
-export const Container = ({children, className}) => (
+export const Row = ({children, className}) => (
   <div
     className={classNames({
-      [classes.container]: true,
+      [classes.row]: true,
       [className]: !!className,
     })}>
     {children}
   </div>
 );
 
-Container.propTypes = {
+Row.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 
-Container.defaultProps = {
+Row.defaultProps = {
   className: '',
 };

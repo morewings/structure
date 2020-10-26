@@ -65,6 +65,7 @@ const Node = ({id, toggleNode, activeNode}) => {
           [classes.open]: isOpen,
         })}>
         <NodeHeader
+          className={classes.header}
           handleToggle={handleToggle}
           isOpen={isOpen}
           title={title}
@@ -81,20 +82,22 @@ const Node = ({id, toggleNode, activeNode}) => {
               nodeChildrenAmount={childNodes.length}
             />
             {description && <Description description={description} />}
-            <FooterSeparator
-              leftButton={
-                <Button icon="edit" text="Edit node" onClick={handleEdit} />
-              }
-              rightButton={
-                <Button
-                  icon="parent_children"
-                  text="Show subs"
-                  onClick={handleSelect}
-                />
-              }
-            />
             <NodeActions deleteNode={handleDelete} />
           </main>
+        )}
+        {isOpen && (
+          <FooterSeparator
+            leftButton={
+              <Button icon="edit" text="Edit node" onClick={handleEdit} />
+            }
+            rightButton={
+              <Button
+                icon="parent_children"
+                text="Show subs"
+                onClick={handleSelect}
+              />
+            }
+          />
         )}
       </div>
     </Fragment>

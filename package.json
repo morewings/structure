@@ -24,7 +24,6 @@
     "prop-types": "^15.7.2",
     "ramda": "^0.27.1",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.3.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-modal": "^3.11.2",
@@ -51,7 +50,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
