@@ -1,18 +1,20 @@
 .description {
   margin: var(--baseMargin) 0;
   padding: 0 calc(2 * var(--baseUnit));
+
   & h3 {
-    width: 100%;
+    color: var(--darkColor);
     font-size: 16px;
     font-weight: 300;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center;
-    color: var(--darkColor);
     margin-bottom: var(--baseUnit);
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
   }
+
   & .text {
-    font-size: 14px;
     color: var(--darkColor);
+    font-size: 14px;
   }
 }

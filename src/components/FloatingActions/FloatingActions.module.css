@@ -1,17 +1,19 @@
 .floatingActions {
   --marginValue: calc(8 * var(--baseUnit));
   --paddingValue: calc(4 * var(--baseUnit));
-  position: fixed;
-  right: var(--marginValue);
-  bottom: calc(var(--footerHeight) + var(--marginValue));
-  padding: var(--paddingValue) 0;
+
+  align-items: center;
   background: var(--backgroundMiddleColor);
+  border: 1px solid transparent;
   border-radius: var(--baseUnit);
-  width: calc(12 * var(--baseUnit));
+  bottom: calc(var(--footerHeight) + var(--marginValue));
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid transparent;
+  padding: var(--paddingValue) 0;
+  position: fixed;
+  right: var(--marginValue);
+  width: calc(12 * var(--baseUnit));
+
   &:hover {
     border: 1px solid var(--actionColor);
   }
@@ -24,8 +26,8 @@
 }
 
 .divider {
-  height: 1px;
   background: var(--bgColor);
-  width: 100%;
+  height: 1px;
   margin-bottom: calc(2 * var(--baseUnit));
+  width: 100%;
 }

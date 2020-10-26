@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "function-calc-no-unspaced-operator": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["global"]
+    }]
+  },
+  "plugins": [
+    "stylelint-order"
+  ],
+  "ignoreFiles": ["**/*.snap"]
+}

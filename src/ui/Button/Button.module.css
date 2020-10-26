@@ -1,34 +1,36 @@
-.button{
+.button {
   --height: calc(8 * var(--baseUnit));
   --buttonColor: none;
-  height: var(--height);
-  width: 100%;
+
   background: none;
+  background: var(--backgroundMiddleColor);
   border: none;
+  height: var(--height);
   margin: 0;
   padding: 0;
-  background: var(--backgroundMiddleColor);
-  &:hover{
+  width: 100%;
+
+  &:hover {
     background: var(--backgroundMiddleColorHover);
   }
 }
 
-.wrapper{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+.wrapper {
   align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
-.icon{
-  font-size: 18px;
+.icon {
   color: var(--buttonColor);
+  font-size: 18px;
   margin-right: 3px;
 }
 
-.name{
-  font-size: 12px;
+.name {
   color: var(--buttonColor);
+  font-size: 12px;
   font-weight: 700;
 }

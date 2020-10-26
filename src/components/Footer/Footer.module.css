@@ -1,4 +1,4 @@
 .footer {
+  background-color: var(--backgroundLowColor);
   height: var(--footerHeight);
-  background-color: var(--backgroundLowColor)
 }

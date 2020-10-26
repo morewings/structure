@@ -1,10 +1,10 @@
-.layout{
+.layout {
   background-color: var(--bgColor);
   display: flex;
   flex-direction: column;
 }
 
-.main{
+.main {
+  flex: 1;
   min-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
-  flex: 1
 }

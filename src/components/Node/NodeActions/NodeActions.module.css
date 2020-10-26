@@ -1,13 +1,15 @@
 .actions {
+  padding-right: var(--baseUnit);
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: calc(4 * var(--baseUnit));
-  padding-right: var(--baseUnit);
-  & .iconButton{
+
+  & .iconButton {
     height: calc(3 * var(--baseUnit));
-    opacity: .33;
+    opacity: 0.33;
+
     &:hover {
       opacity: 1;
     }

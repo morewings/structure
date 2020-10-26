@@ -1,14 +1,16 @@
-.node{
+.node {
   border-radius: var(--baseUnit);
   margin-bottom: calc(2 * var(--baseUnit));
   overflow: hidden;
+  position: relative;
+
   & main,
-  & .header{
+  & .header {
     background-color: var(--backgroundHighColor);
   }
+
   &.open main,
-  &.open .header{
+  &.open .header {
     background-color: var(--backgroundFullColor);
   }
-  position: relative;
 }

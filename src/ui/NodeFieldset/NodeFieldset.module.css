@@ -3,18 +3,19 @@
 }
 
 .fieldLabel {
-  text-align: center;
-  font-weight: 300;
   color: var(--darkColor);
-  letter-spacing: 1.2px;
   font-size: 16px;
-  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1.2px;
   margin-bottom: calc(2 * var(--baseUnit));
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .titleInputs {
   display: flex;
   margin: 0 calc(8 * var(--baseUnit)) 0 calc(5 * var(--baseUnit));
+
   & .checkbox {
     font-size: calc(4 * var(--baseUnit));
     line-height: 1;
@@ -22,14 +23,11 @@
   }
 }
 
-.colorInput {
-//margin: 0 calc(8 * var(--baseUnit)) 0 calc(11 * var(--baseUnit));
-}
-
-.descriptionInput{
+.descriptionInput {
   display: flex;
   padding: 0 calc(7 * var(--baseUnit)) calc(3 * var(--baseUnit)) calc(10 * var(--baseUnit));
-  & .textarea{
+
+  & .textarea {
     height: calc(16 * var(--baseUnit));
   }
 }
