@@ -11,6 +11,7 @@ yarn start # starts dev mode
 yarn edit:fonts # opens icon font edit tool
 ```
 
+Design assets are located at [Google Drive](https://drive.google.com/open?id=1d373Aux91lg9t5Xefgj5E-W6LNbblATQ)
 
 ## Feature description
 
