@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Structure`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `**Structure** is a tool to view and edit tree-like graph data object`,
     author: `@morewings`,
   },
   plugins: [

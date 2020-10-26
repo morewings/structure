@@ -1,0 +1,19 @@
+.warning {
+  align-self: center;
+  background: var(--backgroundFullColor);
+  border-radius: var(--baseUnit);
+  color: var(--darkColor);
+  margin: auto calc(2 * var(--baseUnit));
+  max-width: var(--modalWidth);
+  overflow: hidden;
+  padding: calc(6 * var(--baseUnit)) calc(6 * var(--baseUnit)) calc(4 * var(--baseUnit));
+}
+
+.header {
+  color: var(--darkColor);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  margin-bottom: calc(2 * var(--baseUnit));
+  text-transform: uppercase;
+}
