@@ -14,11 +14,16 @@ const NodeHeader = ({
   handleToggle,
   color,
   isOpen,
+  className,
 }) => {
   const colorValue = useNodeColorValues(color);
   const icon = isOpen ? 'collapse' : 'expand';
   return (
-    <header className={classes.header}>
+    <header
+      className={classNames({
+        [classes.header]: true,
+        [className]: !!className,
+      })}>
       <Checkbox
         color={colorValue}
         className={classes.checkbox}
@@ -49,11 +54,13 @@ NodeHeader.propTypes = {
   id: PropTypes.string.isRequired,
   // TODO: fix the bug and change to enumerable
   color: PropTypes.string,
+  className: PropTypes.string,
   isOpen: PropTypes.bool.isRequired,
 };
 
 NodeHeader.defaultProps = {
   color: '',
+  className: '',
 };
 
 export default NodeHeader;
