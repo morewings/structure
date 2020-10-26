@@ -1,20 +1,21 @@
 .buttonBig {
   --size: calc(8 * var(--baseUnit));
-  border: none;
-  width: var(--size);
-  height: var(--size);
-  border-radius: var(--size);
-  text-align: center;
-  padding: 0;
+
   background: var(--backgroundHighColor);
+  border: none;
+  border-radius: var(--size);
+  height: var(--size);
+  padding: 0;
+  text-align: center;
+  width: var(--size);
+
   &:hover {
     background: var(--backgroundFullColor);
   }
 }
 
-.icon{
-  font-size: 36px;
+.icon {
   color: var(--buttonColor);
+  font-size: 36px;
   line-height: var(--size);
 }
-

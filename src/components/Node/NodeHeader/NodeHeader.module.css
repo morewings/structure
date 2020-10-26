@@ -9,23 +9,25 @@
 }
 
 .title {
+  color: var(--darkColor);
+  display: -webkit-box;
+  flex: 1;
   font-size: var(--headerFontSize);
   font-weight: 300;
   line-height: calc(4 * var(--baseUnit));
-  margin-left: var(--baseUnit);
-  flex: 1;
   margin-bottom: 0;
-  color: var(--darkColor);
+  margin-left: var(--baseUnit);
   overflow: hidden;
-  display: -webkit-box;
+
   &.shorten {
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 
 .toggleIcon {
   color: var(--iconLightColor);
+
   &:hover {
     color: var(--actionColor);
   }

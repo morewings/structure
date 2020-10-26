@@ -44,8 +44,13 @@
     "fontello-cli": "^0.5.0",
     "gatsby-plugin-postcss": "^2.3.13",
     "gatsby-plugin-root-import": "^2.0.5",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0"
   },
   "keywords": [
     "gatsby"
@@ -58,9 +63,11 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
     "fix:js": "npx eslint --fix ./src/",
     "lint:js": "npx eslint ./src/",
+    "lint:style": "npx stylelint ./src/",
+    "fix:style": "npx stylelint ./src/ --fix",
     "edit:fonts": "npx fontello-cli open --config ./fontello/config.json"
   },
   "repository": {

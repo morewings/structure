@@ -1,18 +1,21 @@
-.wrapper{
+.wrapper {
   position: relative;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
   }
 }
-.input{
-  position: absolute;
+
+.input {
   height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
   width: 100%;
   z-index: 2;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
   }
 }

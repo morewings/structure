@@ -1,17 +1,17 @@
 .confirmation {
-  width: var(--modalWidth);
   border-radius: var(--baseUnit);
   overflow: hidden;
+  width: var(--modalWidth);
 }
 
 .main {
-  display: flex;
-  padding: calc(3 * var(--baseUnit));
   align-items: flex-start;
   background: var(--backgroundFullColor);
+  display: flex;
+  padding: calc(3 * var(--baseUnit));
 }
 
-.left{
+.left {
   margin-right: calc(2 * var(--baseUnit));
 }
 
@@ -25,8 +25,8 @@
 }
 
 .right {
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 300;
   color: var(--darkColor);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
 }

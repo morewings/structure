@@ -2,47 +2,52 @@
   display: flex;
   flex-wrap: wrap;
   padding: var(--baseUnit) calc(2 * var(--baseUnit)) calc(4 * var(--baseUnit));
+
   & h3 {
-    width: 100%;
+    color: var(--darkColor);
     font-size: 16px;
     font-weight: 300;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center;
-    color: var(--darkColor);
     margin-bottom: var(--baseUnit);
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
   }
+
   & .chart {
     --size: calc(16 * var(--baseUnit));
 
-    width: var(--size);
-    height: var(--size);
-    line-height: var(--size);
-    text-align: center;
     background: var(--iconColor);
     border-radius: var(--size);
     color: white;
+    height: var(--size);
+    line-height: var(--size);
     margin-right: calc(2 * var(--baseUnit));
+    text-align: center;
+    width: var(--size);
   }
 
   & .tier,
-  & .ancestors{
-    display: flex;
+  & .ancestors {
     align-items: center;
+    display: flex;
+
     & h4 {
+      color: var(--darkColor);
       font-size: 14px;
       font-weight: 300;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      color: var(--darkColor);
+      letter-spacing: 0.5px;
       margin-bottom: 0;
       margin-right: var(--baseUnit);
+      text-transform: uppercase;
     }
+
     & .amount {
       font-size: 24px;
       letter-spacing: 1.2px;
     }
   }
+
   & .ancestors {
     display: block;
     margin-top: calc(1 * var(--baseUnit));
