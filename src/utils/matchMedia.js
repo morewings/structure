@@ -12,8 +12,6 @@ export const useWindowSize = () => {
     // Handler to call on window resize
     const handleResize = () => {
       // Set window width/height to state
-      console.log('window.innerWidth', window.innerWidth);
-      console.log('window.innerHeight', window.innerHeight);
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
