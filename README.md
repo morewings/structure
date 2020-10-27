@@ -89,7 +89,7 @@ import modalTypes from './modalTypes';
 
 const useModalComponent = () => {
   const {openModal} = useModalActions();
-  // we can pass props to ModalContent here, see `modalProps`
+  // we can pass props to ModalContent here, see `modalProps`. Props should be serializable since they are stored in redux.
   return modalProps => {
     openModal({
       modalType: modalTypes.NEW_MODAL_NAME,
