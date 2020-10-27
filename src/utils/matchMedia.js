@@ -29,5 +29,6 @@ export const useWindowSize = () => {
 
 export const useMatchMedia = ({minWidth}) => {
   const {width} = useWindowSize();
-  return width > minWidth;
+  /** width check is required for server side rendering */
+  return width ? width > minWidth : true;
 };

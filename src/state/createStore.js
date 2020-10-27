@@ -9,11 +9,13 @@ const rootReducer = combineReducers({
   modal: ModalReducer,
 });
 
-export default preloadedState =>
-  createStore(
-    rootReducer,
-    preloadedState,
-    typeof window !== 'undefined' &&
-      window.__REDUX_DEVTOOLS_EXTENSION__ && // eslint-disable-line no-underscore-dangle
+const windowGlobal = typeof window !== 'undefined' && window;
+
+const devtools =
+  process.env.NODE_ENV === 'development' && windowGlobal.devToolsExtension
+    ? window.__REDUX_DEVTOOLS_EXTENSION__ && // eslint-disable-line no-underscore-dangle
       window.__REDUX_DEVTOOLS_EXTENSION__() // eslint-disable-line no-underscore-dangle
-  );
+    : f => f;
+
+export default preloadedState =>
+  createStore(rootReducer, preloadedState, devtools);
