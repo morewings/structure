@@ -15,6 +15,7 @@
     color: var(--darkColor);
     display: inline-block;
     font-size: 24px;
+    font-weight: 300;
     letter-spacing: 1.2px;
     margin-bottom: 0;
     margin-right: calc(2 * var(--baseUnit));

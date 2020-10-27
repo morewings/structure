@@ -23,7 +23,7 @@ const Column = ({nodeId, role}) => {
         <header className={classes.header}>
           <Icon className={classes.icon} name={role} />
           <div title={title} className={classes.text}>
-            {title || role}
+            {title || nodeId}
           </div>
         </header>
         <Accordion className={classes.nodes} id={nodeId}>

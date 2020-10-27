@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useLayoutEffect} from 'react';
 
 export const useWindowSize = () => {
   // Initialize state with undefined width/height so server and client renders match
@@ -8,7 +8,8 @@ export const useWindowSize = () => {
     height: undefined,
   });
 
-  useEffect(() => {
+  // useLayoutEffect to prevent flickering
+  useLayoutEffect(() => {
     // Handler to call on window resize
     const handleResize = () => {
       // Set window width/height to state

@@ -8,11 +8,13 @@ import Footer from 'src/components/Footer';
 import config from 'src/config';
 import 'bootstrap/dist/css/bootstrap-reboot.css';
 import {useMatchMedia} from 'src/utils/matchMedia';
+import {useVersionNumber} from 'src/utils/useVersionNumber';
 import './global.css';
 import './variables.css';
 import classes from './Layout.module.css';
 
 const Layout = ({children}) => {
+  useVersionNumber();
   const isEnoughSpace = useMatchMedia({minWidth: 1279});
   return (
     <div id={config.appId} className={classes.layout}>
