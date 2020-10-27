@@ -12,8 +12,6 @@ export const useWindowSize = () => {
     // Handler to call on window resize
     const handleResize = () => {
       // Set window width/height to state
-      console.log('window.innerWidth', window.innerWidth);
-      console.log('window.innerHeight', window.innerHeight);
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -31,11 +29,6 @@ export const useWindowSize = () => {
 
 export const useMatchMedia = ({minWidth}) => {
   const {width} = useWindowSize();
-  console.log('width', width);
-  console.log(
-    'width ? width > minWidth : true',
-    width ? width > minWidth : true
-  );
-  console.log('width > minWidth', width > minWidth);
+  /** width check is required for server side rendering */
   return width ? width > minWidth : true;
 };
