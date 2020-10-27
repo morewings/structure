@@ -7,6 +7,7 @@ import classes from './NavigationLink.module.css';
 
 export const NavigationLink = ({title, to, icon, className}) => (
   <Link
+    activeClassName={classes.active}
     className={classNames({
       [classes.navigationLink]: true,
       [className]: !!className,

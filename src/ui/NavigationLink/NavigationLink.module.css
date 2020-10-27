@@ -21,6 +21,12 @@
   &:focus {
     outline: none;
   }
+
+  &.active {
+    background: var(--backgroundMiddleColorHover);
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
 .title {
