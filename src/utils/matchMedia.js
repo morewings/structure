@@ -31,6 +31,7 @@ export const useWindowSize = () => {
 
 export const useMatchMedia = ({minWidth}) => {
   const {width} = useWindowSize();
+  console.log('width', width);
   console.log('width > minWidth', width > minWidth);
   return width > minWidth;
 };
