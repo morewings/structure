@@ -1,6 +1,5 @@
 .description {
-  margin: var(--baseMargin) 0;
-  padding: 0 calc(2 * var(--baseUnit));
+  padding: var(--baseMargin) calc(2 * var(--baseUnit));
 
   & h3 {
     color: var(--darkColor);

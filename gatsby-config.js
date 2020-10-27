@@ -42,7 +42,7 @@ module.exports = {
         },
         custom: {
           families: ['structure_icons'],
-          urls: ['structure_icons.css'],
+          urls: ['/structure_icons.css'],
         },
       },
     },
