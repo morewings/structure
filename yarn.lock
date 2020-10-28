@@ -6386,6 +6386,11 @@ gatsby-page-utils@^0.2.29:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
+gatsby-plugin-gtag@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gtag/-/gatsby-plugin-gtag-1.0.13.tgz#ffa08a728ba1cfe33090e52764d014a025a5d35a"
+  integrity sha512-Oul6O67klajrEjkkF1diD228SmyUWsAwTq/1tYq41vBwmyNiPk4dhk8K93rrNQ5d5zesSv+awBeGBa503tQqGw==
+
 gatsby-plugin-manifest@^2.4.35:
   version "2.4.35"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.35.tgz#bd8a3ad7eb1649247d1a6fe871bc04f7a0ef15f1"
