@@ -1,0 +1,6 @@
+.help {
+  background: var(--backgroundFullColor);
+  border-radius: var(--baseUnit);
+  margin: calc(6 * var(--baseUnit)) 0;
+  padding: calc(8 * var(--baseUnit)) calc(12 * var(--baseUnit));
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from 'src/components/Board/Board';
+import Board from 'src/components/Board';
 import FloatingActions from 'src/components/FloatingActions';
 import Layout from 'src/components/Layout/Layout';
 import {SEO} from 'src/components/SEO';

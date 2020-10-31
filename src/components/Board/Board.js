@@ -1,7 +1,7 @@
 import React from 'react';
 import useBoardContent from 'src/features/structure/useBoardContent';
 import {Row, Col} from 'src/ui/Grid';
-import Column from '../Column/Column';
+import Column from 'src/components/Column';
 
 const Board = () => {
   const {childrenId, siblingsId, parentId} = useBoardContent();
