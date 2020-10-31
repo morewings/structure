@@ -17,7 +17,7 @@ Design assets are located at [Google Drive](https://drive.google.com/open?id=1d3
 
 ### Structure
 
-Includes a hierarchy of **Nodes** inside Map like collection.
+Includes a hierarchy of **Nodes** inside Record-like collection.
 
 **Node** - entity which contains specific fields
 
