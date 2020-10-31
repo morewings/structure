@@ -4,93 +4,201 @@
       "title": "Initial Node",
       "isDone": false,
       "children": [
-        "node_p9VIP8",
-        "node_9v6OiE"
+        "node_HRW4QF",
+        "node_XRrFuq",
+        "node_xNHlJd",
+        "node_4v9YcN",
+        "node_8XB7Kn",
+        "node_SuxQJf"
       ],
       "parentId": "node_initial",
-      "generation": 0
+      "generation": 0,
+      "color": "",
+      "id": "node_initial"
     },
-    "node_p9VIP8": {
-      "id": "node_p9VIP8",
+    "node_HRW4QF": {
+      "id": "node_HRW4QF",
+      "parentId": "node_initial",
+      "isDone": true,
+      "description": "This is a an example of description",
+      "title": "Parent node",
+      "generation": 1,
+      "color": "orange",
+      "children": [
+        "node_yfz-Kf",
+        "node_1dWAag",
+        "node_Mx2sVc",
+        "node_8Lj47y",
+        "node_rSL1te"
+      ]
+    },
+    "node_XRrFuq": {
+      "id": "node_XRrFuq",
       "parentId": "node_initial",
       "isDone": false,
       "description": "",
-      "title": "Test",
+      "title": "Sibling node 1",
       "generation": 1,
+      "color": "green",
+      "children": []
+    },
+    "node_yfz-Kf": {
+      "id": "node_yfz-Kf",
+      "parentId": "node_HRW4QF",
+      "isDone": false,
+      "description": "",
+      "title": "Child node 1",
+      "generation": 2,
+      "color": "red",
+      "children": []
+    },
+    "node_1dWAag": {
+      "id": "node_1dWAag",
+      "parentId": "node_HRW4QF",
+      "isDone": true,
+      "description": "",
+      "title": "Child node 2",
+      "generation": 2,
+      "color": "gray",
       "children": [
-        "node_OkLHUu",
-        "node_BzdW9i",
-        "node_QiKzf-"
+        "node_o5VUHK",
+        "node_F6HVoP",
+        "node_O3IyAz",
+        "node_f1hWb1",
+        "node_xCbstF",
+        "node_ctsY9R"
       ]
     },
-    "node_OkLHUu": {
-      "id": "node_OkLHUu",
-      "parentId": "node_p9VIP8",
-      "isDone": false,
+    "node_Mx2sVc": {
+      "id": "node_Mx2sVc",
+      "parentId": "node_HRW4QF",
+      "isDone": true,
       "description": "",
-      "title": "Child 1",
+      "title": "Child node 3",
       "generation": 2,
-      "children": [
-        "node_WQJyQK",
-        "node_WhjVbn"
-      ]
-    },
-    "node_BzdW9i": {
-      "id": "node_BzdW9i",
-      "parentId": "node_p9VIP8",
-      "isDone": false,
-      "description": "",
-      "title": "Child 2",
-      "generation": 2,
-      "children": [
-        "node_4xzX-7"
-      ]
-    },
-    "node_QiKzf-": {
-      "id": "node_QiKzf-",
-      "parentId": "node_p9VIP8",
-      "isDone": false,
-      "description": "",
-      "title": "Child 3",
-      "generation": 2,
+      "color": "blue",
       "children": []
     },
-    "node_WQJyQK": {
-      "id": "node_WQJyQK",
-      "parentId": "node_OkLHUu",
-      "isDone": false,
-      "description": "",
-      "title": "Child 1-1",
-      "generation": 3,
-      "children": []
-    },
-    "node_WhjVbn": {
-      "id": "node_WhjVbn",
-      "parentId": "node_OkLHUu",
-      "isDone": false,
-      "description": "",
-      "title": "Child 1-2",
-      "generation": 3,
-      "children": []
-    },
-    "node_4xzX-7": {
-      "id": "node_4xzX-7",
-      "parentId": "node_BzdW9i",
-      "isDone": false,
-      "description": "",
-      "title": "Child 2-1",
-      "generation": 3,
-      "children": []
-    },
-    "node_9v6OiE": {
-      "id": "node_9v6OiE",
+    "node_xNHlJd": {
+      "id": "node_xNHlJd",
       "parentId": "node_initial",
       "isDone": false,
       "description": "",
-      "title": "Sibling",
+      "title": "Sibling node 2",
       "generation": 1,
+      "color": "gray",
+      "children": []
+    },
+    "node_o5VUHK": {
+      "id": "node_o5VUHK",
+      "parentId": "node_1dWAag",
+      "isDone": false,
+      "description": "",
+      "title": "To Do item 1",
+      "generation": 3,
+      "color": "violet",
+      "children": []
+    },
+    "node_F6HVoP": {
+      "id": "node_F6HVoP",
+      "parentId": "node_1dWAag",
+      "isDone": false,
+      "description": "",
+      "title": "To Do item 2",
+      "generation": 3,
+      "color": "turquoise",
+      "children": []
+    },
+    "node_O3IyAz": {
+      "id": "node_O3IyAz",
+      "parentId": "node_1dWAag",
+      "isDone": true,
+      "description": "",
+      "title": "To Do item 3",
+      "generation": 3,
+      "color": "gray",
+      "children": []
+    },
+    "node_4v9YcN": {
+      "id": "node_4v9YcN",
+      "parentId": "node_initial",
+      "isDone": false,
+      "description": "",
+      "title": "Lorem ipsum title",
+      "generation": 1,
+      "color": "red",
+      "children": []
+    },
+    "node_8Lj47y": {
+      "id": "node_8Lj47y",
+      "parentId": "node_HRW4QF",
+      "isDone": false,
+      "description": "",
+      "title": "Additional info",
+      "generation": 2,
+      "color": "red",
+      "children": []
+    },
+    "node_rSL1te": {
+      "id": "node_rSL1te",
+      "parentId": "node_HRW4QF",
+      "isDone": false,
+      "description": "Description example",
+      "title": "One more task",
+      "generation": 2,
+      "color": "gray",
+      "children": []
+    },
+    "node_f1hWb1": {
+      "id": "node_f1hWb1",
+      "parentId": "node_1dWAag",
+      "isDone": false,
+      "description": "",
+      "title": "To Do item 4",
+      "generation": 3,
+      "color": "gray",
+      "children": []
+    },
+    "node_xCbstF": {
+      "id": "node_xCbstF",
+      "parentId": "node_1dWAag",
+      "isDone": false,
+      "description": "",
+      "title": "To Do item 5",
+      "generation": 3,
+      "color": "orange",
+      "children": []
+    },
+    "node_ctsY9R": {
+      "id": "node_ctsY9R",
+      "parentId": "node_1dWAag",
+      "isDone": false,
+      "description": "",
+      "title": "To Do item 6",
+      "generation": 3,
+      "color": "gray",
+      "children": []
+    },
+    "node_8XB7Kn": {
+      "id": "node_8XB7Kn",
+      "parentId": "node_initial",
+      "isDone": false,
+      "description": "",
+      "title": "Hello world",
+      "generation": 1,
+      "color": "violet",
+      "children": []
+    },
+    "node_SuxQJf": {
+      "id": "node_SuxQJf",
+      "parentId": "node_initial",
+      "isDone": false,
+      "description": "Foo Bar",
+      "title": "Foo Bar",
+      "generation": 1,
+      "color": "gray",
       "children": []
     }
   },
-  "focused": "node_BzdW9i"
+  "focused": "node_1dWAag"
 }

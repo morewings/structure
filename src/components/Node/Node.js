@@ -76,12 +76,12 @@ const Node = ({id, toggleNode, activeNode}) => {
         />
         {isOpen && (
           <main>
+            {description && <Description text={description} />}
             <Stats
               completion={completion}
               tier={generation}
               nodeChildrenAmount={childNodes.length}
             />
-            {description && <Description description={description} />}
             <NodeActions deleteNode={handleDelete} />
           </main>
         )}
@@ -93,7 +93,7 @@ const Node = ({id, toggleNode, activeNode}) => {
             rightButton={
               <Button
                 icon="parent_children"
-                text="Show subs"
+                text="Show children"
                 onClick={handleSelect}
               />
             }

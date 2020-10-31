@@ -8,20 +8,21 @@ const Board = () => {
   return (
     <div>
       <Row>
-        {siblingsId !== parentId && (
-          <Col width={4}>
+        <Col width={4}>
+          {siblingsId !== parentId && (
             <Column role="parent" nodeId={parentId} />
-          </Col>
-        )}
+          )}
+        </Col>
 
         <Col width={4}>
           <Column role="siblings" nodeId={siblingsId} />
         </Col>
-        {childrenId !== siblingsId && (
-          <Col width={4}>
+
+        <Col width={4}>
+          {childrenId !== siblingsId && (
             <Column role="children" nodeId={childrenId} />
-          </Col>
-        )}
+          )}
+        </Col>
       </Row>
     </div>
   );

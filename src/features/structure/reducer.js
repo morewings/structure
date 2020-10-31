@@ -25,16 +25,37 @@ import {
 const initialState = {
   nodes: {
     [config.initialNode]: {
-      title: 'Initial Node',
+      title: 'Parent',
       isDone: false,
-      children: [],
+      children: ['node_siblings'],
       parentId: config.initialNode,
       generation: 0,
       color: '',
+      description: 'This is initial node. It will never be shown.',
       id: config.initialNode,
     },
+    node_siblings: {
+      title: 'Siblings',
+      isDone: false,
+      children: ['node_children'],
+      parentId: config.initialNode,
+      generation: 1,
+      color: '',
+      description: 'This is parent column. It contains sibling nodes.',
+      id: 'node_siblings',
+    },
+    node_children: {
+      title: 'Children',
+      isDone: false,
+      children: [],
+      parentId: 'node_siblings',
+      generation: 2,
+      color: '',
+      description: 'This is siblings column. It contains children nodes.',
+      id: 'node_children',
+    },
   },
-  focused: config.initialNode,
+  focused: 'node_children',
 };
 
 const createNode = fields => ({

@@ -17,6 +17,7 @@ const Column = ({nodeId, role}) => {
   const handleAdd = () => {
     addNode(nodeId);
   };
+  console.log('title', title);
   return (
     <Fragment>
       <div className={classes.column}>

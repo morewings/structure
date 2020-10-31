@@ -22,7 +22,7 @@ const ConfirmationDeleteStructure = ({onCloseModal}) => {
           <Icon name="help" className={classes.icon} />
         </div>
         <div className={classes.right}>
-          Do you want to the whole structure data? You will not be able to undo
+          Do you want to reset the structure data? You will not be able to undo
           this operation.
         </div>
       </main>
