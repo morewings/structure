@@ -41,7 +41,7 @@ const initialState = {
       parentId: config.initialNode,
       generation: 1,
       color: '',
-      description: 'This is parent column. It contains sibling nodes.',
+      description: 'This is parent column.',
       id: 'node_siblings',
     },
     node_children: {
@@ -51,7 +51,7 @@ const initialState = {
       parentId: 'node_siblings',
       generation: 2,
       color: '',
-      description: 'This is siblings column. It contains children nodes.',
+      description: 'This is siblings column.',
       id: 'node_children',
     },
   },
