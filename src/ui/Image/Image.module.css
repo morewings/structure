@@ -1,0 +1,18 @@
+.image {
+  margin: calc(4 * var(--baseUnit)) auto calc(2 * var(--baseUnit));
+
+  & img {
+    border-radius: var(--baseUnit);
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.title {
+  color: var(--imageTitleColor);
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: var(--baseUnit);
+  text-align: center;
+}

@@ -25,7 +25,7 @@ const Header = ({siteTitle}) => (
             className={classes.navItem}
             icon="help"
             title="Help"
-            to="/help"
+            to="/help/"
           />
           <a
             rel="noreferrer"

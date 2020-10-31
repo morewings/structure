@@ -27,4 +27,24 @@
   & strong {
     font-weight: 700;
   }
+
+  & dl {
+    color: var(--darkColor);
+    display: grid;
+    font-size: 16px;
+    grid-template-columns: max-content auto;
+
+    & dt {
+      font-weight: 700;
+      grid-column: 1;
+      margin-right: var(--baseUnit);
+    }
+
+    & dd {
+      color: var(--darkColor);
+      flex: 1;
+      grid-column: 2;
+      margin-right: auto;
+    }
+  }
 }

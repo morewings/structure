@@ -4,3 +4,25 @@
   margin: calc(6 * var(--baseUnit)) 0;
   padding: calc(8 * var(--baseUnit)) calc(12 * var(--baseUnit));
 }
+
+.header {
+  display: flex;
+
+  & .iconHelp {
+    color: var(--accentColor);
+    font-size: 36px;
+    margin-right: var(--baseUnit);
+  }
+}
+
+.illustrationBig {
+  width: calc(77 * var(--baseUnit));
+}
+
+.illustrationSmall {
+  width: auto;
+}
+
+.iconBigger {
+  font-size: 24px;
+}

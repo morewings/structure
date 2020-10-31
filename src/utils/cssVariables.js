@@ -1,5 +1,5 @@
 import {useRef} from 'react';
-import {keys, compose, map, forEach} from 'ramda';
+import {keys, compose, forEach} from 'ramda';
 
 /** @function
  * @name setCSSVariable
