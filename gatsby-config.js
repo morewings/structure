@@ -47,6 +47,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'IBM Plex Sans',
+              variants: ['300', '400', '700'],
+              // subsets: ['latin']
+              // text: 'Hello'
+              // fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+          ],
+        },
+        formats: ['woff2'],
+        // useMinify: true,
+        // usePreload: true,
+        // usePreconnect: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
