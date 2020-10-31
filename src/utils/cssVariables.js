@@ -1,4 +1,5 @@
 import {useRef} from 'react';
+import {keys, compose, map, forEach} from 'ramda';
 
 /** @function
  * @name setCSSVariable
@@ -38,13 +39,36 @@ export const getCSSVariable = (element, variableName) =>
  * @description React hook to set CSS variable returns ref function. Returns tuple [getter, setter]
  * @param {string} name - HTML element to contain variable
  * @param {string} value - variable name
- * @return {(React.MutableRefObject<null>|Function)[]}
+ * @return {[React.MutableRefObject<null>, Function]}
  */
 export const useSetCssVariable = (name, value) => {
   const ref = useRef(null);
   const setRef = element => {
     if (element) {
       setCSSVariable(element, name, value);
+    }
+    ref.current = element;
+  };
+
+  return [ref, setRef];
+};
+
+/** @function
+ * @name useSetCssVariable
+ * @description React hook to set CSS variable returns ref function. Returns tuple [getter, setter]
+ * @param {Object.<string, number|string>} theme - theme object, Record-like
+ * @return {[React.MutableRefObject<null>, Function]}
+ */
+export const useSetCssTheme = theme => {
+  const ref = useRef(null);
+  const setRef = element => {
+    if (element) {
+      compose(
+        forEach(varName => {
+          setCSSVariable(element, varName, theme[varName]);
+        }),
+        keys
+      )(theme);
     }
     ref.current = element;
   };

@@ -33,7 +33,8 @@ const Column = ({nodeId, role}) => {
           ))}
         </Accordion>
         <FooterSeparator
-          leftButton={
+          /* TODO: enable in dev mode */
+          /* leftButton={
             role === 'siblings' ? (
               <Button
                 text="Focus active"
@@ -43,7 +44,7 @@ const Column = ({nodeId, role}) => {
                 }}
               />
             ) : undefined
-          }
+          } */
           rightButton={
             <Button text="Add node" icon="add-node" onClick={handleAdd} />
           }

@@ -1,7 +1,6 @@
 import React from 'react';
-import Board from 'src/components/Board/Board';
-import Layout from '../components/Layout/Layout';
-import {SEO} from '../components/SEO';
+import Layout from 'src/components/Layout/Layout';
+import {SEO} from 'src/components/SEO';
 
 const HelpPage = () => (
   <Layout>

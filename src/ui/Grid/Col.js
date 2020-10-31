@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useSetCssVariable} from 'src/utils/cssVariables';
+import {useSetCssTheme} from 'src/utils/cssVariables';
 import classes from './Col.module.css';
 
-export const Col = ({children, className, width}) => {
-  const size = `${(width / 12) * 100}%`;
-  const [, setRef] = useSetCssVariable('columnWidth', size);
+export const Col = ({children, className, width, offset}) => {
+  const columnWidth = `${(width / 12) * 100}%`;
+  const marginLeft = `${(offset / 12) * 100}%`;
+  const [, setRef] = useSetCssTheme({marginLeft, columnWidth});
   return (
     <div
       ref={setRef}
@@ -22,10 +23,12 @@ export const Col = ({children, className, width}) => {
 Col.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  offset: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
 };
 
 Col.defaultProps = {
   className: '',
   width: 1,
+  offset: 0,
 };

@@ -1,7 +1,6 @@
 .col {
-  --columnWidth: 33.333333%;
-
   flex: 0 0 var(--columnWidth);
+  margin-left: var(--marginLeft);
   max-width: var(--columnWidth);
   padding-left: 15px;
   padding-right: 15px;

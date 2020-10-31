@@ -5,13 +5,14 @@ import classes from './NodeActions.module.css';
 
 const NodeActions = ({deleteNode}) => (
   <div className={classes.actions}>
-    <Button
+    {/* TODO: enable in dev mode */}
+    {/* <Button
       className={classes.iconButton}
       icon="drag_handle"
       onClick={() => {
         console.log('drag');
       }}
-    />
+    /> */}
     <Button
       className={classes.iconButton}
       icon="delete"
