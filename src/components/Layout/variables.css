@@ -27,4 +27,5 @@
   --headerFontSize: 16px;
   --modalWidth: calc(66 * var(--baseUnit));
   --modalButtonColor: rgba(230, 230, 230, 1);
+  --imageTitleColor: var(--iconColor);
 }

@@ -1,14 +1,17 @@
 import React from 'react';
-import Board from 'src/components/Board/Board';
+import Board from 'src/components/Board';
 import FloatingActions from 'src/components/FloatingActions';
-import Layout from '../components/Layout/Layout';
-import {SEO} from '../components/SEO';
+import Layout from 'src/components/Layout/Layout';
+import {SEO} from 'src/components/SEO';
+import ClientOnly from 'src/components/ClientOnly';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Board" />
-    <Board />
-    <FloatingActions />
+    <ClientOnly>
+      <Board />
+      <FloatingActions />
+    </ClientOnly>
   </Layout>
 );
 

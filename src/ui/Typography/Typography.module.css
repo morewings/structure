@@ -1,0 +1,50 @@
+.typography {
+  & h1 {
+    color: var(--darkColor);
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: calc(4 * var(--baseUnit));
+    text-transform: uppercase;
+  }
+
+  & h2 {
+    color: var(--darkColor);
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: calc(2 * var(--baseUnit));
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  & p {
+    color: var(--darkColor);
+    font-size: 16px;
+    margin-bottom: calc(2 * var(--baseUnit));
+  }
+
+  & strong {
+    font-weight: 700;
+  }
+
+  & dl {
+    color: var(--darkColor);
+    display: grid;
+    font-size: 16px;
+    grid-template-columns: max-content auto;
+
+    & dt {
+      font-weight: 700;
+      grid-column: 1;
+      margin-right: var(--baseUnit);
+    }
+
+    & dd {
+      color: var(--darkColor);
+      flex: 1;
+      grid-column: 2;
+      margin-right: auto;
+    }
+  }
+}

@@ -1,27 +1,28 @@
 import React from 'react';
 import useBoardContent from 'src/features/structure/useBoardContent';
 import {Row, Col} from 'src/ui/Grid';
-import Column from '../Column/Column';
+import Column from 'src/components/Column';
 
 const Board = () => {
   const {childrenId, siblingsId, parentId} = useBoardContent();
   return (
     <div>
       <Row>
-        {siblingsId !== parentId && (
-          <Col width={4}>
+        <Col width={4}>
+          {siblingsId !== parentId && (
             <Column role="parent" nodeId={parentId} />
-          </Col>
-        )}
+          )}
+        </Col>
 
         <Col width={4}>
           <Column role="siblings" nodeId={siblingsId} />
         </Col>
-        {childrenId !== siblingsId && (
-          <Col width={4}>
+
+        <Col width={4}>
+          {childrenId !== siblingsId && (
             <Column role="children" nodeId={childrenId} />
-          </Col>
-        )}
+          )}
+        </Col>
       </Row>
     </div>
   );
