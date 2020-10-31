@@ -13,6 +13,11 @@
     background: var(--backgroundFullColor);
   }
 
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
   &:active > .icon {
     left: 1px;
     position: relative;
