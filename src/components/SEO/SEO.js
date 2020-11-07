@@ -45,8 +45,10 @@ const SEO = ({description, lang, meta, title}) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
-    />
+      ].concat(meta)}>
+      <link rel="preload" href="/structure_icons.css" as="style" />
+      <link rel="preload" href="/structure_icons.woff2" as="font" />
+    </Helmet>
   );
 };
 
