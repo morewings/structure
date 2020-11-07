@@ -37,13 +37,31 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        google: {
-          families: ['IBM Plex Sans:300,400,700'],
-        },
         custom: {
           families: ['structure_icons'],
           urls: ['/structure_icons.css'],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'IBM Plex Sans',
+              variants: ['300', '400', '700'],
+              // subsets: ['latin']
+              // text: 'Hello'
+              // fontDisplay: 'swap',
+              strategy: 'selfHosted', // 'base64' || 'cdn'
+            },
+          ],
+        },
+        formats: ['woff2'],
+        // useMinify: true,
+        // usePreload: true,
+        // usePreconnect: false,
       },
     },
     {
