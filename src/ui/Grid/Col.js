@@ -10,6 +10,10 @@ export const Col = ({children, className, width, offset}) => {
   const [, setRef] = useSetCssTheme({marginLeft, columnWidth});
   return (
     <div
+      style={{
+        '--marginLeft': marginLeft,
+        '--columnWidth': columnWidth,
+      }}
       ref={setRef}
       className={classNames({
         [classes.col]: true,
