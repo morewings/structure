@@ -1,5 +1,5 @@
-import {useRef} from 'react';
-import {keys, compose, forEach} from 'ramda';
+import {useRef, useCallback} from 'react';
+import {curry} from 'ramda';
 
 /** @function
  * @name setCSSVariable
@@ -9,9 +9,9 @@ import {keys, compose, forEach} from 'ramda';
  * @param {string} value
  * @return {void}
  */
-export const setCSSVariable = (element, variableName, value) => {
+export const setCSSVariable = curry((element, variableName, value) => {
   element && element.style.setProperty(`--${variableName}`, value);
-};
+});
 
 /** @function
  * @name removeCSSVariable
@@ -31,8 +31,10 @@ export const removeCSSVariable = (element, variableName) => {
  * @param {string} variableName - variable name, should start with `--`
  * @return {string}
  */
-export const getCSSVariable = (element, variableName) =>
-  element && element.style.getPropertyValue(`--${variableName}`);
+export const getCSSVariable = curry(
+  (element, variableName) =>
+    element && element.style.getPropertyValue(`--${variableName}`)
+);
 
 /** @function
  * @name useSetCssVariable
@@ -53,25 +55,44 @@ export const useSetCssVariable = (name, value) => {
   return [ref, setRef];
 };
 
+const createStyleObject = theme => {
+  // eslint-disable-next-line no-shadow
+  const keys = Object.keys(theme);
+  const result = {};
+  keys.forEach(key => {
+    // eslint-disable-next-line fp/no-mutation
+    result[`--${key}`] = theme[key];
+  });
+  return result;
+};
+
 /** @function
  * @name useSetCssVariable
  * @description React hook to set CSS variable returns ref function. Returns tuple [getter, setter]
  * @param {Object.<string, number|string>} theme - theme object, Record-like
- * @return {[React.MutableRefObject<null>, Function]}
+ * @return {{ref: React.MutableRefObject<null>, setRef: (function(*=): void), setVariable: *, style: {}, getVariable: *}}
  */
 export const useSetCssTheme = theme => {
   const ref = useRef(null);
-  const setRef = element => {
-    if (element) {
-      compose(
-        forEach(varName => {
-          setCSSVariable(element, varName, theme[varName]);
-        }),
-        keys
-      )(theme);
-    }
-    ref.current = element;
-  };
+  const setVariable = setCSSVariable(ref.current);
+  const getVariable = getCSSVariable(ref.current);
+  const style = createStyleObject(theme);
 
-  return [ref, setRef];
+  const setRef = useCallback(element => {
+    if (ref.current) {
+      // Make sure to cleanup any events/references added to the last instance
+    }
+
+    if (element) {
+      Object.keys(theme).forEach(key => {
+        const isEqual = getCSSVariable(element, key) === theme[key];
+        !isEqual && setCSSVariable(element, key, theme[key]);
+      });
+    }
+
+    // Save a reference to the node
+    ref.current = element;
+  }, []);
+
+  return {ref, setRef, style, setVariable, getVariable};
 };
