@@ -18,11 +18,11 @@ export const ButtonBig = ({
   // const [, setRef] = useSetCssVariable('buttonColor', color);
   const {setRef, style, setVariable} = useSetCssTheme({buttonColor});
   const handleClick = () => {
+    console.log('click');
     setVariable('buttonColor', 'red');
   };
   return (
     <button
-      style={style}
       title={title}
       ref={setRef}
       type="button"

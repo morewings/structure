@@ -10,6 +10,7 @@ import {curry} from 'ramda';
  * @return {void}
  */
 export const setCSSVariable = curry((element, variableName, value) => {
+  console.log('setCSSVariable', element);
   element && element.style.setProperty(`--${variableName}`, value);
 });
 
@@ -74,7 +75,11 @@ const createStyleObject = theme => {
  */
 export const useSetCssTheme = theme => {
   const ref = useRef(null);
-  const setVariable = setCSSVariable(ref.current);
+  const setVariable = (variableName, value) => {
+    const element = ref.current;
+    console.log('click 2', ref.current);
+    setCSSVariable(element, variableName, value);
+  };
   const getVariable = getCSSVariable(ref.current);
   const style = createStyleObject(theme);
 
