@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Icon} from 'src/ui/Icon';
 import {useColors} from 'src/utils/buttonColors';
-import {useSetCssTheme} from 'src/utils/cssVariables';
+import {useVariable} from 'css-vars-hook';
 import classes from './ButtonBig.module.css';
 
 export const ButtonBig = ({
@@ -14,19 +14,15 @@ export const ButtonBig = ({
   children,
   title,
 }) => {
-  const buttonColor = useColors(type);
-  // const [, setRef] = useSetCssVariable('buttonColor', color);
-  const {setRef, style, setVariable} = useSetCssTheme({buttonColor});
-  const handleClick = () => {
-    console.log('click');
-    setVariable('buttonColor', 'red');
-  };
+  const color = useColors(type);
+  const {setRef, style} = useVariable('buttonColor', color);
   return (
     <button
+      style={style}
       title={title}
       ref={setRef}
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
       className={classNames({
         [classes.buttonBig]: true,
         [className]: !!className,

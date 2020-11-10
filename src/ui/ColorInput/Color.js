@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useSetCssVariable} from 'src/utils/cssVariables';
+import {useVariable} from 'css-vars-hook';
 import {Icon} from 'src/ui/Icon';
 import {useNodeColorValues} from 'src/utils/nodeColors';
 import classes from './Color.module.css';
@@ -12,10 +12,11 @@ export const Color = ({color, onClick, isActive}) => {
 
   const colorValue = useNodeColorValues(color);
 
-  const [, setRef] = useSetCssVariable('colorValue', colorValue);
+  const {setRef, style} = useVariable('colorValue', colorValue);
 
   return (
     <button
+      style={style}
       ref={setRef}
       title={color}
       className={classes.color}
