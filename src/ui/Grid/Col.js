@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useSetCssTheme} from 'src/utils/cssVariables';
+import {useTheme} from 'css-vars-hook';
 import classes from './Col.module.css';
 
 export const Col = ({children, className, width, offset}) => {
   const columnWidth = `${(width / 12) * 100}%`;
   const marginLeft = `${(offset / 12) * 100}%`;
-  const {setRef, style} = useSetCssTheme({marginLeft, columnWidth});
+  const {setRef, style} = useTheme({marginLeft, columnWidth});
   return (
     <div
       style={style}
