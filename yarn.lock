@@ -4264,10 +4264,10 @@ css-tree@1.0.0-alpha.39:
     mdn-data "2.0.6"
     source-map "^0.6.1"
 
-css-vars-hook@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/css-vars-hook/-/css-vars-hook-0.1.6.tgz#844b63ecda2ea7a5127d5203888f31628a147d7c"
-  integrity sha512-9PxHHMIgX1cY86jTIZjpF6R5RiUUK2yecYjeIriKfLx3m7/lbaK2bIMuav/v12B4ZqlUvoA9lN9b32+EzE4rxg==
+css-vars-hook@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/css-vars-hook/-/css-vars-hook-0.2.4.tgz#f3a154a81e1e9fcdca9e418cbb46e8fedc34bb2e"
+  integrity sha512-RDmz3SjDea1uxQH5m7ZZ/0CmLmS5y4ZwVm4RgqQTFxTb4Y2lQBBpfaf1Y31oIJg+p2X96sS6NPwqzhrGmV99DQ==
 
 css-what@2.1:
   version "2.1.3"
