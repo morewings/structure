@@ -30,7 +30,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-modal": "^3.12.1",
-    "react-redux": "^7.2.1",
+    "react-redux": "^7.2.3",
     "redux": "^4.0.5"
   },
   "devDependencies": {
