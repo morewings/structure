@@ -31,7 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-modal": "^3.12.1",
     "react-redux": "^7.2.5",
-    "redux": "^4.0.5"
+    "redux": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
