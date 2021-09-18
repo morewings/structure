@@ -47,7 +47,7 @@
     "fontello-cli": "^0.6.2",
     "gatsby-plugin-postcss": "^2.3.13",
     "gatsby-plugin-root-import": "^2.0.6",
-    "husky": "^5.0.9",
+    "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.4.0",
