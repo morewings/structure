@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {PieChart} from '@/components/PieChart';
+
 import classes from './Stats.module.css';
 
 const Stats = ({completion, nodeChildrenAmount, tier}) => (
   <div className={classes.stats}>
     <h3>Stats</h3>
-    <div className={classes.chart}>{completion}</div>
+    <PieChart completion={completion} />
     <div>
       <div className={classes.tier}>
         <h4>Tier</h4>

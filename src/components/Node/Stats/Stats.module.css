@@ -14,19 +14,6 @@
     width: 100%;
   }
 
-  & .chart {
-    --size: calc(16 * var(--baseUnit));
-
-    background: var(--iconColor);
-    border-radius: var(--size);
-    color: white;
-    height: var(--size);
-    line-height: var(--size);
-    margin-right: calc(2 * var(--baseUnit));
-    text-align: center;
-    width: var(--size);
-  }
-
   & .tier,
   & .ancestors {
     align-items: center;
