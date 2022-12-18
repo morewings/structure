@@ -60,7 +60,7 @@
     "fontello-cli": "^0.6.2",
     "husky": "^7.0.2",
     "is-ci": "^3.0.1",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^13.1.0",
     "postcss-nesting": "^10.2.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.8.0",
