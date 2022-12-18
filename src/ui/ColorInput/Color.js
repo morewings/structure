@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useVariable} from 'css-vars-hook';
-import {Icon} from 'src/ui/Icon';
-import {useNodeColorValues} from 'src/utils/nodeColors';
+
+import {Icon} from '@/ui/Icon';
+import {useNodeColorValues} from '@/utils/nodeColors';
+
 import classes from './Color.module.css';
 
 export const Color = ({color, onClick, isActive}) => {

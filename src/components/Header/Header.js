@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {Icon} from 'src/ui/Icon';
-import {Container} from 'src/ui/Grid';
-import {NavigationLink} from 'src/ui/NavigationLink';
+
+import {Icon} from '@/ui/Icon';
+import {Container} from '@/ui/Grid';
+import {NavigationLink} from '@/components/NavigationLink';
+
 import classes from './Header.module.css';
 
-const Header = ({siteTitle}) => (
+export const Header = ({siteTitle}) => (
   <div className={classes.header}>
     <Container>
       <div className={classes.headerContent}>
@@ -15,18 +17,8 @@ const Header = ({siteTitle}) => (
           <div className={classes.name}>{siteTitle}</div>
         </div>
         <div className={classes.navigation}>
-          <NavigationLink
-            className={classes.navItem}
-            icon="board"
-            title="Board"
-            to="/"
-          />
-          <NavigationLink
-            className={classes.navItem}
-            icon="help"
-            title="Help"
-            to="/help/"
-          />
+          <NavigationLink className={classes.navItem} icon="board" title="Board" href="/" />
+          <NavigationLink className={classes.navItem} icon="help" title="Help" href="/help" />
           <a
             rel="noreferrer"
             target="_blank"

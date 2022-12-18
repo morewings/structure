@@ -1,14 +1,13 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import useActions from 'src/features/structure/actionCreators';
-import {
-  useDeleteNodeModal,
-  useEditNodeModal,
-} from 'src/components/ModalManager';
-import {useNodeData, useChildrenCompletion} from 'src/features/structure';
-import {Button} from 'src/ui/Button';
-import {FooterSeparator} from 'src/ui/FooterSeparator';
+
+import useActions from '@/features/structure/actionCreators';
+import {useDeleteNodeModal, useEditNodeModal} from '@/components/ModalManager';
+import {useNodeData, useChildrenCompletion} from '@/features/structure';
+import {Button} from '@/ui/Button';
+import {FooterSeparator} from '@/ui/FooterSeparator';
+
 import Stats from './Stats';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
@@ -17,14 +16,7 @@ import classes from './Node.module.css';
 
 const Node = ({id, toggleNode, activeNode}) => {
   const isOpen = activeNode === id;
-  const {
-    isDone,
-    title,
-    color,
-    generation,
-    children: childNodes,
-    description,
-  } = useNodeData(id);
+  const {isDone, title, color, generation, children: childNodes, description} = useNodeData(id);
 
   const completion = useChildrenCompletion(id);
 
@@ -77,26 +69,14 @@ const Node = ({id, toggleNode, activeNode}) => {
         {isOpen && (
           <main>
             {description && <Description text={description} />}
-            <Stats
-              completion={completion}
-              tier={generation}
-              nodeChildrenAmount={childNodes.length}
-            />
+            <Stats completion={completion} tier={generation} nodeChildrenAmount={childNodes.length} />
             <NodeActions deleteNode={handleDelete} />
           </main>
         )}
         {isOpen && (
           <FooterSeparator
-            leftButton={
-              <Button icon="edit" text="Edit node" onClick={handleEdit} />
-            }
-            rightButton={
-              <Button
-                icon="parent_children"
-                text="Show children"
-                onClick={handleSelect}
-              />
-            }
+            leftButton={<Button icon="edit" text="Edit node" onClick={handleEdit} />}
+            rightButton={<Button icon="parent_children" text="Show children" onClick={handleSelect} />}
           />
         )}
       </div>

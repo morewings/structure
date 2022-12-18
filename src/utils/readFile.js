@@ -8,9 +8,9 @@ const readFile = async file => {
   const raw = await file.text();
   let structure;
   try {
-    structure = JSON.parse(raw); // eslint-disable-line fp/no-mutation
+    structure = JSON.parse(raw);
   } catch (e) {
-    structure = false; // eslint-disable-line fp/no-mutation
+    structure = false;
     console.error('JSON parsing error'); // TODO: add Toast
   }
   return structure;

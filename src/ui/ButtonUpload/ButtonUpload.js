@@ -1,7 +1,9 @@
 import React, {useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ButtonBig} from 'src/ui/ButtonBig';
+
+import {ButtonBig} from '@/ui/ButtonBig';
+
 import classes from './ButtonUpload.module.css';
 
 export const ButtonUpload = ({onUpload, title, className}) => {
@@ -28,13 +30,7 @@ export const ButtonUpload = ({onUpload, title, className}) => {
         [className]: !!className,
       })}>
       <ButtonBig type="confirm" title={title} onClick={onClick} icon="upload">
-        <input
-          multiple={false}
-          accept=".json"
-          ref={inputRef}
-          className={classes.input}
-          type="file"
-        />
+        <input multiple={false} accept=".json" ref={inputRef} className={classes.input} type="file" />
       </ButtonBig>
     </div>
   );

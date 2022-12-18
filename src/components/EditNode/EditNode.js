@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {useNodeData, useStructureActions} from 'src/features/structure';
-import NodeFieldset from 'src/ui/NodeFieldset';
-import {Button} from 'src/ui/Button';
-import {FooterSeparator} from 'src/ui/FooterSeparator';
+
+import {useNodeData, useStructureActions} from '@/features/structure';
+import NodeFieldset from '@/ui/NodeFieldset';
+import {Button} from '@/ui/Button';
+import {FooterSeparator} from '@/ui/FooterSeparator';
+
 import classes from './EditNode.module.css';
 
 const EditNode = ({id, onCloseModal}) => {

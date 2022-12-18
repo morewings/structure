@@ -1,13 +1,14 @@
-import React from 'react';
-import Layout from 'src/components/Layout/Layout';
-import {SEO} from 'src/components/SEO';
-import Help from 'src/components/Help';
+import {HTMLHead} from '@/components/HTMLHead';
+import {Layout} from '@/components/Layout';
+import {Help as PageContent} from '@/components/Help';
 
-const HelpPage = () => (
-  <Layout>
-    <SEO title="Help" />
-    <Help />
-  </Layout>
-);
+const Help = () => {
+  return (
+    <Layout>
+      <HTMLHead title="Help" />
+      <PageContent />
+    </Layout>
+  );
+};
 
-export default HelpPage;
+export default Help;

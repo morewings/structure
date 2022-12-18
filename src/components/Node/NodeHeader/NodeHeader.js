@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useNodeColorValues} from 'src/utils/nodeColors';
-import {Checkbox} from 'src/ui/Checkbox';
-import {Icon} from 'src/ui/Icon';
+
+import {useNodeColorValues} from '@/utils/nodeColors';
+import {Checkbox} from '@/ui/Checkbox';
+import {Icon} from '@/ui/Icon';
+
 import classes from './NodeHeader.module.css';
 
-const NodeHeader = ({
-  handleCheckboxChange,
-  isDone,
-  title,
-  id,
-  handleToggle,
-  color,
-  isOpen,
-  className,
-}) => {
+const NodeHeader = ({handleCheckboxChange, isDone, title, id, handleToggle, color, isOpen, className}) => {
   const colorValue = useNodeColorValues(color);
   const icon = isOpen ? 'collapse' : 'expand';
   return (

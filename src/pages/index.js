@@ -1,18 +1,14 @@
-import React from 'react';
-import Board from 'src/components/Board';
-import FloatingActions from 'src/components/FloatingActions';
-import Layout from 'src/components/Layout/Layout';
-import {SEO} from 'src/components/SEO';
-import ClientOnly from 'src/components/ClientOnly';
+import {HTMLHead} from '@/components/HTMLHead';
+import Board from '@/components/Board';
+import FloatingActions from '@/components/FloatingActions';
+import {Layout} from '@/components/Layout';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Board" />
-    <ClientOnly>
+export default function Home() {
+  return (
+    <Layout>
+      <HTMLHead title="Board" />
       <Board />
       <FloatingActions />
-    </ClientOnly>
-  </Layout>
-);
-
-export default IndexPage;
+    </Layout>
+  );
+}

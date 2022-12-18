@@ -7,8 +7,7 @@ import {curry} from 'ramda';
 
 const hasChildren = node => node.children.length > 0;
 
-const getChildren = (structure, node) =>
-  node.children.map(childNodeId => structure.nodes[childNodeId]);
+const getChildren = (structure, node) => node.children.map(childNodeId => structure.nodes[childNodeId]);
 
 /**
  * @typedef Node
@@ -36,8 +35,5 @@ export const reduceTree = curry((reducerFn, structure, initial, node) => {
   if (!hasChildren(node)) {
     return acc;
   }
-  return getChildren(structure, node).reduce(
-    reduceTree(reducerFn, structure),
-    acc
-  );
+  return getChildren(structure, node).reduce(reduceTree(reducerFn, structure), acc);
 });

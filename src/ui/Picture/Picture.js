@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import classes from './Image.module.css';
 
-export const Image = ({src, title, className}) => (
+export const Picture = ({title, className, children}) => (
   <div
-    className={classNames(classes.image, {
+    className={classNames(classes.pictureWrapper, {
       [className]: !!className,
     })}>
-    <img src={src} alt={title} />
+    {children}
     <div className={classes.title}>{title}</div>
   </div>
 );
 
-Image.propTypes = {
-  src: PropTypes.string.isRequired,
+Picture.propTypes = {
   title: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
-Image.defaultProps = {
+Picture.defaultProps = {
   className: '',
 };

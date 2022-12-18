@@ -1,8 +1,9 @@
-import {curry, assoc, compose, __, merge} from 'ramda';
-import {reduceTree} from 'src/utils/traverseTree';
+import {curry, assoc, compose, __, mergeRight} from 'ramda';
+
+import {reduceTree} from '@/utils/traverseTree';
 
 const editNode = curry((payload, acc, node) =>
-  compose(assoc(node.id, __, acc), merge(__, payload))(node)
+  compose(assoc(node.id, __, acc), mergeRight(__, payload))(node)
 );
 
 /**
@@ -30,7 +31,6 @@ const editNode = curry((payload, acc, node) =>
  * @param {Update} payload
  * @return {Structure}
  */
-const editChildren = (structure, node, payload) =>
-  reduceTree(editNode(payload), structure, {}, node);
+const editChildren = (structure, node, payload) => reduceTree(editNode(payload), structure, {}, node);
 
 export default editChildren;

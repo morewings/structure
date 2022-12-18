@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import {useModalActions, useModalInfo} from 'src/features/modal';
+
+import {useModalActions, useModalInfo} from '@/features/modal';
+
 import useModalComponent from './useModalComponent';
 import classes from './ModalWrapper.module.css';
 
