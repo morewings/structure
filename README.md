@@ -101,7 +101,7 @@ const useModalComponent = () => {
 
 Use it like this:
 
-```jsx harmony
+```jsx
 import {useModalComponent} from 'src/components/ModalManager';
 
 const Component = () => {
