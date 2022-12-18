@@ -99,6 +99,7 @@ const useModalComponent = () => {
 };
 ```
 
+
 Use it like this:
 
 ```jsx
