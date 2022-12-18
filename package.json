@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-ssr-friendly": "^1.0.6",
     "fontello-cli": "^0.6.2",
-    "husky": "^7.0.2",
+    "husky": "^8.0.2",
     "is-ci": "^3.0.1",
     "lint-staged": "^11.1.2",
     "postcss-nesting": "^10.2.0",
