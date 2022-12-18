@@ -25,7 +25,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:code": "yarn eslint ./src/",
-    "fix:code": "yarn lint:code --fix"
+    "fix:code": "yarn lint:code --fix",
+    "prepare": "is-ci || husky install"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
@@ -46,13 +47,6 @@
     "the-new-css-reset": "^1.7.3"
   },
   "devDependencies": {
-    "fontello-cli": "^0.6.2",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
-    "postcss-preset-env": "^6.7.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
     "@next/eslint-plugin-next": "^13.0.5",
     "alias-hq": "^5.4.0",
     "autoprefixer": "^10.4.13",
@@ -63,7 +57,15 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-ssr-friendly": "^1.0.6",
+    "fontello-cli": "^0.6.2",
+    "husky": "^7.0.2",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^11.1.2",
     "postcss-nesting": "^10.2.0",
-    "prettier": "^2.8.0"
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.8.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0"
   }
 }
