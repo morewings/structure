@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'structure_icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/structure_icons.woff2') format('woff2');
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  line-height: 1;
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  display: inline-block;
+  font-family: "structure_icons", serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-align: center;
+  text-decoration: inherit;
+  text-transform: none;
+  width: 1em;
+}

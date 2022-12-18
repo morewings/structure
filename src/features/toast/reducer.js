@@ -14,7 +14,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case TOAST_HIDE: {
       const {id} = action;
-      return compose(over(visibleToastsLens, dropLast(1)), over(toastsLens, omit([id])))(state);
+      return compose(
+        over(visibleToastsLens, dropLast(1)),
+        over(toastsLens, omit([id]))
+      )(state);
     }
     case TOAST_SHOW: {
       const {id, modalType, modalProps} = action;
