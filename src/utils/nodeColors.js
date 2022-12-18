@@ -1,23 +1,7 @@
-export const useNodeColorNames = () => [
-  'red',
-  'orange',
-  'green',
-  'turquoise',
-  'blue',
-  'violet',
-  'gray',
-];
+export const useNodeColorNames = () => ['red', 'orange', 'green', 'turquoise', 'blue', 'violet', 'gray'];
 
 export const useNodeColorValues = color => {
-  const [
-    red,
-    orange,
-    green,
-    turquoise,
-    blue,
-    violet,
-    gray,
-  ] = useNodeColorNames();
+  const [red, orange, green, turquoise, blue, violet, gray] = useNodeColorNames();
   return {
     [red]: '#FF0000',
     [orange]: '#FFA500',

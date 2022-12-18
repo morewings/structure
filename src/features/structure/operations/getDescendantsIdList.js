@@ -1,5 +1,6 @@
 import {append} from 'ramda';
-import {reduceTree} from 'src/utils/traverseTree';
+
+import {reduceTree} from '@/utils/traverseTree';
 
 const flattenToArray = (arr, {id}) => append(id, arr);
 
@@ -21,7 +22,6 @@ const flattenToArray = (arr, {id}) => append(id, arr);
  * @param {Node} node
  * @return {string[]} - List of children ids
  */
-const getDescendantsIdList = (structure, node) =>
-  reduceTree(flattenToArray, structure, [], node);
+const getDescendantsIdList = (structure, node) => reduceTree(flattenToArray, structure, [], node);
 
 export default getDescendantsIdList;

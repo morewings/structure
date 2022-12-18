@@ -1,12 +1,6 @@
-.image {
+.pictureWrapper {
   margin: calc(4 * var(--baseUnit)) auto calc(2 * var(--baseUnit));
-
-  & img {
-    border-radius: var(--baseUnit);
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-  }
+  text-align: center;
 }
 
 .title {

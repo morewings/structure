@@ -7,7 +7,7 @@
 ## Development
 
 ```shell script
-yarn start # starts dev mode 
+yarn start # starts dev mode
 yarn edit:fonts # opens icon font edit tool
 ```
 
@@ -35,7 +35,7 @@ const node = {
 
 ### Modal
 
-Contains Map like collection of **Modals**. 
+Contains Map like collection of **Modals**.
 
 Modal is a React component.
 
@@ -47,7 +47,7 @@ Contains Map like collection of accordion states. Each state related to the Node
 const accordion = {
   openNode: 'node_id'
 }
-``` 
+```
 
 
 ## Guides
@@ -100,6 +100,7 @@ const useModalComponent = () => {
 ```
 
 Use it like this:
+
 ```jsx harmony
 import {useModalComponent} from 'src/components/ModalManager';
 

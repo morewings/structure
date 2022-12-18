@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import classes from './Container.module.css';
 
 export const Container = ({children, className}) => (

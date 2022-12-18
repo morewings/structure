@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useNodeColorValues} from 'src/utils/nodeColors';
-import {Checkbox} from 'src/ui/Checkbox';
-import {Textarea} from 'src/ui/Textarea';
-import {ColorInput} from 'src/ui/ColorInput';
-import config from "src/config";
+
+import {useNodeColorValues} from '@/utils/nodeColors';
+import {Checkbox} from '@/ui/Checkbox';
+import {Textarea} from '@/ui/Textarea';
+import {ColorInput} from '@/ui/ColorInput';
+import config from '@/config';
+
 import classes from './NodeFieldset.module.css';
 
-const NodeFieldset = ({
-  color,
-  setColor,
-  isDone,
-  setIsDone,
-  title,
-  setTitle,
-  description,
-  setDescription,
-}) => {
+const NodeFieldset = ({color, setColor, isDone, setIsDone, title, setTitle, description, setDescription}) => {
   const colorValue = useNodeColorValues(color);
 
   return (
@@ -24,12 +17,7 @@ const NodeFieldset = ({
       <fieldset className={classes.fieldSet}>
         <h3 className={classes.fieldLabel}>Title</h3>
         <div className={classes.titleInputs}>
-          <Checkbox
-            color={colorValue}
-            checked={isDone}
-            onChange={setIsDone}
-            className={classes.checkbox}
-          />
+          <Checkbox color={colorValue} checked={isDone} onChange={setIsDone} className={classes.checkbox} />
           <Textarea maxLength={config.titleMaxLength} value={title} onChange={setTitle} />
         </div>
       </fieldset>
@@ -42,11 +30,7 @@ const NodeFieldset = ({
       <fieldset className={classes.fieldSet}>
         <h3 className={classes.fieldLabel}>Description</h3>
         <div className={classes.descriptionInput}>
-          <Textarea
-            value={description}
-            onChange={setDescription}
-            className={classes.textarea}
-          />
+          <Textarea value={description} onChange={setDescription} className={classes.textarea} />
         </div>
       </fieldset>
     </div>
@@ -54,15 +38,7 @@ const NodeFieldset = ({
 };
 
 NodeFieldset.propTypes = {
-  color: PropTypes.oneOf([
-    'red',
-    'orange',
-    'green',
-    'turquoise',
-    'blue',
-    'violet',
-    'gray',
-  ]).isRequired,
+  color: PropTypes.oneOf(['red', 'orange', 'green', 'turquoise', 'blue', 'violet', 'gray']).isRequired,
   setColor: PropTypes.func.isRequired,
   isDone: PropTypes.bool.isRequired,
   setIsDone: PropTypes.func.isRequired,

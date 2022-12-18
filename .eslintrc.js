@@ -1,78 +1,60 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const alias = require('alias-hq');
+
+const eslintImportAlias = require('./alias/eslint-import');
+
 module.exports = {
-  globals: {
-    __PATH_PREFIX__: true,
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: alias.get(eslintImportAlias),
+        extensions: ['.js', '.jsx', '.json'],
+      },
+    },
   },
   extends: [
-    "airbnb",
-    "react-app",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    'react-app',
+    'react-app/jest',
+    'plugin:@next/next/recommended',
+    'plugin:ssr-friendly/recommended',
+    'prettier',
   ],
-  "rules": {
-    // Allow jsx tags inside .js files.
-    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
-    // Disable props spreading (<App {...props} />) warning.
-    "react/jsx-props-no-spreading": 0,
-    // Throw warning instead of error when using array index as a key.
-    "react/no-array-index-key": 1,
-    // Allow modules with named exports only.
-    "import/prefer-default-export": 0,
-    // Force {foo: 'bar'} object literal syntax.
-    "object-curly-spacing": ["error", "never"],
-    // Throw warning instead of error. Feel free to choose your favorite option https://eslint.org/docs/rules/arrow-body-style
-    "arrow-body-style": ["warn", "as-needed"],
-    // Make prettier code formatting suggestions more verbose.
-    "prettier/prettier": ["warn"],
-    // Throw warning when <a href="#"> or <a href="javascript:void(0)"> are used. Use <button> instead.
-    "jsx-a11y/anchor-is-valid": ["warn", {"aspects": ["invalidHref"]}],
-    // Allow using (props) => <Component /> and ({propName}) => <Component /> syntax.
-    "react/destructuring-assignment": "off",
-    // Disable <Fragment> => <> replacement. Feel free to change
-    "react/jsx-fragments": "off",
-    // Below is the set of functional rules to warn developer about accidental mutations, which may cause error in reducers etc.
-    // No delete operator.
-    "fp/no-delete": "warn",
-    // Warning when Object.assign(a, b) used, since it mutates first argument. Object.assign({}, a, b) is ok.
-    "fp/no-mutating-assign": "warn",
-    // Warning when mutating method (pop, push, reverse, shift, sort, splice, unshift, etc) is used. Ramda and lodash/fp are allowed (_.pop, R.push)
-    "fp/no-mutating-methods": [
-      "warn",
+  plugins: ['prettier', 'ssr-friendly'],
+  rules: {
+    'no-const-assign': 'error',
+    /** Restrict imports from devDependencies since they are not included in library build. peerDependencies are ok */
+    'import/no-extraneous-dependencies': [
+      'error',
       {
-        "allowedObjects": ["_", "R"]
-      }
+        devDependencies: false,
+        peerDependencies: true,
+      },
     ],
-    // Warning when mutating operators (++, --, etc) are used, object = {} also. `Component.propTypes`, `Component.defaultProps`, common.js (`module.exports`) and `ref.current` are ok.
-    "fp/no-mutation": [
-      "warn",
+    /**
+     * Enforce import order with empty lines between import group
+     * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+     */
+    'import/order': [
+      'error',
       {
-        "commonjs": true,
-        "allowThis": true,
-        "exceptions": [{"property": "propTypes"}, {"property": "defaultProps"}, {"property": "current"}]
-      }
-    ]
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
+        'newlines-between': 'always',
+      },
+    ],
+    'import/no-unresolved': 'error',
+    'prettier/prettier': [
+      'error',
+      {},
+      {
+        usePrettierrc: true,
+      },
+    ],
   },
-  "plugins": ["prettier", "fp"],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["./"]
-      }
-    }
-  },
-  "overrides": [
-    {
-      "files": [ "./*.js"],
-      "rules": {
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
-        "global-require": 0
-      }
-    },
-    {
-      "files": ["**/*.spec.js"],
-      "rules": {
-        "react/prop-types": "off"
-      }
-    }
-  ]
-}
+  overrides: [],
+};

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'src/ui/Button';
+
+import {Button} from '@/ui/Button';
+
 import classes from './NodeActions.module.css';
 
 const NodeActions = ({deleteNode}) => (

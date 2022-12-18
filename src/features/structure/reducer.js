@@ -1,16 +1,8 @@
-import {
-  lensPath,
-  lensProp,
-  view,
-  set,
-  over,
-  assoc,
-  compose,
-  append,
-  merge,
-  __,
-} from 'ramda';
-import config from 'src/config';
+import {lensPath, lensProp, view, set, over, assoc, compose, append, mergeRight, __} from 'ramda';
+
+import config from '@/config';
+import {LOCALSTORAGE_HYDRATE} from '@/features/localStorage';
+
 import {editChildren, deleteNode} from './operations';
 import {
   ADD_NODE,
@@ -69,6 +61,10 @@ const nodeChildrenLens = id => lensPath(['nodes', id, 'children']);
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case LOCALSTORAGE_HYDRATE: {
+      const {structure} = action.state;
+      return structure;
+    }
     case ADD_NODE: {
       const {id, parentId, isDone, description, title, color} = action.payload;
       const generation = state.nodes[parentId].generation + 1;
@@ -99,7 +95,7 @@ export default (state = initialState, action) => {
     }
     case EDIT_NODE: {
       const {id, ...node} = action.payload;
-      return over(nodeSingleLens(id), merge(__, node), state);
+      return over(nodeSingleLens(id), mergeRight(__, node), state);
     }
     case DELETE_NODE: {
       const node = view(nodeSingleLens(action.payload), state);
@@ -109,7 +105,7 @@ export default (state = initialState, action) => {
       const {id, isDone} = action.payload;
       const node = view(nodeSingleLens(id), state);
       const updatedNodes = editChildren(state, node, {isDone});
-      return over(nodesListLens(), merge(__, updatedNodes), state);
+      return over(nodesListLens(), mergeRight(__, updatedNodes), state);
     }
     case RESET_STRUCTURE: {
       return initialState;

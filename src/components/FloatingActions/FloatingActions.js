@@ -1,17 +1,13 @@
 import React from 'react';
 import {saveAs} from 'file-saver';
-import {ButtonBig} from 'src/ui/ButtonBig';
-import {ButtonUpload} from 'src/ui/ButtonUpload';
-import {
-  useFocusedParentId,
-  useStructureActions,
-  useStructure,
-} from 'src/features/structure';
-import {
-  useDeleteStructureModal
-} from 'src/components/ModalManager';
-import readFile from 'src/utils/readFile';
-import createBlobFromString from 'src/utils/createBlobFromString';
+
+import {ButtonBig} from '@/ui/ButtonBig';
+import {ButtonUpload} from '@/ui/ButtonUpload';
+import {useFocusedParentId, useStructureActions, useStructure} from '@/features/structure';
+import {useDeleteStructureModal} from '@/components/ModalManager';
+import readFile from '@/utils/readFile';
+import createBlobFromString from '@/utils/createBlobFromString';
+
 import classes from './FloatingActions.module.css';
 
 const FloatingActions = () => {
@@ -41,12 +37,7 @@ const FloatingActions = () => {
 
   return (
     <div className={classes.floatingActions}>
-      <ButtonBig
-        onClick={handleFocusParent}
-        title="Focus parent"
-        className={classes.button}
-        icon="rewind"
-      />
+      <ButtonBig onClick={handleFocusParent} title="Focus parent" className={classes.button} icon="rewind" />
       <ButtonBig
         onClick={focusInitialNode}
         title="Focus initial node"

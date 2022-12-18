@@ -1,6 +1,7 @@
 import React from 'react';
-import {useFocusedParentId, useStructureActions} from 'src/features/structure';
 import {Button} from 'react-bootstrap';
+
+import {useFocusedParentId, useStructureActions} from '@/features/structure';
 
 export const StepRewind = () => {
   const parentId = useFocusedParentId();

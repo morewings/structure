@@ -1,13 +1,15 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import config from 'src/config';
-import {useChildrenIdList, useNodeData} from 'src/features/structure';
-import {useCreateNodeModal} from 'src/components/ModalManager';
-import {Accordion} from 'src/components/Accordion';
-import Node from 'src/components/Node/Node';
-import {Icon} from 'src/ui/Icon';
-import {Button} from 'src/ui/Button';
-import {FooterSeparator} from 'src/ui/FooterSeparator';
+
+import config from '@/config';
+import {useChildrenIdList, useNodeData} from '@/features/structure';
+import {useCreateNodeModal} from '@/components/ModalManager';
+import {Accordion} from '@/components/Accordion';
+import Node from '@/components/Node/Node';
+import {Icon} from '@/ui/Icon';
+import {Button} from '@/ui/Button';
+import {FooterSeparator} from '@/ui/FooterSeparator';
+
 import classes from './Column.module.css';
 
 const Column = ({nodeId, role}) => {
@@ -17,7 +19,6 @@ const Column = ({nodeId, role}) => {
   const handleAdd = () => {
     addNode(nodeId);
   };
-  console.log('title', title);
   return (
     <Fragment>
       <div className={classes.column}>
@@ -45,9 +46,7 @@ const Column = ({nodeId, role}) => {
               />
             ) : undefined
           } */
-          rightButton={
-            <Button text="Add node" icon="add-node" onClick={handleAdd} />
-          }
+          rightButton={<Button text="Add node" icon="add-node" onClick={handleAdd} />}
         />
       </div>
     </Fragment>

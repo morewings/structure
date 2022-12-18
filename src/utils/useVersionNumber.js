@@ -1,4 +1,5 @@
 import {useEffect} from 'react';
+
 import pkg from '../../package.json';
 
 export const useVersionNumber = () => {

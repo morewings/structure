@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import classes from './FooterSeparator.module.css';
 
 export const FooterSeparator = ({leftButton, rightButton}) => (

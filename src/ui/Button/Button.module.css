@@ -5,6 +5,7 @@
   background: none;
   background: var(--backgroundMiddleColor);
   border: none;
+  cursor: pointer;
   height: var(--height);
   margin: 0;
   padding: 0;

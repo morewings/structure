@@ -1,19 +1,19 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Container} from 'src/ui/Grid';
-import ModalManager from 'src/components/ModalManager/ModalManager';
-import SmallScreenWarning from 'src/components/SmallScreenWarning';
-import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
-import config from 'src/config';
-import 'bootstrap/dist/css/bootstrap-reboot.css';
-import {useMatchMedia} from 'src/utils/matchMedia';
-import {useVersionNumber} from 'src/utils/useVersionNumber';
-import './global.css';
-import './variables.css';
+
+import {Container} from '@/ui/Grid';
+import ModalManager from '@/components/ModalManager/ModalManager';
+import SmallScreenWarning from '@/components/SmallScreenWarning';
+import Footer from '@/components/Footer';
+import config from '@/config';
+import 'the-new-css-reset/css/reset.css';
+import {useMatchMedia} from '@/utils/matchMedia';
+import {useVersionNumber} from '@/utils/useVersionNumber';
+import {Header} from '@/components/Header';
+
 import classes from './Layout.module.css';
 
-const Layout = ({children}) => {
+export const Layout = ({children}) => {
   useVersionNumber();
   const isEnoughSpace = useMatchMedia({minWidth: 1279});
   return (
@@ -35,5 +35,3 @@ const Layout = ({children}) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default Layout;

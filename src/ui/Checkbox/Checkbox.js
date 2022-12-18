@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Icon} from '../Icon';
+
+import {Icon} from '@/ui/Icon';
 
 export const Checkbox = ({className, checked, onChange, color}) => {
   const icon = checked ? 'checkbox-checked' : 'checkbox-unchecked';

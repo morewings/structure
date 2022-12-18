@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {Icon} from 'src/ui/Icon';
 import {useVariable} from 'css-vars-hook';
-import {useColors} from 'src/utils/buttonColors';
+
+import {Icon} from '@/ui/Icon';
+import {useColors} from '@/utils/buttonColors';
+
 import classes from './Button.module.css';
 
 export const Button = ({onClick, className, icon, text, type}) => {

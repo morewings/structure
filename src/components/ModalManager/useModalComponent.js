@@ -1,7 +1,8 @@
-import ConfirmationDeleteNode from 'src/components/ConfirmationDeleteNode';
-import ConfirmationDeleteStructure from 'src/components/ConfirmationDeleteStructure';
-import EditNode from 'src/components/EditNode';
-import CreateNode from 'src/components/CreateNode';
+import ConfirmationDeleteNode from '@/components/ConfirmationDeleteNode';
+import ConfirmationDeleteStructure from '@/components/ConfirmationDeleteStructure';
+import EditNode from '@/components/EditNode';
+import CreateNode from '@/components/CreateNode';
+
 import modalTypes from './modalTypes';
 
 const useModalComponent = modalType =>

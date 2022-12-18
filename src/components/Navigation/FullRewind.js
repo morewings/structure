@@ -1,6 +1,7 @@
 import React from 'react';
-import {useStructureActions} from 'src/features/structure';
 import {Button} from 'react-bootstrap';
+
+import {useStructureActions} from '@/features/structure';
 
 export const FullRewind = () => {
   const {focusInitialNode} = useStructureActions();

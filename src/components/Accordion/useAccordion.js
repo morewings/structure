@@ -1,5 +1,6 @@
 import {useCallback, useEffect} from 'react';
-import {useAccordionActions, useAccordionState} from 'src/features/accordion';
+
+import {useAccordionActions, useAccordionState} from '@/features/accordion';
 
 export const useAccordion = id => {
   const accordionState = useAccordionState(id);

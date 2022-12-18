@@ -1,11 +1,12 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
+
 import {
   ACCORDION_REGISTER,
   ACCORDION_TOGGLE,
   ACCORDION_DELETE,
   ACCORDION_RESET,
-} from 'src/features/accordion/actionTypes';
+} from '@/features/accordion/actionTypes';
 
 const useAccordionActions = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,12 @@ const useAccordionActions = () => {
     });
   }, [dispatch]);
 
-  return {registerAccordion, toggleAccordion, deleteAccordion, resetAccordion};
+  return {
+    registerAccordion,
+    toggleAccordion,
+    deleteAccordion,
+    resetAccordion,
+  };
 };
 
 export default useAccordionActions;

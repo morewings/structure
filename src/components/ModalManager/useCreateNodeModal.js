@@ -1,4 +1,5 @@
-import {useModalActions} from 'src/features/modal';
+import {useModalActions} from '@/features/modal';
+
 import modalTypes from './modalTypes';
 
 const useCreateNodeModal = () => {
@@ -8,7 +9,7 @@ const useCreateNodeModal = () => {
       modalType: modalTypes.NODE_CREATE,
       modalProps: {
         parentId,
-      }
+      },
     });
   };
 };
