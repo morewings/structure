@@ -16,18 +16,18 @@ export const useLocalStorage = () => {
     });
   }, [dispatch]);
 
-  useEffect(() => {
-    const removeListener = store.subscribe(
-      throttle(() => {
-        saveState({
-          structure: store.getState().structure,
-          accordion: store.getState().accordion,
-        });
-      }, 1000)
-    );
-    return () => {
-      removeListener();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const removeListener = store.subscribe(
+  //     throttle(() => {
+  //       saveState({
+  //         structure: store.getState().structure,
+  //         accordion: store.getState().accordion,
+  //       });
+  //     }, 1000)
+  //   );
+  //   return () => {
+  //     removeListener();
+  //   };
+  // }, []);
   return hydrateState;
 };
