@@ -2,7 +2,8 @@ import config from '@/config';
 
 export const loadState = () => {
   try {
-    const serializedState = localStorage?.getItem(config.localstorageKey);
+    const serializedState =
+      typeof window !== 'undefined' ? window.localStorage.getItem(config.localstorageKey) : null;
     if (serializedState === null) {
       return undefined;
     }
@@ -16,7 +17,7 @@ export const loadState = () => {
 export const saveState = state => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage?.setItem(config.localstorageKey, serializedState);
+    typeof window !== 'undefined' && window.localStorage.setItem(config.localstorageKey, serializedState);
   } catch {
     console.error(`Can't save to localStorage`); // TODO: add toast
   }
