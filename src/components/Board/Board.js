@@ -5,11 +5,11 @@ import {useLocalStorage} from '@/features/localStorage';
 import {Row, Col} from '@/ui/Grid';
 import Column from '@/components/Column';
 
-const Board = () => {
-  const hydrateState = useLocalStorage();
-  useEffect(() => {
-    hydrateState();
-  }, [hydrateState]);
+export const Board = () => {
+  // const hydrateState = useLocalStorage();
+  // useEffect(() => {
+  //   hydrateState();
+  // }, [hydrateState]);
   const {childrenId, siblingsId, parentId} = useBoardContent();
   return (
     <div>
@@ -25,5 +25,3 @@ const Board = () => {
     </div>
   );
 };
-
-export default Board;
