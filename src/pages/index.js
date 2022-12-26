@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <Layout>
       <HTMLHead title="Board" />
-      <Board />
-      {/*<FloatingActions />*/}
+      {/*<Board />*/}
+      <FloatingActions />
     </Layout>
   );
 }
