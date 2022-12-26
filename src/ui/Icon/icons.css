@@ -2,7 +2,7 @@
   font-family: 'structure_icons';
   font-style: normal;
   font-weight: normal;
-  src: url('/structure_icons.woff2') format('woff2');
+  src: url('./Assets/structure_icons.woff2') format('woff2');
 }
 
 [class^="icon-"],
