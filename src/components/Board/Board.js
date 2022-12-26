@@ -6,10 +6,10 @@ import {Row, Col} from '@/ui/Grid';
 import Column from '@/components/Column';
 
 export const Board = () => {
-  // const hydrateState = useLocalStorage();
-  // useEffect(() => {
-  //   hydrateState();
-  // }, [hydrateState]);
+  const hydrateState = useLocalStorage();
+  useEffect(() => {
+    hydrateState();
+  }, [hydrateState]);
   const {childrenId, siblingsId, parentId} = useBoardContent();
   return (
     <div>

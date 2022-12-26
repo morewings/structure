@@ -10,10 +10,10 @@ import {loadState, saveState} from './localStorage';
 export const useLocalStorage = () => {
   const dispatch = useDispatch();
   const hydrateState = useCallback(() => {
-    dispatch({
-      type: LOCALSTORAGE_HYDRATE,
-      state: loadState(),
-    });
+    // dispatch({
+    //   type: LOCALSTORAGE_HYDRATE,
+    //   state: loadState(),
+    // });
   }, [dispatch]);
 
   useEffect(() => {
