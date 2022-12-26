@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.0.5",
-    "alias-hq": "^5.4.0",
+    "alias-hq": "^6.1.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.30.0",
     "eslint-config-next": "12.3.1",
