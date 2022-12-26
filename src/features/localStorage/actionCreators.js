@@ -10,6 +10,7 @@ import {loadState, saveState} from './localStorage';
 export const useLocalStorage = () => {
   const dispatch = useDispatch();
   const hydrateState = useCallback(() => {
+    // check if we have state from localStorage. Needed for Next.js
     const savedState = loadState();
     !!savedState &&
       dispatch({
