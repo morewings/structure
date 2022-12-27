@@ -5,10 +5,10 @@ import {PieChart} from '@/components/PieChart';
 
 import classes from './Stats.module.css';
 
-const Stats = ({completion, nodeChildrenAmount, tier}) => (
+const Stats = ({completion, nodeChildrenAmount, tier, color}) => (
   <div className={classes.stats}>
     <h3>Stats</h3>
-    <PieChart completion={completion} />
+    <PieChart completion={completion} fullColor={color} />
     <div>
       <div className={classes.tier}>
         <h4>Tier</h4>
@@ -26,6 +26,7 @@ Stats.propTypes = {
   nodeChildrenAmount: PropTypes.number.isRequired,
   completion: PropTypes.number.isRequired,
   tier: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Stats;
