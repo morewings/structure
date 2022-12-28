@@ -69,7 +69,12 @@ const Node = ({id, toggleNode, activeNode}) => {
         {isOpen && (
           <main>
             {description && <Description text={description} />}
-            <Stats completion={completion} tier={generation} nodeChildrenAmount={childNodes.length} />
+            <Stats
+              color={color}
+              completion={completion}
+              tier={generation}
+              nodeChildrenAmount={childNodes.length}
+            />
             <NodeActions deleteNode={handleDelete} />
           </main>
         )}

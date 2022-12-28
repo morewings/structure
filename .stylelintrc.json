@@ -6,6 +6,9 @@
       "custom-properties",
       "declarations"
     ],
+    "custom-property-pattern": ["^[a-z][a-zA-Z0-9]+$", {
+      "message":  "Expected \"%s\" variable name to be lower camelCase"
+    }],
     "order/properties-alphabetical-order": true,
     "selector-pseudo-class-no-unknown": [true, {
       "ignorePseudoClasses": ["global"]
