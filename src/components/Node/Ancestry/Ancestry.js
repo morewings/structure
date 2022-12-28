@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import classes from './Stats.module.css';
+import classes from './Ancestry.module.css';
 
-const Stats = ({completion, nodeChildrenAmount, tier}) => (
-  <div className={classes.stats}>
-    <h3>Stats</h3>
-    <div className={classes.chart}>{completion}</div>
+export const Ancestry = ({nodeChildrenAmount, tier}) => (
+  <div className={classes.ancestry}>
+    <h3>Ancestry</h3>
     <div>
       <div className={classes.tier}>
         <h4>Tier</h4>
@@ -20,10 +19,7 @@ const Stats = ({completion, nodeChildrenAmount, tier}) => (
   </div>
 );
 
-Stats.propTypes = {
+Ancestry.propTypes = {
   nodeChildrenAmount: PropTypes.number.isRequired,
-  completion: PropTypes.number.isRequired,
   tier: PropTypes.number.isRequired,
 };
-
-export default Stats;

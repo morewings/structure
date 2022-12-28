@@ -4,6 +4,10 @@
   overflow: hidden;
   position: relative;
 
+  & .stats {
+    display: flex;
+  }
+
   & main,
   & .header {
     background-color: var(--backgroundHighColor);
