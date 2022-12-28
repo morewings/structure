@@ -1,5 +1,7 @@
 import React, {Fragment} from 'react';
-import {useVisibleToasts} from 'src/features/toast';
+
+import {useVisibleToasts} from '@/features/toast';
+
 import {ToastWrapper} from './ToastWrapper';
 
 export const ToastManager = () => {

@@ -1,7 +1,7 @@
 .footer {
   border-top: 1px solid var(--bgColor);
   display: flex;
-  margin: 0 0 0;
+  margin: 0;
 }
 
 .left {
