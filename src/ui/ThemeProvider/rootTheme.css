@@ -26,4 +26,5 @@
   --modalButtonColor: rgb(230 230 230 / 100%);
   --imageTitleColor: var(--iconColor);
   --chartLabelFontSize: 14px;
+  --chartTooltipFontSize: 12px;
 }

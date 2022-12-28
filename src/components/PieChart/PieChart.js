@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Cell, Pie, PieChart as PieChartGeneric} from 'recharts';
+import {Cell, Pie, PieChart as PieChartGeneric, Tooltip} from 'recharts';
 import {useVariable} from 'css-vars-hook';
 
 import {useChartData} from './useChartData';
@@ -31,6 +31,12 @@ export const PieChart = ({completion, color}) => {
             return <Cell key={`cell-${index}`} fill={segmentColor} />;
           })}
         </Pie>
+        <Tooltip
+          position={{x: 0, y: 96}}
+          allowEscapeViewBox={{x: true, y: true}}
+          itemStyle={{fontSize: 'var(--chartTooltipFontSize)'}}
+          contentStyle={{backgroundColor: 'var(--backgroundHighColor)'}}
+        />
       </PieChartGeneric>
       <div ref={setRef} className={classes.completion}>
         {completion}%

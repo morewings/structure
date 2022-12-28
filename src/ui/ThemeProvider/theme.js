@@ -25,4 +25,5 @@ export const theme = {
   modalButtonColor: 'rgba(230, 230, 230, 1)',
   imageTitleColor: 'var(--iconColor)',
   chartLabelFontSize: '14px',
+  chartTooltipFontSize: '12px',
 };
