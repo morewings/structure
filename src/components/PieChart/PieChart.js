@@ -4,15 +4,15 @@ import {Cell, Pie, PieChart as PieChartGeneric, Tooltip} from 'recharts';
 import {useVariable} from 'css-vars-hook';
 
 import {useChartData} from './useChartData';
+import {useChartColor} from './useChartColor';
 import classes from './PieChart.module.css';
 
-const normalizeColor = color => {
-  return color === '' ? '#4a90e2' : color;
-};
+const formatter = value => `${value}%`;
 
 export const PieChart = ({completion, color}) => {
   const chartData = useChartData(completion);
-  const {setRef} = useVariable('color', color);
+  const completeColor = useChartColor(color);
+  const {setRef} = useVariable('color', completeColor);
   return (
     <div className={classes.chart}>
       <PieChartGeneric width={96} height={96}>
@@ -27,7 +27,7 @@ export const PieChart = ({completion, color}) => {
           stroke="none"
           label={false}>
           {chartData.map((entry, index) => {
-            const segmentColor = index === 0 ? normalizeColor(color) : 'rgba(66, 66, 66, 0.33)';
+            const segmentColor = index === 0 ? completeColor : 'rgba(66, 66, 66, 0.33)';
             return <Cell key={`cell-${index}`} fill={segmentColor} />;
           })}
         </Pie>
@@ -36,6 +36,7 @@ export const PieChart = ({completion, color}) => {
           allowEscapeViewBox={{x: true, y: true}}
           itemStyle={{fontSize: 'var(--chartTooltipFontSize)'}}
           contentStyle={{backgroundColor: 'var(--backgroundHighColor)'}}
+          formatter={formatter}
         />
       </PieChartGeneric>
       <div ref={setRef} className={classes.completion}>

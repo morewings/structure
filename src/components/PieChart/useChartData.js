@@ -6,11 +6,11 @@
 export const useChartData = completion => {
   return [
     {
-      name: 'Completed',
+      name: 'Child nodes completed',
       value: completion,
     },
     {
-      name: 'Non-completed',
+      name: 'Child nodes non-completed',
       value: 100 - completion,
     },
   ];
