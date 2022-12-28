@@ -1,7 +1,7 @@
-.stats {
+.ancestry {
   display: flex;
   flex-wrap: wrap;
-  padding: var(--baseUnit) calc(2 * var(--baseUnit)) calc(4 * var(--baseUnit));
+  padding: var(--baseUnit) calc(2 * var(--baseUnit)) calc(2 * var(--baseUnit));
 
   & h3 {
     color: var(--darkColor);
@@ -9,7 +9,7 @@
     font-weight: 300;
     letter-spacing: 1px;
     margin-bottom: var(--baseUnit);
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
     width: 100%;
   }

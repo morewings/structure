@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {PieChart} from '@/components/PieChart';
+import classes from './Ancestry.module.css';
 
-import classes from './Stats.module.css';
-
-const Stats = ({completion, nodeChildrenAmount, tier, color}) => (
-  <div className={classes.stats}>
-    <h3>Stats</h3>
-    <PieChart color={color} completion={completion} />
+export const Ancestry = ({nodeChildrenAmount, tier}) => (
+  <div className={classes.ancestry}>
+    <h3>Ancestry</h3>
     <div>
       <div className={classes.tier}>
         <h4>Tier</h4>
@@ -22,10 +19,7 @@ const Stats = ({completion, nodeChildrenAmount, tier, color}) => (
   </div>
 );
 
-Stats.propTypes = {
+Ancestry.propTypes = {
   nodeChildrenAmount: PropTypes.number.isRequired,
-  completion: PropTypes.number.isRequired,
   tier: PropTypes.number.isRequired,
 };
-
-export default Stats;

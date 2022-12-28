@@ -7,8 +7,9 @@ import {useDeleteNodeModal, useEditNodeModal} from '@/components/ModalManager';
 import {useNodeData, useChildrenCompletion} from '@/features/structure';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
+import {PieChart} from '@/components/PieChart';
 
-import Stats from './Stats';
+import {Ancestry} from './Ancestry';
 import Description from './Description';
 import NodeHeader from './NodeHeader';
 import NodeActions from './NodeActions';
@@ -69,12 +70,10 @@ const Node = ({id, toggleNode, activeNode}) => {
         {isOpen && (
           <main>
             {description && <Description text={description} />}
-            <Stats
-              color={color}
-              completion={completion}
-              tier={generation}
-              nodeChildrenAmount={childNodes.length}
-            />
+            <div className={classes.stats}>
+              <PieChart color={color} completion={completion} />
+              <Ancestry tier={generation} nodeChildrenAmount={childNodes.length} />
+            </div>
             <NodeActions deleteNode={handleDelete} />
           </main>
         )}

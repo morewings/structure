@@ -2,6 +2,7 @@
   --size: calc(16 * var(--baseUnit));
 
   height: var(--size);
+  margin-left: calc(2 * var(--baseUnit));
   margin-right: calc(2 * var(--baseUnit));
   position: relative;
   width: var(--size);
