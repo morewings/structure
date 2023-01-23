@@ -45,7 +45,7 @@
     "react-redux": "^8.0.5",
     "recharts": "^2.3.2",
     "redux": "^4.2.0",
-    "the-new-css-reset": "^1.8.2"
+    "the-new-css-reset": "^1.8.3"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.0.5",
