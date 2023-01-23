@@ -1,0 +1,9 @@
+.toast {
+  align-items: center;
+  background: var(--toastBgColor);
+  border-radius: var(--baseUnit);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: calc(2 * var(--baseUnit));
+}

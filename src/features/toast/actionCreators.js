@@ -5,7 +5,7 @@ import getUniqueId from '@/utils/getUniqueId';
 
 import {TOAST_HIDE, TOAST_SHOW} from './actionTypes';
 
-const useToastActions = () => {
+export const useToastActions = () => {
   const dispatch = useDispatch();
 
   const closeToast = useCallback(
@@ -33,5 +33,3 @@ const useToastActions = () => {
 
   return {closeToast, openToast};
 };
-
-export default useToastActions;

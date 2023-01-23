@@ -6,16 +6,19 @@ import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
 import {useStructureActions} from '@/features/structure';
 import {useAccordionActions} from '@/features/accordion';
+import {useDeleteNodeToast} from '@/components/ToastManager';
 
 import classes from './ConfirmationDeleteNode.module.css';
 
 const ConfirmationDeleteNode = ({id, onCloseModal}) => {
   const {deleteNode} = useStructureActions();
   const {deleteAccordion} = useAccordionActions();
+  const showDeleteToast = useDeleteNodeToast();
   const handleDelete = () => {
-    deleteNode(id);
-    deleteAccordion(id);
+    // deleteNode(id);
+    // deleteAccordion(id);
     onCloseModal();
+    showDeleteToast({id, text: `Node ${id} was deleted`});
   };
   return (
     <div className={classes.confirmation}>

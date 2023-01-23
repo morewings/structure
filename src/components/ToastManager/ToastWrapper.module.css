@@ -1,0 +1,5 @@
+.toastWrapper {
+  position: fixed;
+  right: calc(6 * var(--baseUnit));
+  top: calc(6 * var(--baseUnit));
+}

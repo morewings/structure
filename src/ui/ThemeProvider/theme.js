@@ -8,6 +8,7 @@ export const theme = {
   actionColor: 'rgba(46, 56, 255, 1)',
   confirmColor: '#639423',
   modalBgColor: 'rgba(66, 66, 66, 0.66)',
+  toastBgColor: 'rgba(66, 66, 66, 0.66)',
   iconColor: 'rgba(66, 66, 66, 0.66)',
   iconLightColor: 'rgba(66, 66, 66, 0.33)',
   headerHeight: '56px',

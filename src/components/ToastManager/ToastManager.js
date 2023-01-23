@@ -6,6 +6,7 @@ import {ToastWrapper} from './ToastWrapper';
 
 export const ToastManager = () => {
   const visibleToasts = useVisibleToasts();
+  // console.log(visibleToasts)
   return (
     <Fragment>
       {visibleToasts.map((modalId, i) => (

@@ -17,14 +17,14 @@ export default (state = initialState, action) => {
       return compose(over(visibleToastsLens, dropLast(1)), over(toastsLens, omit([id])))(state);
     }
     case TOAST_SHOW: {
-      const {id, modalType, modalProps} = action;
+      const {id, toastType, toastProps} = action;
       return compose(
         over(visibleToastsLens, append(id)),
         over(
           toastsLens,
           assoc(id, {
-            modalType,
-            modalProps,
+            toastType,
+            toastProps,
           })
         )
       )(state);
