@@ -1,8 +1,7 @@
 import {useToastActions} from '@/features/toast';
+import {toastTypes} from '@/components/ToastManager';
 
-import toastTypes from './toastTypes';
-
-export const useDeleteNodeToast = () => {
+export const useInfoToast = () => {
   const {openToast} = useToastActions();
   return ({id, text}) => {
     openToast({

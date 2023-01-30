@@ -1,0 +1,11 @@
+.toastContainer {
+  margin: calc(2 * var(--baseUnit)) 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

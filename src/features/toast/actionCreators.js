@@ -10,6 +10,7 @@ export const useToastActions = () => {
 
   const closeToast = useCallback(
     id => {
+      console.log('id', id);
       dispatch({
         type: TOAST_HIDE,
         id,
