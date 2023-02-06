@@ -62,7 +62,7 @@
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.1.0",
-    "postcss-nesting": "^11.0.1",
+    "postcss-nesting": "^11.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.8.3",
     "stylelint": "^14.16.1",
