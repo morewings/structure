@@ -39,7 +39,7 @@
     "prop-types": "^15.8.1",
     "ramda": "^0.28.0",
     "react": "18.2.0",
-    "react-bootstrap": "^2.6.0",
+    "react-bootstrap": "^2.7.1",
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
     "react-redux": "^8.0.5",
