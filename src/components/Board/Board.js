@@ -1,15 +1,21 @@
 import React, {useEffect} from 'react';
 
 import useBoardContent from '@/features/structure/useBoardContent';
-import {useLocalStorage} from '@/features/localStorage';
+import {useSaveState, useHydrateState} from '@/features/localStorage';
+import {useInfoToast} from '@/components/InfoToast';
 import {Row, Col} from '@/ui/Grid';
 import Column from '@/components/Column';
 
 export const Board = () => {
-  const hydrateState = useLocalStorage();
+  useSaveState();
+  const {hydrateState} = useHydrateState();
+  const showToast = useInfoToast();
   useEffect(() => {
-    hydrateState();
-  }, [hydrateState]);
+    const hasLocalState = hydrateState();
+    return () => {
+      hasLocalState && showToast({text: 'Loaded data from local storage'});
+    };
+  }, [hydrateState, showToast]);
   const {childrenId, siblingsId, parentId} = useBoardContent();
   return (
     <div>

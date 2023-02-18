@@ -4,6 +4,7 @@
   background: var(--backgroundHighColor);
   border: none;
   border-radius: var(--size);
+  cursor: pointer;
   height: var(--size);
   padding: 0;
   text-align: center;
@@ -27,6 +28,6 @@
 /* stylelint-disable-next-line no-descending-specificity */
 .icon {
   color: var(--buttonColor);
-  font-size: 36px;
+  font-size: calc(6 * var(--baseUnit));
   line-height: var(--size);
 }

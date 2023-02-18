@@ -5,6 +5,7 @@ import {useNodeData, useStructureActions} from '@/features/structure';
 import NodeFieldset from '@/ui/NodeFieldset';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
+import {useInfoToast} from '@/components/InfoToast';
 
 import classes from './EditNode.module.css';
 
@@ -16,10 +17,12 @@ const EditNode = ({id, onCloseModal}) => {
   const [description, setDescription] = useState(nodeData.description);
 
   const {editNode} = useStructureActions();
+  const showToast = useInfoToast();
 
   const handleEdit = () => {
     editNode({id, description, color, isDone, title});
     onCloseModal();
+    showToast({text: `Node "${title || id}" was updated.`});
   };
 
   return (

@@ -32,7 +32,7 @@ const Node = ({id, toggleNode, activeNode}) => {
 
   const handleSelect = () => {
     focusNode(id);
-    showToast({id, text: `Node "${title || id}" was focused`});
+    showToast({text: `Node "${title || id}" was focused`});
   };
 
   const handleCheckboxChange = () => {

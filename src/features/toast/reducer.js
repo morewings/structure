@@ -1,4 +1,4 @@
-import {compose, lensProp, over, omit, filter, append, assoc} from 'ramda';
+import {compose, lensProp, over, omit, filter, append, assoc, prepend} from 'ramda';
 
 import {TOAST_SHOW, TOAST_HIDE} from './actionTypes';
 
@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
     case TOAST_SHOW: {
       const {id, toastType, toastProps} = action;
       return compose(
-        over(visibleToastsLens, append(id)),
+        over(visibleToastsLens, prepend(id)),
         over(
           toastsLens,
           assoc(id, {

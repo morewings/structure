@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Icon} from '@/ui/Icon';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
-import {useStructureActions} from '@/features/structure';
+import {useNodeData, useStructureActions} from '@/features/structure';
 import {useAccordionActions} from '@/features/accordion';
 import {useInfoToast} from '@/components/InfoToast';
 
@@ -13,12 +13,13 @@ import classes from './ConfirmationDeleteNode.module.css';
 const ConfirmationDeleteNode = ({id, onCloseModal}) => {
   const {deleteNode} = useStructureActions();
   const {deleteAccordion} = useAccordionActions();
+  const {title} = useNodeData(id);
   const showToast = useInfoToast();
   const handleDelete = () => {
-    // deleteNode(id);
-    // deleteAccordion(id);
+    deleteNode(id);
+    deleteAccordion(id);
     onCloseModal();
-    showToast({id, text: `Node ${id} was deleted`});
+    showToast({id, text: `Node ${title || id} was deleted`});
   };
   return (
     <div className={classes.confirmation}>
