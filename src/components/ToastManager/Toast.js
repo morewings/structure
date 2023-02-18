@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {useToastActions, useToastInfo} from '@/features/toast';
 
 import {useToastComponent} from './useToastComponent';
-import classes from './ToastRenderer.module.css';
+import classes from './Toast.module.css';
 
-export const ToastRenderer = ({id, isOpen}) => {
+export const Toast = ({id}) => {
   const {closeToast} = useToastActions();
   const {toastType, toastProps} = useToastInfo(id);
   const ToastComponent = useToastComponent(toastType);
@@ -13,13 +13,12 @@ export const ToastRenderer = ({id, isOpen}) => {
     closeToast(id);
   };
   return (
-    <div className={classes.toastContainer}>
+    <div className={classes.toast}>
       <ToastComponent {...toastProps} onClose={handleClose} />
     </div>
   );
 };
 
-ToastRenderer.propTypes = {
+Toast.propTypes = {
   id: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool.isRequired,
 };

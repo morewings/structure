@@ -1,4 +1,4 @@
-.toastContainer {
+.toast {
   margin: calc(2 * var(--baseUnit)) 0;
 
   &:first-of-type {

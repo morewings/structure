@@ -2,18 +2,17 @@ import React from 'react';
 
 import {useVisibleToasts} from '@/features/toast';
 
-import {ToastWrapper} from './ToastWrapper';
-import {ToastRenderer} from './ToastRenderer';
+import {Toast} from './Toast';
+import classes from './ToastManager.module.css';
 
 export const ToastManager = () => {
   const visibleToasts = useVisibleToasts();
-  // console.log(visibleToasts)
 
   return (
-    <ToastWrapper>
-      {visibleToasts.map((toastId, i) => (
-        <ToastRenderer id={toastId} key={toastId} isOpen={i === visibleToasts.length - 1} />
+    <div className={classes.visibleToasts}>
+      {visibleToasts.map(toastId => (
+        <Toast id={toastId} key={toastId} />
       ))}
-    </ToastWrapper>
+    </div>
   );
 };

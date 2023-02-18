@@ -1,4 +1,4 @@
-import {compose, lensProp, over, omit, filter, append, assoc, prepend} from 'ramda';
+import {compose, lensProp, over, omit, filter, assoc, prepend} from 'ramda';
 
 import {TOAST_SHOW, TOAST_HIDE} from './actionTypes';
 
@@ -10,7 +10,7 @@ const initialState = {
 const visibleToastsLens = lensProp(['visible']);
 const toastsLens = lensProp(['toasts']);
 
-export default (state = initialState, action) => {
+export const ToastReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOAST_HIDE: {
       const {id} = action;

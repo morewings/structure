@@ -1,4 +1,4 @@
-.toastWrapper {
+.visibleToasts {
   --toastMargin: calc(6 * var(--baseUnit));
 
   max-height: calc(100vh - var(--toastMargin) * 2);
