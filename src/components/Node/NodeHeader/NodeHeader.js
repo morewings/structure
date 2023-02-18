@@ -32,7 +32,7 @@ const NodeHeader = ({handleCheckboxChange, isDone, title, id, handleToggle, colo
         {title || id}
       </h5>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
-      <div onClick={handleToggle} role="button">
+      <div className={classes.toggle} onClick={handleToggle} role="button">
         <Icon className={classes.toggleIcon} color={color} name={icon} />
       </div>
     </header>
