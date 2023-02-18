@@ -12,7 +12,7 @@
   margin-right: auto;
 
   & .icon {
-    font-size: calc(5 * var(--baseUnit));
+    font-size: calc(6 * var(--baseUnit));
   }
 }
 

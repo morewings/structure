@@ -1,4 +1,5 @@
 import config from '@/config';
+import {showWarningToast} from '@/components/WarningToast';
 
 export const loadState = () => {
   try {
@@ -9,7 +10,8 @@ export const loadState = () => {
     }
     return JSON.parse(serializedState);
   } catch (err) {
-    console.error('Malformed state in localStorage'); // TODO: add toast
+    console.error('Malformed state in localStorage');
+    showWarningToast({text: 'Malformed state in localStorage'});
     return undefined;
   }
 };
