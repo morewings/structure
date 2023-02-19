@@ -32,7 +32,7 @@ const Node = ({id, toggleNode, activeNode}) => {
 
   const handleSelect = () => {
     focusNode(id);
-    showToast({text: `Node "${title || id}" was focused`});
+    showToast({text: `Node "${title || id}" was expanded`});
   };
 
   const handleCheckboxChange = () => {
@@ -83,8 +83,8 @@ const Node = ({id, toggleNode, activeNode}) => {
         )}
         {isOpen && (
           <FooterSeparator
-            leftButton={<Button icon="edit" text="Edit node" onClick={handleEdit} />}
-            rightButton={<Button icon="parent_children" text="Show children" onClick={handleSelect} />}
+            leftButton={<Button icon="edit" text="Edit" onClick={handleEdit} />}
+            rightButton={<Button icon="parent_children" text="Expand" onClick={handleSelect} />}
           />
         )}
       </div>

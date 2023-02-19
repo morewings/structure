@@ -22,12 +22,12 @@ const FloatingActions = () => {
 
   const handleFocusInitialNode = () => {
     focusInitialNode();
-    showToast({text: 'Initial node was focused'});
+    showToast({text: 'Initial node was expanded'});
   };
 
   const handleFocusParent = () => {
     focusNode(parentId);
-    showToast({text: `Node "${title || parentId}" was focused`});
+    showToast({text: `Node "${title || parentId}" was expanded`});
   };
 
   const handleFileUpload = async ([file]) => {
