@@ -5,7 +5,7 @@ import {getUniqueId} from '@/utils/getUniqueId';
 
 import {MODAL_CLOSE, MODAL_OPEN} from './actionTypes';
 
-const useModalActions = () => {
+export const useModalActions = () => {
   const dispatch = useDispatch();
 
   const closeModal = useCallback(
@@ -33,5 +33,3 @@ const useModalActions = () => {
 
   return {closeModal, openModal};
 };
-
-export default useModalActions;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import config from '@/config';
 import {useChildrenIdList, useNodeData} from '@/features/structure';
-import {useCreateNodeModal} from '@/components/ModalManager';
+import {useCreateNodeModal} from '@/components/CreateNodeModal';
 import {Accordion} from '@/components/Accordion';
 import Node from '@/components/Node/Node';
 import {Icon} from '@/ui/Icon';

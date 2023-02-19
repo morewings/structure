@@ -1,17 +1,14 @@
 import {useModalActions} from '@/features/modal';
+import {modalTypes} from '@/components/ModalManager';
 
-import modalTypes from './modalTypes';
-
-const useEditNodeModal = () => {
+export const useDeleteNodeModal = () => {
   const {openModal} = useModalActions();
   return id => {
     openModal({
-      modalType: modalTypes.NODE_EDIT,
+      modalType: modalTypes.CONFIRMATION_DELETE_NODE,
       modalProps: {
         id,
       },
     });
   };
 };
-
-export default useEditNodeModal;

@@ -1,8 +1,7 @@
 import {useModalActions} from '@/features/modal';
+import {modalTypes} from '@/components/ModalManager';
 
-import modalTypes from './modalTypes';
-
-const useCreateNodeModal = () => {
+export const useCreateNodeModal = () => {
   const {openModal} = useModalActions();
   return parentId => {
     openModal({
@@ -13,5 +12,3 @@ const useCreateNodeModal = () => {
     });
   };
 };
-
-export default useCreateNodeModal;
