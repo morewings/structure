@@ -2,7 +2,7 @@
   "name": "structure",
   "private": true,
   "description": "A web tool to view and organize tree-like structures",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Dima Vyshniakov <morewings@gmail.com>",
   "keywords": [
     "structure"
