@@ -65,10 +65,10 @@ export default Object.freeze({
 });
 ```
 
-Describe connection between type and component in `src/components/ModalManager/useModalComponent.js
+Describe connection between type and component in `src/components/ModalManager/useModalComponent.js`
 
 ```js
-import ModalContent from 'src/components/ModalContent';
+import ModalContent from '@/components/ModalContent';
 import modalTypes from './modalTypes';
 
 const useModalComponent = modalType =>
@@ -79,12 +79,12 @@ const useModalComponent = modalType =>
   }[modalType]);
 
 // ...
-````
+```
 
 Create action hook in `src/components/ModalManager/` folder.
 
 ```js
-import {useModalActions} from 'src/features/modal';
+import {useModalActions} from '@/features/modal';
 import modalTypes from './modalTypes';
 
 const useModalComponent = () => {
@@ -103,12 +103,77 @@ const useModalComponent = () => {
 Use it like this:
 
 ```jsx
-import {useModalComponent} from 'src/components/ModalManager';
+import {useModalComponent} from '@/components/ModalManager';
 
 const Component = () => {
   //...
   const showModal = useModalComponent();
   // ...
   return <div onClick={showModal} />
+}
+```
+
+### Add new `Toast`
+
+Add new `Toast` type to `@/components/ToastManager/toastTypes.js`
+```js
+export default Object.freeze({
+  // ...
+  NEW_TOAST_NAME: 'NEW_TOAST_NAME',
+  // ...
+});
+```
+
+Create `Toast` UI component.
+
+Describe connection between type and new component in `src/components/ToastManager/useToastComponent.js`
+
+```js
+import ToastContent from '@/components/ToastContent';
+import toastTypes from './toastTypes';
+
+const useToastComponent = toastType =>
+  ({
+    // ...
+    [toastTypes.NEW_TOAST_NAME]: ToastContent,
+    // ...
+  }[toastType]);
+// ...
+```
+
+Create state action hook in the new `Toast` component folder.
+
+```js
+import {useCallback} from 'react';
+
+import {useToastActions} from '@/features/toast';
+import {toastTypes} from '@/components/ToastManager';
+
+export const useToast = () => {
+  const {openToast} = useToastActions();
+  return useCallback(
+    ({text}) => {
+      openToast({
+        toastType: toastTypes.NEW_TOAST_NAME,
+        toastProps: {
+          text,
+        },
+      });
+    },
+    [openToast]
+  );
+};
+```
+
+Use it like this:
+
+```jsx
+import {useToastComponent} from '@/components/ToastComponent';
+
+const Component = () => {
+  //...
+  const showToast = useToastComponent();
+  // ...
+  return <button onClick={showToast} />
 }
 ```

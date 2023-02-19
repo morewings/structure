@@ -2,12 +2,13 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import useActions from '@/features/structure/actionCreators';
+import {useStructureActions} from '@/features/structure';
 import {useDeleteNodeModal, useEditNodeModal} from '@/components/ModalManager';
 import {useNodeData, useChildrenCompletion} from '@/features/structure';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
 import {PieChart} from '@/components/PieChart';
+import {useInfoToast} from '@/components/InfoToast';
 
 import {Ancestry} from './Ancestry';
 import Description from './Description';
@@ -21,14 +22,17 @@ const Node = ({id, toggleNode, activeNode}) => {
 
   const completion = useChildrenCompletion(id);
 
-  const {focusNode, toggleNodeStatus} = useActions();
+  const {focusNode, toggleNodeStatus} = useStructureActions();
 
-  const deleteNode = useDeleteNodeModal();
+  const showDeleteConfirmation = useDeleteNodeModal();
 
   const editNode = useEditNodeModal();
 
+  const showToast = useInfoToast();
+
   const handleSelect = () => {
     focusNode(id);
+    showToast({text: `Node "${title || id}" was focused`});
   };
 
   const handleCheckboxChange = () => {
@@ -43,7 +47,7 @@ const Node = ({id, toggleNode, activeNode}) => {
   };
 
   const handleDelete = () => {
-    deleteNode(id);
+    showDeleteConfirmation(id);
   };
 
   const handleEdit = () => {

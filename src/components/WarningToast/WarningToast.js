@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 
 import {Toast} from '@/ui/Toast';
 import {Icon} from '@/ui/Icon';
-import {useActionTimer} from '@/utils/useActionTimer';
 
-import classes from './InfoToast.module.css';
+import classes from './WarningToast.module.css';
 
-export const InfoToast = ({text, onClose}) => {
+export const WarningToast = ({text, onClose}) => {
   const handleClose = () => {
     onClose();
   };
-  useActionTimer(handleClose, 10);
   return (
     <Toast className={classes.toast}>
       <div className={classes.iconWrapper}>
-        <Icon name="info" color="white" className={classes.icon} />
+        <Icon name="info" color="red" className={classes.icon} />
       </div>
       <div className={classes.textWrapper}>{text}</div>
       <div className={classes.closeWrapper} role="button" onClick={handleClose}>
@@ -25,7 +23,7 @@ export const InfoToast = ({text, onClose}) => {
   );
 };
 
-InfoToast.propTypes = {
+WarningToast.propTypes = {
   text: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };

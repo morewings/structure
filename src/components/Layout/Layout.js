@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {Container} from '@/ui/Grid';
 import ModalManager from '@/components/ModalManager/ModalManager';
+import {ToastManager} from '@/components/ToastManager';
 import SmallScreenWarning from '@/components/SmallScreenWarning';
 import Footer from '@/components/Footer';
 import config from '@/config';
@@ -23,6 +24,7 @@ export const Layout = ({children}) => {
           <Header siteTitle="Structure" />
           <Container className={classes.main}>{children}</Container>
           <Footer className={classes.footer} />
+          <ToastManager />
           <ModalManager />
         </Fragment>
       ) : (

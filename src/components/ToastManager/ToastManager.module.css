@@ -1,0 +1,9 @@
+.visibleToasts {
+  --toastMargin: calc(6 * var(--baseUnit));
+
+  max-height: calc(100vh - var(--toastMargin) * 2);
+  overflow: auto;
+  position: fixed;
+  right: var(--toastMargin);
+  top: var(--toastMargin);
+}

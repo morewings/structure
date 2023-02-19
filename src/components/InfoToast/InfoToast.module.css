@@ -1,0 +1,27 @@
+.toast {
+  width: calc(44 * var(--baseUnit));
+}
+
+.textWrapper {
+  margin-left: calc(2 * var(--baseUnit));
+  margin-right: calc(2 * var(--baseUnit));
+}
+
+.iconWrapper {
+  align-self: flex-start;
+  margin-right: auto;
+
+  & .icon {
+    font-size: calc(5 * var(--baseUnit));
+  }
+}
+
+.closeWrapper {
+  align-self: start;
+  margin-left: auto;
+
+  & .close {
+    cursor: pointer;
+    font-size: calc(2.5 * var(--baseUnit));
+  }
+}

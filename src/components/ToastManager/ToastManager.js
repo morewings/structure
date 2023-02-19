@@ -1,16 +1,18 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 import {useVisibleToasts} from '@/features/toast';
 
-import {ToastWrapper} from './ToastWrapper';
+import {Toast} from './Toast';
+import classes from './ToastManager.module.css';
 
 export const ToastManager = () => {
   const visibleToasts = useVisibleToasts();
+
   return (
-    <Fragment>
-      {visibleToasts.map((modalId, i) => (
-        <ToastWrapper id={modalId} key={modalId} isOpen={i === visibleToasts.length - 1} />
+    <div className={classes.visibleToasts}>
+      {visibleToasts.map(toastId => (
+        <Toast id={toastId} key={toastId} />
       ))}
-    </Fragment>
+    </div>
   );
 };

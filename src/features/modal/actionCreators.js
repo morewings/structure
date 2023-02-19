@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 
-import getUniqueId from '@/utils/getUniqueId';
+import {getUniqueId} from '@/utils/getUniqueId';
 
 import {MODAL_CLOSE, MODAL_OPEN} from './actionTypes';
 

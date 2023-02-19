@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 
-import getUniqueId from '@/utils/getUniqueId';
+import {getUniqueId} from '@/utils/getUniqueId';
 
 import {
   ADD_NODE,
@@ -81,15 +81,12 @@ const useStructureActions = () => {
     },
     [dispatch]
   );
-  const focusInitialNode = useCallback(
-    id => {
-      dispatch({
-        type: FOCUS_NODE,
-        payload: 'node_initial',
-      });
-    },
-    [dispatch]
-  );
+  const focusInitialNode = useCallback(() => {
+    dispatch({
+      type: FOCUS_NODE,
+      payload: 'node_initial',
+    });
+  }, [dispatch]);
   const replaceStructure = useCallback(
     structure => {
       dispatch({

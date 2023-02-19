@@ -11,9 +11,9 @@ export const Icon = ({name, className, color}) => {
     <i
       ref={setRef}
       className={classNames({
-        [className]: !!className,
         [classes.icon]: true,
         [`icon-${name}`]: true,
+        [className]: !!className,
       })}
     />
   );

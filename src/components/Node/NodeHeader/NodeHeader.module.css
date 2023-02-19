@@ -25,6 +25,10 @@
   }
 }
 
+.toggle {
+  cursor: pointer;
+}
+
 .toggleIcon {
   color: var(--iconLightColor);
 
