@@ -19,5 +19,6 @@ export const useActionTimer = (callback, timeout, condition = true) => {
         clearTimeout(timeOutId);
       };
     }
-  }, [callback, timeout, condition]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
