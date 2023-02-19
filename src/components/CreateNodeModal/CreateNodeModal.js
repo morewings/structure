@@ -5,9 +5,10 @@ import {useStructureActions} from '@/features/structure';
 import NodeFieldset from '@/ui/NodeFieldset';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
-import classes from '@/components/CreateNode/CreateNode.module.css';
 
-const CreateNode = ({onCloseModal, parentId}) => {
+import classes from './CreateNodeModal.module.css';
+
+export const CreateNodeModal = ({onCloseModal, parentId}) => {
   const [isDone, setIsDone] = useState(false);
   const [title, setTitle] = useState('');
   const [color, setColor] = useState('gray');
@@ -61,9 +62,7 @@ const CreateNode = ({onCloseModal, parentId}) => {
   );
 };
 
-CreateNode.propTypes = {
+CreateNodeModal.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
   parentId: PropTypes.string.isRequired,
 };
-
-export default CreateNode;

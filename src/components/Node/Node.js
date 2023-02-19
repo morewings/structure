@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import {useStructureActions} from '@/features/structure';
-import {useDeleteNodeModal, useEditNodeModal} from '@/components/ModalManager';
 import {useNodeData, useChildrenCompletion} from '@/features/structure';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
 import {PieChart} from '@/components/PieChart';
 import {useInfoToast} from '@/components/InfoToast';
+import {useDeleteNodeModal} from '@/components/ConfirmationDeleteNode';
+import {useEditNodeModal} from '@/components/EditNode';
 
 import {Ancestry} from './Ancestry';
 import Description from './Description';

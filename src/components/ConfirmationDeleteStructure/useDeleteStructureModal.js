@@ -1,8 +1,7 @@
 import {useModalActions} from '@/features/modal';
+import {modalTypes} from '@/components/ModalManager';
 
-import modalTypes from './modalTypes';
-
-const useDeleteStructureModal = () => {
+export const useDeleteStructureModal = () => {
   const {openModal} = useModalActions();
   return () => {
     openModal({
@@ -11,5 +10,3 @@ const useDeleteStructureModal = () => {
     });
   };
 };
-
-export default useDeleteStructureModal;
