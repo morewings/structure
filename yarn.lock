@@ -5940,10 +5940,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
 
-the-new-css-reset@^1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/the-new-css-reset/-/the-new-css-reset-1.8.3.tgz#5416e957927c33e1a8d0f92bba4695a66e4d7626"
-  integrity sha512-wEGQr1UJE9Bznjqf6eIYodMhF9QbC6+gLCNmGKrWXKurAclLDS+vaYs4ja/s5AR1b3zoCrsOCAtisiYgLlZF0A==
+the-new-css-reset@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/the-new-css-reset/-/the-new-css-reset-1.8.4.tgz#f503e8eb98746f32175a484f1044ae116bbd6994"
+  integrity sha512-Upmb9XTyk78BmTbMQuAOTlESH9zmwqDAmmYC9MVm7uZLQdvGfxFTMhbpjKMUDwfmXGKnq6nkzISs/ReqHUP5xg==
 
 through@^2.3.6, through@^2.3.8:
   version "2.3.8"
