@@ -6,7 +6,7 @@ import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
 import {useNodeData, useStructureActions} from '@/features/structure';
 import {useAccordionActions} from '@/features/accordion';
-import {useInfoToast} from '@/components/InfoToast';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
 
 import classes from './ConfirmationDeleteNode.module.css';
 

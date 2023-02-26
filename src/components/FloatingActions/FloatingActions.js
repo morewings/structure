@@ -7,7 +7,7 @@ import {useFocusedParentId, useStructureActions, useStructure, useNodeData} from
 import {useDeleteStructureModal} from '@/components/Modals/ConfirmationDeleteStructure';
 import readFile from '@/utils/readFile';
 import createBlobFromString from '@/utils/createBlobFromString';
-import {useInfoToast} from '@/components/InfoToast';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
 
 import classes from './FloatingActions.module.css';
 

@@ -1,5 +1,5 @@
 import config from '@/config';
-import {showWarningToast} from '@/components/WarningToast';
+import {showWarningToast} from '@/components/Toasts/WarningToast';
 
 export const loadState = () => {
   try {
