@@ -21,6 +21,7 @@ export const saveState = state => {
     const serializedState = JSON.stringify(state);
     typeof window !== 'undefined' && window.localStorage.setItem(config.localstorageKey, serializedState);
   } catch {
-    console.error(`Can't save to localStorage`); // TODO: add toast
+    console.error(`Can't save to localStorage`);
+    showWarningToast({text: `Can't save to localStorage`});
   }
 };
