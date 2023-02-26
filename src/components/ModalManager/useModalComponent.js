@@ -1,7 +1,7 @@
-import ConfirmationDeleteNode from '@/components/ConfirmationDeleteNode';
-import ConfirmationDeleteStructure from '@/components/ConfirmationDeleteStructure';
-import EditNode from '@/components/EditNode';
-import {CreateNodeModal} from '@/components/CreateNodeModal';
+import ConfirmationDeleteNode from '@/components/Modals/ConfirmationDeleteNode';
+import ConfirmationDeleteStructure from '@/components/Modals/ConfirmationDeleteStructure';
+import EditNode from '@/components/Modals/EditNode';
+import {CreateNodeModal} from '@/components/Modals/CreateNodeModal';
 
 import modalTypes from './modalTypes';
 
