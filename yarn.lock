@@ -2288,10 +2288,10 @@ css-unit-converter@^1.1.1:
   resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.2.tgz#4c77f5a1954e6dbff60695ecb214e3270436ab21"
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
-css-vars-hook@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/css-vars-hook/-/css-vars-hook-0.3.2.tgz#39b984f5c96f3b1034cf7fe9023a0b65704de29f"
-  integrity sha512-ReztVqKBMgjM3P/ylj2VHydIdt3Nagx91werFqyclJrxhSWAy0Hb1mg+v130G7Xhwlpg7uxc2KdjNt5/1QWy/A==
+css-vars-hook@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/css-vars-hook/-/css-vars-hook-0.4.0.tgz#f467ba0f9dd1f96fcb6ac6bf53952bc6a2c88327"
+  integrity sha512-t7UVEbMt4QIH9Pkh6Y2REp0OOf4D9+AtsItUWeKBABVUt3nLYRUSiIyaTImfQuOwKz/NyGRNBpbGzBnG8eblJQ==
 
 cssdb@^4.4.0:
   version "4.4.0"
