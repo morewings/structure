@@ -48,7 +48,7 @@
     "the-new-css-reset": "^1.8.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.1.6",
+    "@next/eslint-plugin-next": "^13.2.1",
     "alias-hq": "^6.1.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.34.0",
