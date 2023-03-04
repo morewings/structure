@@ -1,11 +1,12 @@
 .color {
   --size: calc(3 * var(--baseUnit));
-  --colorValue: rgba(66, 66, 66, 0.66);
+  --colorValue: rgb(66 66 66 / 66%);
 
   align-items: center;
   background: var(--colorValue);
   border: none;
   border-radius: var(--size);
+  cursor: pointer;
   display: flex;
   height: var(--size);
   justify-content: center;
