@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ModalGeneric from 'react-modal';
 
 import {useModalActions, useModalInfo} from '@/features/modal';
+import config from '@/config';
 
 import useModalComponent from './useModalComponent';
 import classes from './Modal.module.css';
@@ -25,6 +26,7 @@ export const Modal = ({id, isOpen}) => {
       onRequestClose={handleClose}
       className={classes.modal}
       overlayClassName={classes.overlay}
+      parentSelector={() => document.querySelector(`#${config.rootId}`)}
       isOpen={isOpen}>
       <ModalComponent {...modalProps} onCloseModal={handleClose} />
     </ModalGeneric>

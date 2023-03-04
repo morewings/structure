@@ -1,6 +1,8 @@
-import React, {useMemo, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {useRootTheme, useTheme} from 'css-vars-hook';
+import {useTheme} from 'css-vars-hook';
+
+import config from '@/config';
 
 import {theme as defaultTheme} from './theme';
 
@@ -11,14 +13,12 @@ import {theme as defaultTheme} from './theme';
  * @param {string} variableName - CSS variable name without `--` prefix
  */
 export const ThemeProvider = ({children, theme = defaultTheme}) => {
-  // useRootTheme(theme);
-  const {setRef, style, setTheme} = useTheme(theme);
-  console.log('theme', theme);
+  const {setRef, setTheme, style} = useTheme(theme);
   useEffect(() => {
     setTheme(theme);
-  }, [theme]);
+  }, [theme, setTheme]);
   return (
-    <div id="forge_theme_root" ref={setRef}>
+    <div id={config.rootId} style={style} ref={setRef}>
       {children}
     </div>
   );
