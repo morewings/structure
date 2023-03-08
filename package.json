@@ -17,15 +17,16 @@
   },
   "scripts": {
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
-    "lint:style": "npx stylelint ./src/",
-    "fix:style": "npx stylelint ./src/ --fix",
-    "edit:fonts": "npx fontello-cli open --config ./fontello/config.json",
+    "lint:style": "stylelint ./src/**/**.css",
+    "fix:style": "pnpm run lint:style --fix",
+    "edit:fonts": "fontello-cli open --config ./fontello/config.json",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:code": "yarn eslint ./src/",
-    "fix:code": "yarn lint:code --fix",
+    "lint:code": "eslint ./src/",
+    "fix:code": "pnpm run lint:code --fix",
+    "lint-staged": "lint-staged",
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
