@@ -1,27 +1,14 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {useTheme} from 'css-vars-hook';
-
-import config from '@/config';
+import {RootThemeProvider} from 'css-vars-hook';
 
 import {theme as defaultTheme} from './theme';
 
 /**
- * @component
- * @name ThemeProvider
- * @description Injects CSS theme on global level
- * @param {string} variableName - CSS variable name without `--` prefix
+ * Injects CSS theme on global level
  */
 export const ThemeProvider = ({children, theme = defaultTheme}) => {
-  const {setRef, setTheme, style} = useTheme(theme);
-  useEffect(() => {
-    setTheme(theme);
-  }, [theme, setTheme]);
-  return (
-    <div id={config.rootId} style={style} ref={setRef}>
-      {children}
-    </div>
-  );
+  return <RootThemeProvider theme={theme}>{children}</RootThemeProvider>;
 };
 
 ThemeProvider.propTypes = {
