@@ -5,7 +5,7 @@ import {useNodeData, useStructureActions} from '@/features/structure';
 import NodeFieldset from '@/ui/NodeFieldset';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
-import {useInfoToast} from '@/components/InfoToast';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
 
 import classes from './EditNode.module.css';
 

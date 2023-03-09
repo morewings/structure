@@ -4,10 +4,10 @@ import {saveAs} from 'file-saver';
 import {ButtonBig} from '@/ui/ButtonBig';
 import {ButtonUpload} from '@/ui/ButtonUpload';
 import {useFocusedParentId, useStructureActions, useStructure, useNodeData} from '@/features/structure';
-import {useDeleteStructureModal} from '@/components/ConfirmationDeleteStructure';
+import {useDeleteStructureModal} from '@/components/Modals/ConfirmationDeleteStructure';
 import readFile from '@/utils/readFile';
 import createBlobFromString from '@/utils/createBlobFromString';
-import {useInfoToast} from '@/components/InfoToast';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
 
 import classes from './FloatingActions.module.css';
 

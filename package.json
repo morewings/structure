@@ -17,21 +17,22 @@
   },
   "scripts": {
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
-    "lint:style": "npx stylelint ./src/",
-    "fix:style": "npx stylelint ./src/ --fix",
-    "edit:fonts": "npx fontello-cli open --config ./fontello/config.json",
+    "lint:style": "stylelint ./src/**/**.css",
+    "fix:style": "pnpm run lint:style --fix",
+    "edit:fonts": "fontello-cli open --config ./fontello/config.json",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:code": "yarn eslint ./src/",
-    "fix:code": "yarn lint:code --fix",
+    "lint:code": "eslint ./src/",
+    "fix:code": "pnpm run lint:code --fix",
+    "lint-staged": "lint-staged",
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
-    "css-vars-hook": "^0.3.2",
+    "css-vars-hook": "0.6.6",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "nanoid": "^4.0.1",
@@ -45,6 +46,7 @@
     "react-redux": "^8.0.5",
     "recharts": "^2.4.3",
     "redux": "^4.2.1",
+    "sharp": "^0.31.3",
     "the-new-css-reset": "^1.8.4"
   },
   "devDependencies": {

@@ -5,9 +5,8 @@ import {store} from '@/state';
 
 import '@/components/Layout/global.css';
 import '@/ui/Icon/icons.css';
-import '@/ui/ThemeProvider/rootTheme.css';
 
-const MyApp = ({Component, pageProps}) => {
+const Structure = ({Component, pageProps}) => {
   return (
     <ReduxProvider store={store}>
       <ThemeProvider>
@@ -17,4 +16,4 @@ const MyApp = ({Component, pageProps}) => {
   );
 };
 
-export default MyApp;
+export default Structure;

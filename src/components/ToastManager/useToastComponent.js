@@ -1,5 +1,5 @@
-import {InfoToast} from '@/components/InfoToast';
-import {WarningToast} from '@/components/WarningToast';
+import {InfoToast} from '@/components/Toasts/InfoToast';
+import {WarningToast} from '@/components/Toasts/WarningToast';
 
 import toastTypes from './toastTypes';
 

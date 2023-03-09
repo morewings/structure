@@ -7,9 +7,9 @@ import {useNodeData, useChildrenCompletion} from '@/features/structure';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
 import {PieChart} from '@/components/PieChart';
-import {useInfoToast} from '@/components/InfoToast';
-import {useDeleteNodeModal} from '@/components/ConfirmationDeleteNode';
-import {useEditNodeModal} from '@/components/EditNode';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
+import {useDeleteNodeModal} from '@/components/Modals/ConfirmationDeleteNode';
+import {useEditNodeModal} from '@/components/Modals/EditNode';
 
 import {Ancestry} from './Ancestry';
 import Description from './Description';

@@ -4,22 +4,21 @@ import PropTypes from 'prop-types';
 import {Icon} from '@/ui/Icon';
 import {Button} from '@/ui/Button';
 import {FooterSeparator} from '@/ui/FooterSeparator';
-import {useNodeData, useStructureActions} from '@/features/structure';
+import {useStructureActions} from '@/features/structure';
 import {useAccordionActions} from '@/features/accordion';
-import {useInfoToast} from '@/components/InfoToast';
+import {useInfoToast} from '@/components/Toasts/InfoToast';
 
-import classes from './ConfirmationDeleteNode.module.css';
+import classes from './ConfirmationDeleteStructure.module.css';
 
-const ConfirmationDeleteNode = ({id, onCloseModal}) => {
-  const {deleteNode} = useStructureActions();
-  const {deleteAccordion} = useAccordionActions();
-  const {title} = useNodeData(id);
+const ConfirmationDeleteStructure = ({onCloseModal}) => {
+  const {resetStructure} = useStructureActions();
+  const {resetAccordion} = useAccordionActions();
   const showToast = useInfoToast();
   const handleDelete = () => {
-    deleteNode(id);
-    deleteAccordion(id);
+    resetStructure();
+    resetAccordion();
     onCloseModal();
-    showToast({id, text: `Node ${title || id} was deleted`});
+    showToast({text: 'Structure was deleted.'});
   };
   return (
     <div className={classes.confirmation}>
@@ -28,7 +27,7 @@ const ConfirmationDeleteNode = ({id, onCloseModal}) => {
           <Icon name="help" className={classes.icon} />
         </div>
         <div className={classes.right}>
-          Do you want to delete node and its children? You will not be able to undo this operation.
+          Do you want to reset the structure data? You will not be able to undo this operation.
         </div>
       </main>
       <FooterSeparator
@@ -49,9 +48,8 @@ const ConfirmationDeleteNode = ({id, onCloseModal}) => {
   );
 };
 
-ConfirmationDeleteNode.propTypes = {
-  id: PropTypes.string.isRequired,
+ConfirmationDeleteStructure.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
 };
 
-export default ConfirmationDeleteNode;
+export default ConfirmationDeleteStructure;

@@ -1,18 +1,14 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {useRootTheme} from 'css-vars-hook';
+import {RootThemeProvider} from 'css-vars-hook';
 
 import {theme as defaultTheme} from './theme';
 
 /**
- * @component
- * @name ThemeProvider
- * @description Injects CSS theme on global level
- * @param {string} variableName - CSS variable name without `--` prefix
+ * Injects CSS theme on global level
  */
 export const ThemeProvider = ({children, theme = defaultTheme}) => {
-  useRootTheme(theme);
-  return <Fragment>{children}</Fragment>;
+  return <RootThemeProvider theme={theme}>{children}</RootThemeProvider>;
 };
 
 ThemeProvider.propTypes = {
