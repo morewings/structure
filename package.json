@@ -59,7 +59,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-ssr-friendly": "^1.0.6",
+    "eslint-plugin-ssr-friendly": "^1.2.0",
     "fontello-cli": "^0.6.2",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
