@@ -6,7 +6,7 @@ specifiers:
   autoprefixer: ^10.4.13
   bootstrap: ^5.2.3
   classnames: ^2.3.2
-  css-vars-hook: 0.6.6
+  css-vars-hook: 0.6.8
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   eslint-config-prettier: ^8.6.0
@@ -43,7 +43,7 @@ specifiers:
 dependencies:
   bootstrap: 5.2.3
   classnames: 2.3.2
-  css-vars-hook: 0.6.6_biqbaboplfbrettd7655fr4n2y
+  css-vars-hook: 0.6.8_biqbaboplfbrettd7655fr4n2y
   file-saver: 2.0.5
   lodash: 4.17.21
   nanoid: 4.0.1
@@ -2855,8 +2855,8 @@ packages:
     resolution: {integrity: sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==}
     dev: false
 
-  /css-vars-hook/0.6.6_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Vup/pEN56Wzt0/038t0W+Nv48CbuSO0DwdedP2FMdnMhIuNLsoc5DzV7c5Ba5hFGAmEwkly9paRRIXY3dyuLhg==}
+  /css-vars-hook/0.6.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-UF5NEXdHdyjztAkqrdeDgoDUiw7hJtHON6pkX5WEqG255sfNHotCkUi5CxsYsW+EnXK0wZ4k09fWcPU6mBTuIg==}
     engines: {node: '>=16'}
     peerDependencies:
       react: '>=16.8.0'
