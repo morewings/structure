@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Cell, Pie, PieChart as PieChartGeneric, Tooltip} from 'recharts';
 import {useLocalTheme} from 'css-vars-hook';
@@ -12,7 +12,10 @@ const formatter = value => `${value}%`;
 export const PieChart = ({completion, color}) => {
   const chartData = useChartData(completion);
   const completeColor = useChartColor(color);
-  const {LocalRoot} = useLocalTheme({color: completeColor});
+  const {LocalRoot, setVariable} = useLocalTheme({color: completeColor});
+  useEffect(() => {
+    setVariable('color', completeColor);
+  }, [completeColor, setVariable]);
   return (
     <div className={classes.chart}>
       <PieChartGeneric width={96} height={96}>
