@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useTheme} from 'css-vars-hook';
+import {useLocalTheme} from 'css-vars-hook';
 
 import classes from './Col.module.css';
 
 export const Col = ({children, className, width, offset}) => {
   const columnWidth = `${(width / 12) * 100}%`;
   const marginLeft = `${(offset / 12) * 100}%`;
-  const {setRef, style} = useTheme({marginLeft, columnWidth});
+  const {LocalRoot} = useLocalTheme({marginLeft, columnWidth});
   return (
-    <div
-      style={style}
-      ref={setRef}
+    <LocalRoot
       className={classNames({
         [classes.col]: true,
         [className]: !!className,
       })}>
       {children}
-    </div>
+    </LocalRoot>
   );
 };
 

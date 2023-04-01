@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useVariable} from 'css-vars-hook';
+import {useLocalTheme} from 'css-vars-hook';
 
 import classes from './Icon.module.css';
 
 export const Icon = ({name, className, color}) => {
-  const {setRef} = useVariable('iconColor', color);
+  const {LocalRoot, setVariable} = useLocalTheme({iconColor: color}, 'i');
+  useEffect(() => {
+    setVariable('iconColor', color);
+  }, [color, setVariable]);
   return (
-    <i
-      ref={setRef}
+    <LocalRoot
       className={classNames({
         [classes.icon]: true,
         [`icon-${name}`]: true,
