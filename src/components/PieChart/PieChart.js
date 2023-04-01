@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Cell, Pie, PieChart as PieChartGeneric, Tooltip} from 'recharts';
-import {useVariable} from 'css-vars-hook';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {useChartData} from './useChartData';
 import {useChartColor} from './useChartColor';
@@ -12,7 +12,7 @@ const formatter = value => `${value}%`;
 export const PieChart = ({completion, color}) => {
   const chartData = useChartData(completion);
   const completeColor = useChartColor(color);
-  const {setRef} = useVariable('color', completeColor);
+  const {LocalRoot} = useLocalTheme({color: completeColor});
   return (
     <div className={classes.chart}>
       <PieChartGeneric width={96} height={96}>
@@ -39,9 +39,7 @@ export const PieChart = ({completion, color}) => {
           formatter={formatter}
         />
       </PieChartGeneric>
-      <div ref={setRef} className={classes.completion}>
-        {completion}%
-      </div>
+      <LocalRoot className={classes.completion}>{completion}%</LocalRoot>
     </div>
   );
 };

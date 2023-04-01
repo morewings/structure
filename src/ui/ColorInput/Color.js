@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useVariable} from 'css-vars-hook';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {Icon} from '@/ui/Icon';
 import {useNodeColorValues} from '@/utils/nodeColors';
@@ -14,18 +14,12 @@ export const Color = ({color, onClick, isActive}) => {
 
   const colorValue = useNodeColorValues(color);
 
-  const {setRef, style} = useVariable('colorValue', colorValue);
+  const {LocalRoot} = useLocalTheme({colorValue}, 'button');
 
   return (
-    <button
-      style={style}
-      ref={setRef}
-      title={color}
-      className={classes.color}
-      type="button"
-      onClick={handleClick}>
+    <LocalRoot title={color} className={classes.color} type="button" onClick={handleClick}>
       {isActive && <Icon name="confirm" color="white" />}
-    </button>
+    </LocalRoot>
   );
 };
 

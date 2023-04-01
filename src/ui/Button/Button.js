@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useVariable} from 'css-vars-hook';
+import {useLocalTheme} from 'css-vars-hook';
 
 import {Icon} from '@/ui/Icon';
 import {useColors} from '@/utils/buttonColors';
@@ -10,11 +10,9 @@ import classes from './Button.module.css';
 
 export const Button = ({onClick, className, icon, text, type}) => {
   const color = useColors(type);
-  const {setRef, style} = useVariable('buttonColor', color);
+  const {LocalRoot} = useLocalTheme({buttonColor: color}, 'button');
   return (
-    <button
-      style={style}
-      ref={setRef}
+    <LocalRoot
       type="button"
       onClick={onClick}
       className={classNames({
@@ -25,7 +23,7 @@ export const Button = ({onClick, className, icon, text, type}) => {
         {icon && <Icon className={classes.icon} name={icon} />}
         {text && <span className={classes.name}>{text}</span>}
       </span>
-    </button>
+    </LocalRoot>
   );
 };
 
