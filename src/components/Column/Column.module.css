@@ -1,5 +1,5 @@
 .column {
-  --paddingHorizontal: calc(3 * var(--baseUnit));
+  --paddingHorizontal: calc(4 * var(--baseUnit));
   --paddingVertical: calc(4 * var(--baseUnit));
   --topMargin: calc(6 * var(--baseUnit));
   --heightCalc: calc(100vh - var(--headerHeight) - var(--footerHeight) - 2 * var(--topMargin));
@@ -7,6 +7,7 @@
   background-clip: border-box;
   background-color: var(--backgroundLowColor);
   border-radius: var(--baseBorderRadius);
+  box-shadow: var(--elevationBig);
   display: flex;
   flex-direction: column;
   height: var(--heightCalc);

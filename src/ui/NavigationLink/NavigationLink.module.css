@@ -6,10 +6,13 @@
   justify-content: center;
   padding: 6px;
   width: 120px;
+  box-shadow: var(--elevationSmall);
 
   &:hover {
     background: var(--backgroundMiddleColorHover);
     text-decoration: none;
+    box-shadow: var(--elevationMedium);
+    transform: scale(1.07);
   }
 
   &:active {

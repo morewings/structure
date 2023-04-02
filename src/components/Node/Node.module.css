@@ -1,8 +1,23 @@
 .node {
   border-radius: var(--baseUnit);
-  margin-bottom: calc(2 * var(--baseUnit));
+  box-shadow: var(--elevationSmall);
+  margin-top: var(--baseUnit);
+  margin-bottom: calc(3 * var(--baseUnit));
   overflow: hidden;
   position: relative;
+
+  &:hover {
+    box-shadow: var(--elevationMedium);
+  }
+
+  &:not(.open):hover {
+    transform: scale(1.07);
+  }
+
+  &.open {
+    transform: scale(1.05);
+    box-shadow: var(--elevationMedium);
+  }
 
   & .stats {
     display: flex;
