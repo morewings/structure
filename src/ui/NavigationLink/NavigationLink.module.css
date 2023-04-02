@@ -2,16 +2,16 @@
   align-items: center;
   background: var(--backgroundMiddleColor);
   border-radius: var(--baseBorderRadius);
+  box-shadow: var(--elevationSmall);
   display: flex;
   justify-content: center;
   padding: 6px;
   width: 120px;
-  box-shadow: var(--elevationSmall);
 
   &:hover {
     background: var(--backgroundMiddleColorHover);
-    text-decoration: none;
     box-shadow: var(--elevationMedium);
+    text-decoration: none;
     transform: scale(1.07);
   }
 

@@ -1,6 +1,5 @@
 .toast {
   margin: calc(2 * var(--baseUnit)) 0;
-  box-shadow: var(--elevationMedium);
 
   &:first-of-type {
     margin-top: 0;

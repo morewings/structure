@@ -1,8 +1,8 @@
 .node {
   border-radius: var(--baseUnit);
   box-shadow: var(--elevationSmall);
-  margin-top: var(--baseUnit);
   margin-bottom: calc(3 * var(--baseUnit));
+  margin-top: var(--baseUnit);
   overflow: hidden;
   position: relative;
 
@@ -15,8 +15,8 @@
   }
 
   &.open {
-    transform: scale(1.05);
     box-shadow: var(--elevationMedium);
+    transform: scale(1.05);
   }
 
   & .stats {
