@@ -10,9 +10,11 @@ import classes from './ButtonBig.module.css';
 
 export const ButtonBig = ({icon, type, className, onClick, children, title}) => {
   const color = useColors(type);
-  const {LocalRoot} = useLocalTheme({buttonColor: color}, 'button');
+  const {LocalRoot} = useLocalTheme();
   return (
     <LocalRoot
+      as="button"
+      theme={{buttonColor: color}}
       title={title}
       type="button"
       onClick={onClick}

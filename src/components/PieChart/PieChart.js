@@ -12,7 +12,7 @@ const formatter = value => `${value}%`;
 export const PieChart = ({completion, color}) => {
   const chartData = useChartData(completion);
   const completeColor = useChartColor(color);
-  const {LocalRoot, setVariable} = useLocalTheme({color: completeColor});
+  const {LocalRoot, setVariable} = useLocalTheme();
   useEffect(() => {
     setVariable('color', completeColor);
   }, [completeColor, setVariable]);
@@ -42,7 +42,9 @@ export const PieChart = ({completion, color}) => {
           formatter={formatter}
         />
       </PieChartGeneric>
-      <LocalRoot className={classes.completion}>{completion}%</LocalRoot>
+      <LocalRoot theme={{color: completeColor}} className={classes.completion}>
+        {completion}%
+      </LocalRoot>
     </div>
   );
 };

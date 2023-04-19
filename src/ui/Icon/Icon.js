@@ -6,12 +6,14 @@ import {useLocalTheme} from 'css-vars-hook';
 import classes from './Icon.module.css';
 
 export const Icon = ({name, className, color}) => {
-  const {LocalRoot, setVariable} = useLocalTheme({iconColor: color}, 'i');
+  const {LocalRoot, setVariable} = useLocalTheme();
   useEffect(() => {
     setVariable('iconColor', color);
   }, [color, setVariable]);
   return (
     <LocalRoot
+      theme={{iconColor: color}}
+      as="i"
       className={classNames({
         [classes.icon]: true,
         [`icon-${name}`]: true,
