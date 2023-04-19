@@ -10,9 +10,11 @@ import classes from './Button.module.css';
 
 export const Button = ({onClick, className, icon, text, type}) => {
   const color = useColors(type);
-  const {LocalRoot} = useLocalTheme({buttonColor: color}, 'button');
+  const {LocalRoot} = useLocalTheme();
   return (
     <LocalRoot
+      as="button"
+      theme={{buttonColor: color}}
       type="button"
       onClick={onClick}
       className={classNames({

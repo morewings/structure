@@ -8,9 +8,10 @@ import classes from './Col.module.css';
 export const Col = ({children, className, width, offset}) => {
   const columnWidth = `${(width / 12) * 100}%`;
   const marginLeft = `${(offset / 12) * 100}%`;
-  const {LocalRoot} = useLocalTheme({marginLeft, columnWidth});
+  const {LocalRoot} = useLocalTheme();
   return (
     <LocalRoot
+      theme={{marginLeft, columnWidth}}
       className={classNames({
         [classes.col]: true,
         [className]: !!className,

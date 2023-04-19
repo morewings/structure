@@ -14,10 +14,16 @@ export const Color = ({color, onClick, isActive}) => {
 
   const colorValue = useNodeColorValues(color);
 
-  const {LocalRoot} = useLocalTheme({colorValue}, 'button');
+  const {LocalRoot} = useLocalTheme();
 
   return (
-    <LocalRoot title={color} className={classes.color} type="button" onClick={handleClick}>
+    <LocalRoot
+      as="button"
+      theme={{colorValue}}
+      title={color}
+      className={classes.color}
+      type="button"
+      onClick={handleClick}>
       {isActive && <Icon name="confirm" color="white" />}
     </LocalRoot>
   );

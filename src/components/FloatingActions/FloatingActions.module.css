@@ -7,6 +7,7 @@
   border: 1px solid transparent;
   border-radius: var(--baseUnit);
   bottom: calc(var(--footerHeight) + var(--marginValue));
+  box-shadow: var(--elevationBig);
   display: flex;
   flex-direction: column;
   padding: var(--paddingValue) 0;

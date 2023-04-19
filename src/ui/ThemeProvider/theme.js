@@ -7,7 +7,7 @@ export const theme = {
   dangerColor: '#f23005',
   actionColor: 'rgba(46, 56, 255, 1)',
   confirmColor: '#639423',
-  modalBgColor: 'rgba(66, 66, 66, 0.66)',
+  modalBgColor: 'rgba(255, 255, 255, 0.5)',
   toastBgColor: 'rgba(66, 66, 66, 0.66)',
   iconColor: 'rgba(66, 66, 66, 0.66)',
   iconLightColor: 'rgba(66, 66, 66, 0.33)',
@@ -27,4 +27,29 @@ export const theme = {
   imageTitleColor: 'var(--iconColor)',
   chartLabelFontSize: '14px',
   chartTooltipFontSize: '12px',
+  elevationBig: '12px 12px 24px -12px rgba(0,0,0,0.66)',
+  elevationMedium: '9px 9px 12px -6px rgba(0,0,0,0.33)',
+  elevationSmall: '3px 3px 3px 0 rgba(0,0,0,0.22)',
+};
+
+const palette = {
+  do: '#3228B0',
+  re: '#5D5B7D',
+  mi: '#4B92E3',
+  fa: '#E6B785',
+  sol: '#B05A28',
+};
+
+const newTheme = {
+  bgColor: palette.mi,
+  accentColor: palette.sol,
+  secondaryColor: palette.fa,
+  darkColor: palette.re,
+  dangerColor: '#f23005',
+  actionColor: 'rgba(46, 56, 255, 1)',
+  confirmColor: '#639423',
+  modalBgColor: 'rgba(66, 66, 66, 0.66)',
+  toastBgColor: 'rgba(66, 66, 66, 0.66)',
+  iconColor: 'rgba(66, 66, 66, 0.66)',
+  iconLightColor: 'rgba(66, 66, 66, 0.33)',
 };
