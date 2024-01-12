@@ -45,7 +45,7 @@
     "react-modal": "^3.16.1",
     "react-redux": "^8.0.5",
     "recharts": "^2.4.3",
-    "redux": "^4.2.1",
+    "redux": "^5.0.0",
     "sharp": "^0.32.6",
     "the-new-css-reset": "^1.8.4"
   },
