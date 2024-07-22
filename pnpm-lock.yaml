@@ -46,13 +46,13 @@ dependencies:
     version: 3.16.1(react-dom@18.2.0)(react@18.2.0)
   react-redux:
     specifier: ^8.0.5
-    version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
+    version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(redux@5.0.1)
   recharts:
     specifier: ^2.4.3
     version: 2.4.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   redux:
-    specifier: ^4.2.1
-    version: 4.2.1
+    specifier: ^5.0.0
+    version: 5.0.1
   sharp:
     specifier: ^0.32.6
     version: 0.32.6
@@ -6899,7 +6899,7 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-redux@8.0.5(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1):
+  /react-redux@8.0.5(react-dom@18.2.0)(react@18.2.0)(redux@5.0.1):
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -6927,7 +6927,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
-      redux: 4.2.1
+      redux: 5.0.1
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
@@ -7084,10 +7084,8 @@ packages:
       postcss-value-parser: 3.3.1
     dev: false
 
-  /redux@4.2.1:
-    resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
-    dependencies:
-      '@babel/runtime': 7.20.7
+  /redux@5.0.1:
+    resolution: {integrity: sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w==}
     dev: false
 
   /reflect.getprototypeof@1.0.4:
